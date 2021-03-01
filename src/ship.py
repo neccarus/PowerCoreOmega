@@ -25,7 +25,7 @@ class Ship:
 
     def __init__(self, size=(20, 20), pos=(0, 0), health=100, shields=None,
                  armor=None, reactors=None, engines=None, weapons=None,
-                 armor_slots=0, shield_slots=0, reactor_slots=0, engine_slots=0,
+                 shield_slots=0, armor_slots=0,  reactor_slots=0, engine_slots=0,
                  weapon_slots=0, weapon_locations=None):
 
         self.width, self.height = size
@@ -58,8 +58,8 @@ class Ship:
         else:
             self.weapons = weapons
 
-        self.armor_slots = armor_slots
         self.shield_slots = shield_slots
+        self.armor_slots = armor_slots
         self.reactor_slots = reactor_slots
         self.engine_slots = engine_slots
         self.weapon_slots = weapon_slots

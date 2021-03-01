@@ -33,29 +33,34 @@ screen = pygame.display.set_mode(SCREENSIZE)
 clock = pygame.time.Clock()
 
 # Initialize Start Menu (GUI)
-start_gui = gui.GUI(SCREENSIZE[0], SCREENSIZE[1], theme="blue_theme", name="Start GUI")
+start_gui = gui.GUI(SCREENSIZE[0], SCREENSIZE[1],
+                    theme="blue_theme", name="Start GUI")
 
 start_title = Label(text="Power Core Omega", width=200, height=50)
-start_title.pos_x, start_title.pos_y = start_gui.rect.centerx - start_title.width/2, 50
+start_title.pos_x, start_title.pos_y = start_gui.rect.centerx - start_title.width / 2, 50
 
 start_menu = Menu(400, 600, start_gui.rect.centerx - 200, start_gui.rect.centery - 300,
                   name="Start Menu", hide_text=True)
 
 new_game_button = Button(start_menu.width, 50,
-                         start_menu.rect.centerx - start_menu.width/2,
+                         start_menu.rect.centerx - start_menu.width / 2,
                          20, name="New Game Button", msg="New Game")
 
 quit_game_button = Button(start_menu.width, 50,
-                          start_menu.rect.centerx - start_menu.width/2,
+                          start_menu.rect.centerx - start_menu.width / 2,
                           90, name="Quit Game Button", msg="Quit Game")
 
 # Button functions
-new_game_button.function = new_game_button.StoredFunction(module="__main__",
-                                                          function="toggle_playing",
-                                                          parent=new_game_button)
-quit_game_button.function = quit_game_button.StoredFunction(module="sys",
-                                                            function="exit",
-                                                            parent=quit_game_button)
+new_game_button.function = new_game_button.StoredFunction(
+    module="__main__",
+    function="toggle_playing",
+    parent=new_game_button
+)
+quit_game_button.function = quit_game_button.StoredFunction(
+    module="sys",
+    function="exit",
+    parent=quit_game_button
+)
 
 start_menu.elements = [new_game_button, quit_game_button]
 start_gui.elements = [start_title, start_menu]
@@ -70,7 +75,8 @@ if __name__ == '__main__':
                 sys.exit()
 
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_q or event.key == pygame.K_ESCAPE:
+                if event.key == pygame.K_q or \
+                        event.key == pygame.K_ESCAPE:
                     sys.exit()
 
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -89,7 +95,8 @@ if __name__ == '__main__':
                     sys.exit()
 
                 if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_q or event.key == pygame.K_ESCAPE:
+                    if event.key == pygame.K_q or \
+                            event.key == pygame.K_ESCAPE:
                         sys.exit()
 
                 if event.type == pygame.MOUSEBUTTONDOWN:
@@ -112,4 +119,3 @@ if __name__ == '__main__':
         clock.tick()
 
         clock.tick(60)
-
