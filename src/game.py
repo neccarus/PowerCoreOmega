@@ -9,6 +9,20 @@ class Game:
             projectiles: a list of all projectiles that are currently active
     """
 
-    def __init__(self):
+    def __init__(self, name="Game"):
         self.bodies = []
         self.projectiles = []
+        self.name = name
+        self.playing = False
+        self.paused = False
+
+
+def toggle_pause(game):
+    game.paused = not game.paused
+
+
+def toggle_playing(game):
+    game.playing = not game.playing
+
+
+
