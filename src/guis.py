@@ -54,18 +54,29 @@ pause_menu = Menu(400, 600, pause_gui.rect.centerx - 200,
                   pause_gui.rect.centery - 300, name="Start Menu",
                   hide_text=True)
 
+continue_button = Button(pause_menu.width, 50,
+                         pause_menu.rect.centerx - pause_menu.width / 2,
+                         20, name="Continue Button", msg="Continue")
+
 main_menu_button = Button(pause_menu.width, 50,
                           pause_menu.rect.centerx - pause_menu.width / 2,
-                          20, name="Main Menu Button", msg="Quit to Main Menu")
+                          90, name="Main Menu Button", msg="Quit to Main Menu")
 
 pm_quit_game_button = Button(pause_menu.width, 50,
                              pause_menu.rect.centerx - pause_menu.width / 2,
-                             90, name="Quit Game Button", msg="Quit to Desktop")
+                             160, name="Quit Game Button", msg="Quit to Desktop")
 
 # Button functions
-main_menu_button.function = main_menu_button.StoredFunction(
+continue_button.function = continue_button.StoredFunction(
     module="src.game",
     function="toggle_pause",
+    parent=continue_button,
+    args=[game_obj]
+)
+
+main_menu_button.function = main_menu_button.StoredFunction(
+    module="src.game",
+    function="exit_game_loop",
     parent=main_menu_button,
     args=[game_obj])
 
@@ -74,7 +85,7 @@ pm_quit_game_button.function = pm_quit_game_button.StoredFunction(
     function="exit",
     parent=quit_game_button)
 
-pause_menu.elements = [main_menu_button, pm_quit_game_button]
+pause_menu.elements = [continue_button, main_menu_button, pm_quit_game_button]
 pause_gui.elements = [pause_menu]
 pause_gui.apply_theme()
 

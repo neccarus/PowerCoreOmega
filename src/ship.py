@@ -26,11 +26,11 @@ class Ship(Body):
         weapon_locations: a list containing the pixel locations of where the weapons are located on the ship
     """
 
-    def __init__(self, size=(20,), pos=(0, 0), health=100, name="Python", ship_type="Interceptor", shields=None,
+    def __init__(self, name="Python", ship_type="Interceptor", shields=None,
                  armor=None, reactors=None, engines=None, weapons=None, shield_slots=0, armor_slots=0, reactor_slots=0,
-                 engine_slots=0, weapon_slots=0, misc_slots=0, drone_slots=0, weapon_locations=None):
+                 engine_slots=0, weapon_slots=0, misc_slots=0, drone_slots=0, weapon_locations=None, *args, **kwargs):
 
-        super().__init__(size, pos, health)
+        super().__init__(*args, **kwargs)
 
         self.name = name
         self.ship_type = ship_type

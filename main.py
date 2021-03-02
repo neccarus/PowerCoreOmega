@@ -4,7 +4,7 @@ import sys
 from src import game_obj
 from src import game
 from src import SCREENSIZE
-from src.guis import start_gui, pause_gui
+from src.guis import guis
 
 running = True
 
@@ -28,19 +28,12 @@ if __name__ == '__main__':
             if event.type == pygame.QUIT:
                 sys.exit()
 
+            game_obj.handle_events(event, [guis["start_gui"]])
+
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q or \
                         event.key == pygame.K_ESCAPE:
                     sys.exit()
-
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                current_mouse_pos = pygame.mouse.get_pos()
-                start_gui.select_element(current_mouse_pos)
-
-            if event.type == pygame.MOUSEBUTTONUP:
-                current_mouse_pos = pygame.mouse.get_pos()
-                start_gui.activate_selected(current_mouse_pos, start_gui)
-                start_gui.let_go()
 
         while game_obj.playing:
             # Game Loop
@@ -48,17 +41,11 @@ if __name__ == '__main__':
                 if event.type == pygame.QUIT:
                     sys.exit()
 
+                game_obj.handle_events(event)
+
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
                         game.toggle_pause(game_obj)
-
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    current_mouse_pos = pygame.mouse.get_pos()
-                    pass
-
-                if event.type == pygame.MOUSEBUTTONUP:
-                    current_mouse_pos = pygame.mouse.get_pos()
-                    pass
 
             while game_obj.paused:
                 # Pause Loop
@@ -66,35 +53,21 @@ if __name__ == '__main__':
                     if event.type == pygame.QUIT:
                         sys.exit()
 
+                    game_obj.handle_events(event, [guis["pause_gui"]])
+
                     if event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_ESCAPE:
                             game.toggle_pause(game_obj)
 
-                    if event.type == pygame.MOUSEBUTTONDOWN:
-                        current_mouse_pos = pygame.mouse.get_pos()
-                        pause_gui.select_element(current_mouse_pos)
+                # Update pause loop
+                game_obj.update([guis["pause_gui"]], display=pygame.display, screen=screen,
+                                fill_color=(80, 80, 80), clock=clock, framerate=60)
 
-                    if event.type == pygame.MOUSEBUTTONUP:
-                        current_mouse_pos = pygame.mouse.get_pos()
-                        pause_gui.activate_selected(current_mouse_pos, start_gui)
-                        pause_gui.let_go()
+            # Update game loop
+            game_obj.update(display=pygame.display, screen=screen,
+                            fill_color=(0, 0, 0), clock=clock, framerate=60)
 
-                pause_gui.update(screen)
-                pygame.display.update()
-                screen.fill((80, 80, 80))
-                clock.tick()
+        # Update main menu loop
+        game_obj.update([guis["start_gui"]], display=pygame.display, screen=screen,
+                        fill_color=(80, 80, 80), clock=clock, framerate=60)
 
-                clock.tick(60)
-
-            pygame.display.update()
-            screen.fill((0, 0, 0))
-            clock.tick()
-
-            clock.tick(60)
-
-        start_gui.update(screen)
-        pygame.display.update()
-        screen.fill((80, 80, 80))
-        clock.tick()
-
-        clock.tick(60)
