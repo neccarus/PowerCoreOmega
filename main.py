@@ -37,6 +37,7 @@ start_gui = gui.GUI(SCREENSIZE[0], SCREENSIZE[1],
                     theme="blue_theme", name="Start GUI")
 
 start_title = Label(text="Power Core Omega", width=200, height=50)
+start_title.has_border = False
 start_title.pos_x, start_title.pos_y = start_gui.rect.centerx - start_title.width / 2, 50
 
 start_menu = Menu(400, 600, start_gui.rect.centerx - 200, start_gui.rect.centery - 300,
@@ -70,6 +71,8 @@ if __name__ == '__main__':
 
     while running:
         # Menu
+
+        # TODO: implement system in GuiPyg for handling basic menu events
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()

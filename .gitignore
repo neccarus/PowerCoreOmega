@@ -1678,3 +1678,5 @@ venv/Scripts/pip3.exe
 venv/Scripts/python.exe
 
 venv/Scripts/pythonw.exe
+
+*.pyc

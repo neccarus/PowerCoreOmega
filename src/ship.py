@@ -1,37 +1,39 @@
-class Ship:
+from src.body import Body
+
+
+class Ship(Body):
     """
-    Ship class is what all ships in game are derived from.
+    Ship class is what all ships in game are derived from, base class is Body.
 
     Ship objects can have various pieces of armor, shields, reactors, engines and weapons
     There is a total number of slots allocated to each type of equipment
 
     Attributes:
-        width, height: passed in as a tuple "size", this is pretty self explanatory
-        pos_x, pos_y: passed in as a tuple "pos", this is pretty self explanatory
-        health: the max amount of health the ship has
-        current_health: the current amount of health the ship has, if this drops to zero the ship is destroyed
-        shields: the currently equipped shield modules
-        armor: the currently equipped armor modules
-        reactors: the currently equipped reactor modules
-        engines: the currently equipped engine modules
-        weapons: the currently equipped weapon modules
+        name: the name of the ship
+        ship_type: the type of ship: interceptor, fighter, heavy_fighter, etc.
+        shields: the currently equipped shield modules, passed as a list
+        armor: the currently equipped armor modules, passed as a list
+        reactors: the currently equipped reactor modules, passed as a list
+        engines: the currently equipped engine modules, passed as a list
+        weapons: the currently equipped weapon modules, passed as a list
         armor_slots: the total amount of armor modules that can be equipped on this ship
         shield_slots: the total amount of shield modules that can be equipped on this ship
         reactor_slots: the total amount of reactor modules that can be equipped on this ship
         engine_slots: the total amount of engine modules that can be equipped on this ship
         weapon_slots: the total amount of weapons that can be equipped on this ship
-        weapon_locations: a list containing the pixel locations of where the weapons fire from on the ship
+        misc_slots: the total amount of miscellaneous slots available to the ship, weapons are not able to use these
+        drone_slots: the total number of drone slots available to the ship
+        weapon_locations: a list containing the pixel locations of where the weapons are located on the ship
     """
 
-    def __init__(self, size=(20, 20), pos=(0, 0), health=100, shields=None,
-                 armor=None, reactors=None, engines=None, weapons=None,
-                 shield_slots=0, armor_slots=0,  reactor_slots=0, engine_slots=0,
-                 weapon_slots=0, weapon_locations=None):
+    def __init__(self, size=(20,), pos=(0, 0), health=100, name="Python", ship_type="Interceptor", shields=None,
+                 armor=None, reactors=None, engines=None, weapons=None, shield_slots=0, armor_slots=0, reactor_slots=0,
+                 engine_slots=0, weapon_slots=0, misc_slots=0, drone_slots=0, weapon_locations=None):
 
-        self.width, self.height = size
-        self.pos_x, self.pos_y = pos
-        self.health = health
-        self.current_health = self.health
+        super().__init__(size, pos, health)
+
+        self.name = name
+        self.ship_type = ship_type
 
         if shields is None:
             self.shields = []
@@ -63,6 +65,8 @@ class Ship:
         self.reactor_slots = reactor_slots
         self.engine_slots = engine_slots
         self.weapon_slots = weapon_slots
+        self.misc_slots = misc_slots
+        self.drone_slots = drone_slots
 
         if weapon_locations is None:
             self.weapon_locations = [(0, 0)]
