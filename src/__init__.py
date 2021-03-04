@@ -6,4 +6,4 @@ pygame.font.init()
 SCREENSIZE = (1600, 900)
 
 # initialize game_obj to avoid import errors
-game_obj = Game()
+game_obj = Game("game")

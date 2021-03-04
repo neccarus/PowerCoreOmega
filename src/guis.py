@@ -31,8 +31,8 @@ quit_game_button = Button(start_menu.width, 50,
 new_game_button.function = new_game_button.StoredFunction(
     module="src.game",
     function="toggle_playing",
-    # target="Game",
-    parent=new_game_button,
+    target="game",
+    parent=game_obj,
     args=[game_obj]
 )
 quit_game_button.function = quit_game_button.StoredFunction(
@@ -70,6 +70,7 @@ pm_quit_game_button = Button(pause_menu.width, 50,
 continue_button.function = continue_button.StoredFunction(
     module="src.game",
     function="toggle_pause",
+    target="game",
     parent=continue_button,
     args=[game_obj]
 )
@@ -77,6 +78,7 @@ continue_button.function = continue_button.StoredFunction(
 main_menu_button.function = main_menu_button.StoredFunction(
     module="src.game",
     function="exit_game_loop",
+    target="game",
     parent=main_menu_button,
     args=[game_obj])
 

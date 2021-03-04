@@ -27,8 +27,9 @@ class Ship(Body):
     """
 
     def __init__(self, name="Python", ship_type="Interceptor", shields=None,
-                 armor=None, reactors=None, engines=None, weapons=None, shield_slots=0, armor_slots=0, reactor_slots=0,
-                 engine_slots=0, weapon_slots=0, misc_slots=0, drone_slots=0, weapon_locations=None, *args, **kwargs):
+                 armor=None, reactors=None, engines=None, weapons=None, auxiliary_modules=None, shield_slots=0,
+                 armor_slots=0, reactor_slots=0, engine_slots=0, weapon_slots=0, misc_slots=0, drone_slots=0,
+                 weapon_locations=None, *args, **kwargs):
 
         super().__init__(*args, **kwargs)
 
@@ -59,6 +60,11 @@ class Ship(Body):
             self.weapons = []
         else:
             self.weapons = weapons
+
+        if auxiliary_modules is None:
+            self.auxiliary_modules = []
+        else:
+            self.auxiliary_modules = auxiliary_modules
 
         self.shield_slots = shield_slots
         self.armor_slots = armor_slots
