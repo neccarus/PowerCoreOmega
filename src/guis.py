@@ -3,13 +3,13 @@ from guipyg.gui_element.button import Button
 from guipyg.gui_element.text_elements import Label
 from guipyg import gui
 from . import game_obj
-from . import SCREENSIZE
+from . import player_settings
 
 # guis stores all guis for easy access
 guis = {}
 
 # Initialize Start Menu (GUI) - start_gui
-start_gui = gui.GUI(SCREENSIZE[0], SCREENSIZE[1],
+start_gui = gui.GUI(player_settings.screensize[0], player_settings.screensize[1],
                     theme="blue_theme", name="Start GUI")
 
 start_title = Label(text="Power Core Omega", width=200, height=50)
@@ -47,7 +47,7 @@ start_gui.apply_theme()
 # end of start_gui
 
 # Initialize Pause Menu (GUI) - pause_gui
-pause_gui = gui.GUI(SCREENSIZE[0], SCREENSIZE[1], theme="my_theme",
+pause_gui = gui.GUI(player_settings.screensize[0], player_settings.screensize[1], theme="my_theme",
                     name="Pause Gui")
 
 pause_menu = Menu(400, 600, pause_gui.rect.centerx - 200,

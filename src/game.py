@@ -28,6 +28,7 @@ class Game(Instance):
     def __init__(self, name):
         self.name = name
         super().add_instance()
+        self.controllers = []
         self.bodies = []
         self.dead_bodies = []
         self.projectiles = []
@@ -48,15 +49,17 @@ class Game(Instance):
         if len(self.game_state.guis) > 0:
             for gui in self.game_state.guis:
                 gui.update(self.screen)
-        if self.display:
-            self.display.update()
-        if self.screen:
-            self.screen.fill(fill_color)
-        if self.clock:
-            self.clock.tick()
 
-            self.clock.tick(self.framerate)
+        self.display.update()
+        self.screen.fill(fill_color)
+        for controller in self.controllers:
+            controller.update()
+        self.bodies.draw(self.screen)
 
+        # self.clock.tick()
+        self.clock.tick(self.framerate)
+
+    # should be handled in body class?
     def update_bodies(self):
         for body in self.bodies[::-1]:
             body.check_if_alive()
@@ -78,6 +81,10 @@ class Game(Instance):
                 gui.activate_selected(current_mouse_pos, gui)
                 gui.let_go()
 
+        if len(self.controllers) > 0:
+            for controller in self.controllers:
+                controller.get_events(event)
+
     def new_game_state(self, state, guis):
         self.game_states.append(self.GameState(state, guis))
 
@@ -93,6 +100,7 @@ class Game(Instance):
             name: the name of the state, used to determine which state the game is in
             guis: the guis associated with this GameState object
         """
+        #  TODO: seperate screen objects should be stored here so that game sprites are not drawn in menus
         def __init__(self, name="", guis=None):
 
             self.name = name

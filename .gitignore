@@ -1920,3 +1920,3043 @@ venv/Lib/site-packages/zipp.py
 venv/Scripts/cxfreeze-quickstart.exe
 
 venv/Scripts/cxfreeze.exe
+
+*.pyd
+
+build/exe.win32-3.8/lib/ctypes/macholib/
+
+build/exe.win32-3.8/lib/distutils/command/
+
+build/exe.win32-3.8/lib/distutils/
+
+*.rst
+
+build/exe.win32-3.8/lib/lib2to3/
+
+build/exe.win32-3.8/lib/
+
+build/exe.win32-3.8/
+
+build/Power Core Omega.7z
+
+build/Power Core Omega/lib/ctypes/macholib/fetch_macholib
+
+build/Power Core Omega/lib/ctypes/macholib/fetch_macholib.bat
+
+build/Power Core Omega/lib/ctypes/macholib/README.ctypes
+
+build/Power Core Omega/lib/distutils/command/command_template
+
+build/Power Core Omega/lib/distutils/command/wininst-10.0-amd64.exe
+
+build/Power Core Omega/lib/distutils/command/wininst-10.0.exe
+
+build/Power Core Omega/lib/distutils/command/wininst-14.0-amd64.exe
+
+build/Power Core Omega/lib/distutils/command/wininst-14.0.exe
+
+build/Power Core Omega/lib/distutils/command/wininst-6.0.exe
+
+build/Power Core Omega/lib/distutils/command/wininst-7.1.exe
+
+build/Power Core Omega/lib/distutils/command/wininst-8.0.exe
+
+build/Power Core Omega/lib/distutils/command/wininst-9.0-amd64.exe
+
+build/Power Core Omega/lib/distutils/command/wininst-9.0.exe
+
+build/Power Core Omega/lib/distutils/README
+
+build/Power Core Omega/lib/distutils/tests/Setup.sample
+
+build/Power Core Omega/lib/lib2to3/Grammar.txt
+
+build/Power Core Omega/lib/lib2to3/Grammar3.8.3.final.0.pickle
+
+build/Power Core Omega/lib/lib2to3/PatternGrammar.txt
+
+build/Power Core Omega/lib/lib2to3/PatternGrammar3.8.3.final.0.pickle
+
+build/Power Core Omega/lib/lib2to3/tests/data/README
+
+build/Power Core Omega/lib/libcrypto-1_1.dll
+
+build/Power Core Omega/lib/libffi-7.dll
+
+build/Power Core Omega/lib/library.zip
+
+build/Power Core Omega/lib/libssl-1_1.dll
+
+build/Power Core Omega/lib/pydoc_data/_pydoc.css
+
+build/Power Core Omega/lib/pygame/__init__.pyi
+
+build/Power Core Omega/lib/pygame/_sdl2/__init__.pyi
+
+build/Power Core Omega/lib/pygame/_sdl2/touch.pyi
+
+build/Power Core Omega/lib/pygame/bufferproxy.pyi
+
+build/Power Core Omega/lib/pygame/camera.pyi
+
+build/Power Core Omega/lib/pygame/color.pyi
+
+build/Power Core Omega/lib/pygame/constants.pyi
+
+build/Power Core Omega/lib/pygame/cursors.pyi
+
+build/Power Core Omega/lib/pygame/display.pyi
+
+build/Power Core Omega/lib/pygame/docs/logos.html
+
+build/Power Core Omega/lib/pygame/docs/pygame_logo.gif
+
+build/Power Core Omega/lib/pygame/docs/pygame_powered.gif
+
+build/Power Core Omega/lib/pygame/docs/pygame_small.gif
+
+build/Power Core Omega/lib/pygame/docs/pygame_tiny.gif
+
+build/Power Core Omega/lib/pygame/draw.pyi
+
+build/Power Core Omega/lib/pygame/event.pyi
+
+build/Power Core Omega/lib/pygame/examples/data/alien1.gif
+
+build/Power Core Omega/lib/pygame/examples/data/alien1.jpg
+
+build/Power Core Omega/lib/pygame/examples/data/alien1.png
+
+build/Power Core Omega/lib/pygame/examples/data/alien2.gif
+
+build/Power Core Omega/lib/pygame/examples/data/alien2.png
+
+build/Power Core Omega/lib/pygame/examples/data/alien3.gif
+
+build/Power Core Omega/lib/pygame/examples/data/alien3.png
+
+build/Power Core Omega/lib/pygame/examples/data/arraydemo.bmp
+
+build/Power Core Omega/lib/pygame/examples/data/asprite.bmp
+
+build/Power Core Omega/lib/pygame/examples/data/background.gif
+
+build/Power Core Omega/lib/pygame/examples/data/BGR.png
+
+build/Power Core Omega/lib/pygame/examples/data/black.ppm
+
+build/Power Core Omega/lib/pygame/examples/data/blue.gif
+
+build/Power Core Omega/lib/pygame/examples/data/blue.mpg
+
+build/Power Core Omega/lib/pygame/examples/data/bomb.gif
+
+build/Power Core Omega/lib/pygame/examples/data/boom.wav
+
+build/Power Core Omega/lib/pygame/examples/data/brick.png
+
+build/Power Core Omega/lib/pygame/examples/data/car_door.wav
+
+build/Power Core Omega/lib/pygame/examples/data/chimp.bmp
+
+build/Power Core Omega/lib/pygame/examples/data/city.png
+
+build/Power Core Omega/lib/pygame/examples/data/danger.gif
+
+build/Power Core Omega/lib/pygame/examples/data/explosion1.gif
+
+build/Power Core Omega/lib/pygame/examples/data/fist.bmp
+
+build/Power Core Omega/lib/pygame/examples/data/green.pcx
+
+build/Power Core Omega/lib/pygame/examples/data/grey.pgm
+
+build/Power Core Omega/lib/pygame/examples/data/house_lo.mp3
+
+build/Power Core Omega/lib/pygame/examples/data/house_lo.ogg
+
+build/Power Core Omega/lib/pygame/examples/data/house_lo.wav
+
+build/Power Core Omega/lib/pygame/examples/data/laplacian.png
+
+build/Power Core Omega/lib/pygame/examples/data/liquid.bmp
+
+build/Power Core Omega/lib/pygame/examples/data/midikeys.png
+
+build/Power Core Omega/lib/pygame/examples/data/oldplayer.gif
+
+build/Power Core Omega/lib/pygame/examples/data/player1.gif
+
+build/Power Core Omega/lib/pygame/examples/data/punch.wav
+
+build/Power Core Omega/lib/pygame/examples/data/purple.xpm
+
+build/Power Core Omega/lib/pygame/examples/data/red.jpg
+
+build/Power Core Omega/lib/pygame/examples/data/sans.ttf
+
+build/Power Core Omega/lib/pygame/examples/data/secosmic_lo.wav
+
+build/Power Core Omega/lib/pygame/examples/data/shot.gif
+
+build/Power Core Omega/lib/pygame/examples/data/static.png
+
+build/Power Core Omega/lib/pygame/examples/data/turquoise.tif
+
+build/Power Core Omega/lib/pygame/examples/data/whiff.wav
+
+build/Power Core Omega/lib/pygame/examples/data/yellow.tga
+
+build/Power Core Omega/lib/pygame/examples/data/yuv_1.pgm
+
+build/Power Core Omega/lib/pygame/fastevent.pyi
+
+build/Power Core Omega/lib/pygame/font.pyi
+
+build/Power Core Omega/lib/pygame/freesansbold.ttf
+
+build/Power Core Omega/lib/pygame/freetype.pyi
+
+build/Power Core Omega/lib/pygame/gfxdraw.pyi
+
+build/Power Core Omega/lib/pygame/image.pyi
+
+build/Power Core Omega/lib/pygame/joystick.pyi
+
+build/Power Core Omega/lib/pygame/key.pyi
+
+build/Power Core Omega/lib/pygame/libFLAC-8.dll
+
+build/Power Core Omega/lib/pygame/libfreetype-6.dll
+
+build/Power Core Omega/lib/pygame/libjpeg-9.dll
+
+build/Power Core Omega/lib/pygame/libmodplug-1.dll
+
+build/Power Core Omega/lib/pygame/libmpg123-0.dll
+
+build/Power Core Omega/lib/pygame/libogg-0.dll
+
+build/Power Core Omega/lib/pygame/libopus-0.dll
+
+build/Power Core Omega/lib/pygame/libopusfile-0.dll
+
+build/Power Core Omega/lib/pygame/libpng16-16.dll
+
+build/Power Core Omega/lib/pygame/libtiff-5.dll
+
+build/Power Core Omega/lib/pygame/libvorbis-0.dll
+
+build/Power Core Omega/lib/pygame/libvorbisfile-3.dll
+
+build/Power Core Omega/lib/pygame/libwebp-7.dll
+
+build/Power Core Omega/lib/pygame/mask.pyi
+
+build/Power Core Omega/lib/pygame/math.pyi
+
+build/Power Core Omega/lib/pygame/midi.pyi
+
+build/Power Core Omega/lib/pygame/mixer.pyi
+
+build/Power Core Omega/lib/pygame/mouse.pyi
+
+build/Power Core Omega/lib/pygame/music.pyi
+
+build/Power Core Omega/lib/pygame/pixelarray.pyi
+
+build/Power Core Omega/lib/pygame/pixelcopy.pyi
+
+build/Power Core Omega/lib/pygame/portmidi.dll
+
+build/Power Core Omega/lib/pygame/py.typed
+
+build/Power Core Omega/lib/pygame/pygame_icon.bmp
+
+build/Power Core Omega/lib/pygame/pygame_icon.icns
+
+build/Power Core Omega/lib/pygame/pygame_icon.svg
+
+build/Power Core Omega/lib/pygame/pygame_icon.tiff
+
+build/Power Core Omega/lib/pygame/pygame.ico
+
+build/Power Core Omega/lib/pygame/python38.dll
+
+build/Power Core Omega/lib/pygame/rect.pyi
+
+build/Power Core Omega/lib/pygame/scrap.pyi
+
+build/Power Core Omega/lib/pygame/SDL2_image.dll
+
+build/Power Core Omega/lib/pygame/SDL2_mixer.dll
+
+build/Power Core Omega/lib/pygame/SDL2_ttf.dll
+
+build/Power Core Omega/lib/pygame/SDL2.dll
+
+build/Power Core Omega/lib/pygame/sndarray.pyi
+
+build/Power Core Omega/lib/pygame/sprite.pyi
+
+build/Power Core Omega/lib/pygame/surface.pyi
+
+build/Power Core Omega/lib/pygame/surfarray.pyi
+
+build/Power Core Omega/lib/pygame/tests/fixtures/fonts/A_PyGameMono-8.png
+
+build/Power Core Omega/lib/pygame/tests/fixtures/fonts/PyGameMono-18-100dpi.bdf
+
+build/Power Core Omega/lib/pygame/tests/fixtures/fonts/PyGameMono-18-75dpi.bdf
+
+build/Power Core Omega/lib/pygame/tests/fixtures/fonts/PyGameMono-8.bdf
+
+build/Power Core Omega/lib/pygame/tests/fixtures/fonts/PyGameMono.otf
+
+build/Power Core Omega/lib/pygame/tests/fixtures/fonts/test_fixed.otf
+
+build/Power Core Omega/lib/pygame/tests/fixtures/fonts/test_sans.ttf
+
+build/Power Core Omega/lib/pygame/tests/fixtures/fonts/u13079_PyGameMono-8.png
+
+build/Power Core Omega/lib/pygame/tests/fixtures/xbm_cursors/white_sizing_mask.xbm
+
+build/Power Core Omega/lib/pygame/tests/fixtures/xbm_cursors/white_sizing.xbm
+
+build/Power Core Omega/lib/pygame/time.pyi
+
+build/Power Core Omega/lib/pygame/transform.pyi
+
+build/Power Core Omega/lib/pygame/vcruntime140.dll
+
+build/Power Core Omega/lib/pygame/version.pyi
+
+build/Power Core Omega/lib/pygame/zlib1.dll
+
+build/Power Core Omega/lib/tcl86t.dll
+
+build/Power Core Omega/lib/test/allsans.pem
+
+build/Power Core Omega/lib/test/audiodata/pluck-alaw.aifc
+
+build/Power Core Omega/lib/test/audiodata/pluck-pcm16.aiff
+
+build/Power Core Omega/lib/test/audiodata/pluck-pcm16.au
+
+build/Power Core Omega/lib/test/audiodata/pluck-pcm16.wav
+
+build/Power Core Omega/lib/test/audiodata/pluck-pcm24.aiff
+
+build/Power Core Omega/lib/test/audiodata/pluck-pcm24.au
+
+build/Power Core Omega/lib/test/audiodata/pluck-pcm24.wav
+
+build/Power Core Omega/lib/test/audiodata/pluck-pcm32.aiff
+
+build/Power Core Omega/lib/test/audiodata/pluck-pcm32.au
+
+build/Power Core Omega/lib/test/audiodata/pluck-pcm32.wav
+
+build/Power Core Omega/lib/test/audiodata/pluck-pcm8.aiff
+
+build/Power Core Omega/lib/test/audiodata/pluck-pcm8.au
+
+build/Power Core Omega/lib/test/audiodata/pluck-pcm8.wav
+
+build/Power Core Omega/lib/test/audiodata/pluck-ulaw.aifc
+
+build/Power Core Omega/lib/test/audiodata/pluck-ulaw.au
+
+build/Power Core Omega/lib/test/audiotest.au
+
+build/Power Core Omega/lib/test/badcert.pem
+
+build/Power Core Omega/lib/test/badkey.pem
+
+build/Power Core Omega/lib/test/capath/4e1295a3.0
+
+build/Power Core Omega/lib/test/capath/5ed36f99.0
+
+build/Power Core Omega/lib/test/capath/6e88d7b8.0
+
+build/Power Core Omega/lib/test/capath/99d0fa06.0
+
+build/Power Core Omega/lib/test/capath/b1930218.0
+
+build/Power Core Omega/lib/test/capath/ceff1710.0
+
+build/Power Core Omega/lib/test/cfgparser.1
+
+build/Power Core Omega/lib/test/cfgparser.2
+
+build/Power Core Omega/lib/test/cfgparser.3
+
+build/Power Core Omega/lib/test/cjkencodings/big5-utf8.txt
+
+build/Power Core Omega/lib/test/cjkencodings/big5.txt
+
+build/Power Core Omega/lib/test/cjkencodings/big5hkscs-utf8.txt
+
+build/Power Core Omega/lib/test/cjkencodings/big5hkscs.txt
+
+build/Power Core Omega/lib/test/cjkencodings/cp949-utf8.txt
+
+build/Power Core Omega/lib/test/cjkencodings/cp949.txt
+
+build/Power Core Omega/lib/test/cjkencodings/euc_jisx0213-utf8.txt
+
+build/Power Core Omega/lib/test/cjkencodings/euc_jisx0213.txt
+
+build/Power Core Omega/lib/test/cjkencodings/euc_jp-utf8.txt
+
+build/Power Core Omega/lib/test/cjkencodings/euc_jp.txt
+
+build/Power Core Omega/lib/test/cjkencodings/euc_kr-utf8.txt
+
+build/Power Core Omega/lib/test/cjkencodings/euc_kr.txt
+
+build/Power Core Omega/lib/test/cjkencodings/gb18030-utf8.txt
+
+build/Power Core Omega/lib/test/cjkencodings/gb18030.txt
+
+build/Power Core Omega/lib/test/cjkencodings/gb2312-utf8.txt
+
+build/Power Core Omega/lib/test/cjkencodings/gb2312.txt
+
+build/Power Core Omega/lib/test/cjkencodings/gbk-utf8.txt
+
+build/Power Core Omega/lib/test/cjkencodings/gbk.txt
+
+build/Power Core Omega/lib/test/cjkencodings/hz-utf8.txt
+
+build/Power Core Omega/lib/test/cjkencodings/hz.txt
+
+build/Power Core Omega/lib/test/cjkencodings/iso2022_jp-utf8.txt
+
+build/Power Core Omega/lib/test/cjkencodings/iso2022_jp.txt
+
+build/Power Core Omega/lib/test/cjkencodings/iso2022_kr-utf8.txt
+
+build/Power Core Omega/lib/test/cjkencodings/iso2022_kr.txt
+
+build/Power Core Omega/lib/test/cjkencodings/johab-utf8.txt
+
+build/Power Core Omega/lib/test/cjkencodings/johab.txt
+
+build/Power Core Omega/lib/test/cjkencodings/shift_jis-utf8.txt
+
+build/Power Core Omega/lib/test/cjkencodings/shift_jis.txt
+
+build/Power Core Omega/lib/test/cjkencodings/shift_jisx0213-utf8.txt
+
+build/Power Core Omega/lib/test/cjkencodings/shift_jisx0213.txt
+
+build/Power Core Omega/lib/test/clinic.test
+
+build/Power Core Omega/lib/test/cmath_testcases.txt
+
+build/Power Core Omega/lib/test/crashers/README
+
+build/Power Core Omega/lib/test/data/README
+
+build/Power Core Omega/lib/test/decimaltestdata/abs.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/add.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/and.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/base.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/clamp.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/class.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/compare.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/comparetotal.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/comparetotmag.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/copy.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/copyabs.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/copynegate.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/copysign.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddAbs.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddAdd.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddAnd.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddBase.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddCanonical.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddClass.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddCompare.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddCompareSig.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddCompareTotal.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddCompareTotalMag.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddCopy.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddCopyAbs.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddCopyNegate.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddCopySign.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddDivide.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddDivideInt.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddEncode.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddFMA.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddInvert.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddLogB.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddMax.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddMaxMag.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddMin.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddMinMag.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddMinus.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddMultiply.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddNextMinus.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddNextPlus.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddNextToward.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddOr.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddPlus.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddQuantize.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddReduce.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddRemainder.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddRemainderNear.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddRotate.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddSameQuantum.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddScaleB.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddShift.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddSubtract.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddToIntegral.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ddXor.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/decDouble.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/decQuad.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/decSingle.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/divide.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/divideint.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqAbs.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqAdd.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqAnd.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqBase.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqCanonical.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqClass.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqCompare.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqCompareSig.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqCompareTotal.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqCompareTotalMag.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqCopy.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqCopyAbs.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqCopyNegate.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqCopySign.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqDivide.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqDivideInt.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqEncode.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqFMA.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqInvert.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqLogB.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqMax.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqMaxMag.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqMin.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqMinMag.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqMinus.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqMultiply.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqNextMinus.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqNextPlus.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqNextToward.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqOr.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqPlus.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqQuantize.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqReduce.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqRemainder.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqRemainderNear.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqRotate.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqSameQuantum.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqScaleB.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqShift.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqSubtract.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqToIntegral.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dqXor.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dsBase.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/dsEncode.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/exp.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/extra.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/fma.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/inexact.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/invert.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/ln.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/log10.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/logb.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/max.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/maxmag.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/min.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/minmag.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/minus.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/multiply.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/nextminus.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/nextplus.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/nexttoward.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/or.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/plus.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/power.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/powersqrt.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/quantize.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/randomBound32.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/randoms.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/reduce.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/remainder.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/remainderNear.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/rescale.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/rotate.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/rounding.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/samequantum.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/scaleb.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/shift.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/squareroot.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/subtract.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/testall.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/tointegral.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/tointegralx.decTest
+
+build/Power Core Omega/lib/test/decimaltestdata/xor.decTest
+
+build/Power Core Omega/lib/test/dtracedata/assert_usable.d
+
+build/Power Core Omega/lib/test/dtracedata/assert_usable.stp
+
+build/Power Core Omega/lib/test/dtracedata/call_stack.d
+
+build/Power Core Omega/lib/test/dtracedata/call_stack.d.expected
+
+build/Power Core Omega/lib/test/dtracedata/call_stack.stp
+
+build/Power Core Omega/lib/test/dtracedata/call_stack.stp.expected
+
+build/Power Core Omega/lib/test/dtracedata/gc.d
+
+build/Power Core Omega/lib/test/dtracedata/gc.d.expected
+
+build/Power Core Omega/lib/test/dtracedata/gc.stp
+
+build/Power Core Omega/lib/test/dtracedata/gc.stp.expected
+
+build/Power Core Omega/lib/test/dtracedata/line.d
+
+build/Power Core Omega/lib/test/dtracedata/line.d.expected
+
+build/Power Core Omega/lib/test/empty.vbs
+
+build/Power Core Omega/lib/test/exception_hierarchy.txt
+
+build/Power Core Omega/lib/test/ffdh3072.pem
+
+build/Power Core Omega/lib/test/floating_points.txt
+
+build/Power Core Omega/lib/test/formatfloat_testcases.txt
+
+build/Power Core Omega/lib/test/idnsans.pem
+
+build/Power Core Omega/lib/test/ieee754.txt
+
+build/Power Core Omega/lib/test/imghdrdata/python.bmp
+
+build/Power Core Omega/lib/test/imghdrdata/python.exr
+
+build/Power Core Omega/lib/test/imghdrdata/python.gif
+
+build/Power Core Omega/lib/test/imghdrdata/python.jpg
+
+build/Power Core Omega/lib/test/imghdrdata/python.pbm
+
+build/Power Core Omega/lib/test/imghdrdata/python.pgm
+
+build/Power Core Omega/lib/test/imghdrdata/python.png
+
+build/Power Core Omega/lib/test/imghdrdata/python.ppm
+
+build/Power Core Omega/lib/test/imghdrdata/python.ras
+
+build/Power Core Omega/lib/test/imghdrdata/python.sgi
+
+build/Power Core Omega/lib/test/imghdrdata/python.tiff
+
+build/Power Core Omega/lib/test/imghdrdata/python.webp
+
+build/Power Core Omega/lib/test/imghdrdata/python.xbm
+
+build/Power Core Omega/lib/test/keycert.passwd.pem
+
+build/Power Core Omega/lib/test/keycert.pem
+
+build/Power Core Omega/lib/test/keycert2.pem
+
+build/Power Core Omega/lib/test/keycert3.pem
+
+build/Power Core Omega/lib/test/keycert4.pem
+
+build/Power Core Omega/lib/test/keycertecc.pem
+
+build/Power Core Omega/lib/test/leakers/README.txt
+
+build/Power Core Omega/lib/test/mailcap.txt
+
+build/Power Core Omega/lib/test/math_testcases.txt
+
+build/Power Core Omega/lib/test/mime.types
+
+build/Power Core Omega/lib/test/nokia.pem
+
+build/Power Core Omega/lib/test/nullbytecert.pem
+
+build/Power Core Omega/lib/test/nullcert.pem
+
+build/Power Core Omega/lib/test/pstats.pck
+
+build/Power Core Omega/lib/test/pycacert.pem
+
+build/Power Core Omega/lib/test/pycakey.pem
+
+build/Power Core Omega/lib/test/randv2_32.pck
+
+build/Power Core Omega/lib/test/randv2_64.pck
+
+build/Power Core Omega/lib/test/randv3.pck
+
+build/Power Core Omega/lib/test/revocation.crl
+
+build/Power Core Omega/lib/test/secp384r1.pem
+
+build/Power Core Omega/lib/test/selfsigned_pythontestdotnet.pem
+
+build/Power Core Omega/lib/test/sgml_input.html
+
+build/Power Core Omega/lib/test/Sine-1000Hz-300ms.aif
+
+build/Power Core Omega/lib/test/sndhdrdata/README
+
+build/Power Core Omega/lib/test/sndhdrdata/sndhdr.8svx
+
+build/Power Core Omega/lib/test/sndhdrdata/sndhdr.aifc
+
+build/Power Core Omega/lib/test/sndhdrdata/sndhdr.aiff
+
+build/Power Core Omega/lib/test/sndhdrdata/sndhdr.au
+
+build/Power Core Omega/lib/test/sndhdrdata/sndhdr.hcom
+
+build/Power Core Omega/lib/test/sndhdrdata/sndhdr.sndt
+
+build/Power Core Omega/lib/test/sndhdrdata/sndhdr.voc
+
+build/Power Core Omega/lib/test/sndhdrdata/sndhdr.wav
+
+build/Power Core Omega/lib/test/ssl_cert.pem
+
+build/Power Core Omega/lib/test/ssl_key.passwd.pem
+
+build/Power Core Omega/lib/test/ssl_key.pem
+
+build/Power Core Omega/lib/test/talos-2019-0758.pem
+
+build/Power Core Omega/lib/test/test_difflib_expect.html
+
+build/Power Core Omega/lib/test/test_doctest.txt
+
+build/Power Core Omega/lib/test/test_doctest2.txt
+
+build/Power Core Omega/lib/test/test_doctest3.txt
+
+build/Power Core Omega/lib/test/test_doctest4.txt
+
+build/Power Core Omega/lib/test/test_email/data/audiotest.au
+
+build/Power Core Omega/lib/test/test_email/data/msg_01.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_02.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_03.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_04.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_05.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_06.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_07.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_08.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_09.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_10.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_11.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_12.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_12a.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_13.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_14.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_15.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_16.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_17.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_18.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_19.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_20.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_21.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_22.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_23.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_24.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_25.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_26.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_27.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_28.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_29.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_30.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_31.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_32.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_33.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_34.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_35.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_36.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_37.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_38.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_39.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_40.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_41.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_42.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_43.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_44.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_45.txt
+
+build/Power Core Omega/lib/test/test_email/data/msg_46.txt
+
+build/Power Core Omega/lib/test/test_email/data/PyBanner048.gif
+
+build/Power Core Omega/lib/test/test_importlib/data/example-21.12-py3-none-any.whl
+
+build/Power Core Omega/lib/test/test_importlib/data/example-21.12-py3.6.egg
+
+build/Power Core Omega/lib/test/test_importlib/data01/binary.file
+
+build/Power Core Omega/lib/test/test_importlib/data01/subdirectory/binary.file
+
+build/Power Core Omega/lib/test/test_importlib/data01/utf-16.file
+
+build/Power Core Omega/lib/test/test_importlib/data01/utf-8.file
+
+build/Power Core Omega/lib/test/test_importlib/data02/one/resource1.txt
+
+build/Power Core Omega/lib/test/test_importlib/data02/two/resource2.txt
+
+build/Power Core Omega/lib/test/test_importlib/data03/namespace/resource1.txt
+
+build/Power Core Omega/lib/test/test_importlib/namespace_pkgs/missing_directory.zip
+
+build/Power Core Omega/lib/test/test_importlib/namespace_pkgs/module_and_namespace_package/a_test/empty
+
+build/Power Core Omega/lib/test/test_importlib/namespace_pkgs/nested_portion1.zip
+
+build/Power Core Omega/lib/test/test_importlib/namespace_pkgs/top_level_portion1.zip
+
+build/Power Core Omega/lib/test/test_importlib/zipdata01/ziptestdata.zip
+
+build/Power Core Omega/lib/test/test_importlib/zipdata02/ziptestdata.zip
+
+build/Power Core Omega/lib/test/testtar.tar
+
+build/Power Core Omega/lib/test/tokenize_tests-latin1-coding-cookie-and-utf8-bom-sig.txt
+
+build/Power Core Omega/lib/test/tokenize_tests-no-coding-cookie-and-utf8-bom-sig-only.txt
+
+build/Power Core Omega/lib/test/tokenize_tests-utf8-coding-cookie-and-no-utf8-bom-sig.txt
+
+build/Power Core Omega/lib/test/tokenize_tests-utf8-coding-cookie-and-utf8-bom-sig.txt
+
+build/Power Core Omega/lib/test/tokenize_tests.txt
+
+build/Power Core Omega/lib/test/xmltestdata/c14n-20/doc.dtd
+
+build/Power Core Omega/lib/test/xmltestdata/c14n-20/doc.xsl
+
+build/Power Core Omega/lib/test/xmltestdata/c14n-20/README
+
+build/Power Core Omega/lib/test/xmltestdata/c14n-20/world.txt
+
+build/Power Core Omega/lib/test/xmltestdata/test.xml.out
+
+build/Power Core Omega/lib/test/zip_cp437_header.zip
+
+build/Power Core Omega/lib/test/zipdir.zip
+
+build/Power Core Omega/lib/test/ziptestdata/exe_with_z64
+
+build/Power Core Omega/lib/test/ziptestdata/exe_with_zip
+
+build/Power Core Omega/lib/test/ziptestdata/header.sh
+
+build/Power Core Omega/lib/test/ziptestdata/README.md
+
+build/Power Core Omega/lib/tk86t.dll
+
+build/Power Core Omega/lib/tkinter/tcl8.6/auto.tcl
+
+build/Power Core Omega/lib/tkinter/tcl8.6/clock.tcl
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/ascii.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/big5.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/cp1250.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/cp1251.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/cp1252.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/cp1253.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/cp1254.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/cp1255.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/cp1256.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/cp1257.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/cp1258.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/cp437.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/cp737.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/cp775.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/cp850.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/cp852.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/cp855.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/cp857.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/cp860.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/cp861.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/cp862.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/cp863.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/cp864.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/cp865.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/cp866.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/cp869.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/cp874.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/cp932.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/cp936.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/cp949.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/cp950.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/dingbats.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/ebcdic.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/euc-cn.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/euc-jp.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/euc-kr.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/gb12345.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/gb1988.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/gb2312-raw.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/gb2312.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/iso2022-jp.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/iso2022-kr.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/iso2022.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/iso8859-1.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/iso8859-10.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/iso8859-13.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/iso8859-14.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/iso8859-15.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/iso8859-16.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/iso8859-2.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/iso8859-3.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/iso8859-4.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/iso8859-5.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/iso8859-6.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/iso8859-7.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/iso8859-8.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/iso8859-9.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/jis0201.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/jis0208.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/jis0212.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/koi8-r.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/koi8-u.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/ksc5601.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/macCentEuro.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/macCroatian.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/macCyrillic.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/macDingbats.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/macGreek.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/macIceland.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/macJapan.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/macRoman.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/macRomania.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/macThai.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/macTurkish.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/macUkraine.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/shiftjis.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/symbol.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/encoding/tis-620.enc
+
+build/Power Core Omega/lib/tkinter/tcl8.6/history.tcl
+
+build/Power Core Omega/lib/tkinter/tcl8.6/http1.0/http.tcl
+
+build/Power Core Omega/lib/tkinter/tcl8.6/http1.0/pkgIndex.tcl
+
+build/Power Core Omega/lib/tkinter/tcl8.6/init.tcl
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/af_za.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/af.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/ar_in.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/ar_jo.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/ar_lb.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/ar_sy.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/ar.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/be.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/bg.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/bn_in.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/bn.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/ca.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/cs.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/da.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/de_at.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/de_be.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/de.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/el.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/en_au.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/en_be.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/en_bw.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/en_ca.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/en_gb.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/en_hk.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/en_ie.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/en_in.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/en_nz.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/en_ph.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/en_sg.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/en_za.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/en_zw.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/eo.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/es_ar.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/es_bo.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/es_cl.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/es_co.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/es_cr.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/es_do.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/es_ec.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/es_gt.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/es_hn.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/es_mx.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/es_ni.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/es_pa.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/es_pe.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/es_pr.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/es_py.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/es_sv.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/es_uy.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/es_ve.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/es.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/et.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/eu_es.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/eu.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/fa_in.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/fa_ir.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/fa.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/fi.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/fo_fo.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/fo.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/fr_be.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/fr_ca.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/fr_ch.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/fr.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/ga_ie.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/ga.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/gl_es.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/gl.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/gv_gb.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/gv.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/he.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/hi_in.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/hi.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/hr.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/hu.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/id_id.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/id.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/is.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/it_ch.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/it.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/ja.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/kl_gl.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/kl.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/ko_kr.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/ko.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/kok_in.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/kok.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/kw_gb.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/kw.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/lt.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/lv.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/mk.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/mr_in.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/mr.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/ms_my.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/ms.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/mt.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/nb.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/nl_be.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/nl.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/nn.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/pl.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/pt_br.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/pt.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/ro.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/ru_ua.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/ru.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/sh.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/sk.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/sl.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/sq.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/sr.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/sv.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/sw.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/ta_in.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/ta.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/te_in.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/te.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/th.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/tr.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/uk.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/vi.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/zh_cn.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/zh_hk.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/zh_sg.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/zh_tw.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/msgs/zh.msg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/opt0.4/optparse.tcl
+
+build/Power Core Omega/lib/tkinter/tcl8.6/opt0.4/pkgIndex.tcl
+
+build/Power Core Omega/lib/tkinter/tcl8.6/package.tcl
+
+build/Power Core Omega/lib/tkinter/tcl8.6/parray.tcl
+
+build/Power Core Omega/lib/tkinter/tcl8.6/safe.tcl
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tclIndex
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tm.tcl
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Abidjan
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Accra
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Addis_Ababa
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Algiers
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Asmara
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Asmera
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Bamako
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Bangui
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Banjul
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Bissau
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Blantyre
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Brazzaville
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Bujumbura
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Cairo
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Casablanca
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Ceuta
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Conakry
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Dakar
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Dar_es_Salaam
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Djibouti
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Douala
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/El_Aaiun
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Freetown
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Gaborone
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Harare
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Johannesburg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Juba
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Kampala
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Khartoum
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Kigali
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Kinshasa
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Lagos
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Libreville
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Lome
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Luanda
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Lubumbashi
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Lusaka
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Malabo
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Maputo
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Maseru
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Mbabane
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Mogadishu
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Monrovia
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Nairobi
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Ndjamena
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Niamey
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Nouakchott
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Ouagadougou
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Porto-Novo
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Sao_Tome
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Timbuktu
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Tripoli
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Tunis
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Africa/Windhoek
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Adak
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Anchorage
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Anguilla
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Antigua
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Araguaina
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Argentina/Buenos_Aires
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Argentina/Catamarca
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Argentina/ComodRivadavia
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Argentina/Cordoba
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Argentina/Jujuy
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Argentina/La_Rioja
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Argentina/Mendoza
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Argentina/Rio_Gallegos
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Argentina/Salta
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Argentina/San_Juan
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Argentina/San_Luis
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Argentina/Tucuman
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Argentina/Ushuaia
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Aruba
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Asuncion
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Atikokan
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Atka
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Bahia
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Bahia_Banderas
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Barbados
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Belem
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Belize
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Blanc-Sablon
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Boa_Vista
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Bogota
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Boise
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Buenos_Aires
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Cambridge_Bay
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Campo_Grande
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Cancun
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Caracas
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Catamarca
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Cayenne
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Cayman
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Chicago
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Chihuahua
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Coral_Harbour
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Cordoba
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Costa_Rica
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Creston
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Cuiaba
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Curacao
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Danmarkshavn
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Dawson
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Dawson_Creek
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Denver
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Detroit
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Dominica
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Edmonton
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Eirunepe
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/El_Salvador
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Ensenada
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Fort_Nelson
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Fort_Wayne
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Fortaleza
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Glace_Bay
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Godthab
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Goose_Bay
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Grand_Turk
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Grenada
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Guadeloupe
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Guatemala
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Guayaquil
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Guyana
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Halifax
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Havana
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Hermosillo
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Indiana/Indianapolis
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Indiana/Knox
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Indiana/Marengo
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Indiana/Petersburg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Indiana/Tell_City
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Indiana/Vevay
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Indiana/Vincennes
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Indiana/Winamac
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Indianapolis
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Inuvik
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Iqaluit
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Jamaica
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Jujuy
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Juneau
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Kentucky/Louisville
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Kentucky/Monticello
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Knox_IN
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Kralendijk
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/La_Paz
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Lima
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Los_Angeles
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Louisville
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Lower_Princes
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Maceio
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Managua
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Manaus
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Marigot
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Martinique
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Matamoros
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Mazatlan
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Mendoza
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Menominee
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Merida
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Metlakatla
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Mexico_City
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Miquelon
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Moncton
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Monterrey
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Montevideo
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Montreal
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Montserrat
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Nassau
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/New_York
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Nipigon
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Nome
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Noronha
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/North_Dakota/Beulah
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/North_Dakota/Center
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/North_Dakota/New_Salem
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Ojinaga
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Panama
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Pangnirtung
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Paramaribo
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Phoenix
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Port_of_Spain
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Port-au-Prince
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Porto_Acre
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Porto_Velho
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Puerto_Rico
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Punta_Arenas
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Rainy_River
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Rankin_Inlet
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Recife
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Regina
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Resolute
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Rio_Branco
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Rosario
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Santa_Isabel
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Santarem
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Santiago
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Santo_Domingo
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Sao_Paulo
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Scoresbysund
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Shiprock
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Sitka
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/St_Barthelemy
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/St_Johns
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/St_Kitts
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/St_Lucia
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/St_Thomas
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/St_Vincent
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Swift_Current
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Tegucigalpa
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Thule
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Thunder_Bay
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Tijuana
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Toronto
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Tortola
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Vancouver
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Virgin
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Whitehorse
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Winnipeg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Yakutat
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/America/Yellowknife
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Antarctica/Casey
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Antarctica/Davis
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Antarctica/DumontDUrville
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Antarctica/Macquarie
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Antarctica/Mawson
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Antarctica/McMurdo
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Antarctica/Palmer
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Antarctica/Rothera
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Antarctica/South_Pole
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Antarctica/Syowa
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Antarctica/Troll
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Antarctica/Vostok
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Arctic/Longyearbyen
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Aden
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Almaty
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Amman
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Anadyr
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Aqtau
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Aqtobe
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Ashgabat
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Ashkhabad
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Atyrau
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Baghdad
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Bahrain
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Baku
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Bangkok
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Barnaul
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Beirut
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Bishkek
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Brunei
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Calcutta
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Chita
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Choibalsan
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Chongqing
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Chungking
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Colombo
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Dacca
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Damascus
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Dhaka
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Dili
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Dubai
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Dushanbe
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Famagusta
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Gaza
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Harbin
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Hebron
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Ho_Chi_Minh
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Hong_Kong
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Hovd
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Irkutsk
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Istanbul
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Jakarta
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Jayapura
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Jerusalem
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Kabul
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Kamchatka
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Karachi
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Kashgar
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Kathmandu
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Katmandu
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Khandyga
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Kolkata
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Krasnoyarsk
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Kuala_Lumpur
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Kuching
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Kuwait
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Macao
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Macau
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Magadan
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Makassar
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Manila
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Muscat
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Nicosia
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Novokuznetsk
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Novosibirsk
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Omsk
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Oral
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Phnom_Penh
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Pontianak
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Pyongyang
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Qatar
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Qyzylorda
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Rangoon
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Riyadh
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Saigon
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Sakhalin
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Samarkand
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Seoul
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Shanghai
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Singapore
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Srednekolymsk
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Taipei
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Tashkent
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Tbilisi
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Tehran
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Tel_Aviv
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Thimbu
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Thimphu
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Tokyo
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Tomsk
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Ujung_Pandang
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Ulaanbaatar
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Ulan_Bator
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Urumqi
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Ust-Nera
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Vientiane
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Vladivostok
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Yakutsk
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Yangon
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Yekaterinburg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Asia/Yerevan
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Atlantic/Azores
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Atlantic/Bermuda
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Atlantic/Canary
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Atlantic/Cape_Verde
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Atlantic/Faeroe
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Atlantic/Faroe
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Atlantic/Jan_Mayen
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Atlantic/Madeira
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Atlantic/Reykjavik
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Atlantic/South_Georgia
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Atlantic/St_Helena
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Atlantic/Stanley
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Australia/ACT
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Australia/Adelaide
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Australia/Brisbane
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Australia/Broken_Hill
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Australia/Canberra
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Australia/Currie
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Australia/Darwin
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Australia/Eucla
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Australia/Hobart
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Australia/LHI
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Australia/Lindeman
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Australia/Lord_Howe
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Australia/Melbourne
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Australia/North
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Australia/NSW
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Australia/Perth
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Australia/Queensland
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Australia/South
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Australia/Sydney
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Australia/Tasmania
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Australia/Victoria
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Australia/West
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Australia/Yancowinna
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Brazil/Acre
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Brazil/DeNoronha
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Brazil/East
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Brazil/West
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Canada/Atlantic
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Canada/Central
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Canada/East-Saskatchewan
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Canada/Eastern
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Canada/Mountain
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Canada/Newfoundland
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Canada/Pacific
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Canada/Saskatchewan
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Canada/Yukon
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/CET
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Chile/Continental
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Chile/EasterIsland
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/CST6CDT
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Cuba
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/EET
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Egypt
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Eire
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/EST
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/EST5EDT
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/GMT
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/GMT-0
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/GMT-1
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/GMT-10
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/GMT-11
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/GMT-12
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/GMT-13
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/GMT-14
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/GMT-2
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/GMT-3
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/GMT-4
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/GMT-5
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/GMT-6
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/GMT-7
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/GMT-8
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/GMT-9
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/GMT\+0
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/GMT\+1
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/GMT\+10
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/GMT\+11
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/GMT\+12
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/GMT\+2
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/GMT\+3
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/GMT\+4
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/GMT\+5
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/GMT\+6
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/GMT\+7
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/GMT\+8
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/GMT\+9
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/GMT0
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/Greenwich
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/UCT
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/Universal
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/UTC
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Etc/Zulu
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Amsterdam
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Andorra
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Astrakhan
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Athens
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Belfast
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Belgrade
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Berlin
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Bratislava
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Brussels
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Bucharest
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Budapest
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Busingen
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Chisinau
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Copenhagen
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Dublin
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Gibraltar
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Guernsey
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Helsinki
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Isle_of_Man
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Istanbul
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Jersey
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Kaliningrad
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Kiev
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Kirov
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Lisbon
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Ljubljana
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/London
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Luxembourg
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Madrid
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Malta
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Mariehamn
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Minsk
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Monaco
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Moscow
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Nicosia
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Oslo
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Paris
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Podgorica
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Prague
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Riga
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Rome
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Samara
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/San_Marino
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Sarajevo
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Saratov
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Simferopol
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Skopje
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Sofia
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Stockholm
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Tallinn
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Tirane
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Tiraspol
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Ulyanovsk
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Uzhgorod
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Vaduz
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Vatican
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Vienna
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Vilnius
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Volgograd
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Warsaw
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Zagreb
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Zaporozhye
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Europe/Zurich
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/GB
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/GB-Eire
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/GMT
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/GMT-0
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/GMT\+0
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/GMT0
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Greenwich
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Hongkong
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/HST
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Iceland
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Indian/Antananarivo
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Indian/Chagos
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Indian/Christmas
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Indian/Cocos
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Indian/Comoro
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Indian/Kerguelen
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Indian/Mahe
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Indian/Maldives
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Indian/Mauritius
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Indian/Mayotte
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Indian/Reunion
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Iran
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Israel
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Jamaica
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Japan
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Kwajalein
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Libya
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/MET
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Mexico/BajaNorte
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Mexico/BajaSur
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Mexico/General
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/MST
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/MST7MDT
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Navajo
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/NZ
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/NZ-CHAT
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Apia
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Auckland
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Bougainville
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Chatham
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Chuuk
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Easter
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Efate
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Enderbury
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Fakaofo
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Fiji
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Funafuti
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Galapagos
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Gambier
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Guadalcanal
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Guam
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Honolulu
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Johnston
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Kiritimati
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Kosrae
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Kwajalein
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Majuro
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Marquesas
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Midway
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Nauru
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Niue
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Norfolk
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Noumea
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Pago_Pago
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Palau
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Pitcairn
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Pohnpei
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Ponape
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Port_Moresby
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Rarotonga
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Saipan
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Samoa
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Tahiti
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Tarawa
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Tongatapu
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Truk
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Wake
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Wallis
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Pacific/Yap
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Poland
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Portugal
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/PRC
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/PST8PDT
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/ROC
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/ROK
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Singapore
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/SystemV/AST4
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/SystemV/AST4ADT
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/SystemV/CST6
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/SystemV/CST6CDT
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/SystemV/EST5
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/SystemV/EST5EDT
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/SystemV/HST10
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/SystemV/MST7
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/SystemV/MST7MDT
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/SystemV/PST8
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/SystemV/PST8PDT
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/SystemV/YST9
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/SystemV/YST9YDT
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Turkey
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/UCT
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Universal
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/US/Alaska
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/US/Aleutian
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/US/Arizona
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/US/Central
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/US/East-Indiana
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/US/Eastern
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/US/Hawaii
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/US/Indiana-Starke
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/US/Michigan
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/US/Mountain
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/US/Pacific
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/US/Pacific-New
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/US/Samoa
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/UTC
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/W-SU
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/WET
+
+build/Power Core Omega/lib/tkinter/tcl8.6/tzdata/Zulu
+
+build/Power Core Omega/lib/tkinter/tcl8.6/word.tcl
+
+build/Power Core Omega/lib/tkinter/test/README
+
+build/Power Core Omega/lib/tkinter/tk8.6/bgerror.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/button.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/choosedir.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/clrpick.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/comdlg.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/console.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/anilabel.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/aniwave.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/arrow.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/bind.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/bitmap.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/browse
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/button.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/check.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/clrpick.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/colors.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/combo.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/cscroll.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/ctext.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/dialog1.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/dialog2.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/en.msg
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/entry1.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/entry2.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/entry3.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/filebox.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/floor.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/fontchoose.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/form.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/goldberg.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/hello
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/hscale.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/icon.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/image1.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/image2.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/images/earth.gif
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/images/earthmenu.png
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/images/earthris.gif
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/images/flagdown.xbm
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/images/flagup.xbm
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/images/gray25.xbm
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/images/letters.xbm
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/images/noletter.xbm
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/images/ouster.png
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/images/pattern.xbm
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/images/tcllogo.gif
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/images/teapot.ppm
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/items.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/ixset
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/knightstour.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/label.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/labelframe.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/license.terms
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/mclist.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/menu.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/menubu.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/msgbox.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/nl.msg
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/paned1.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/paned2.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/pendulum.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/plot.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/puzzle.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/radio.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/README
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/rmt
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/rolodex
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/ruler.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/sayings.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/search.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/spin.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/square
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/states.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/style.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/tclIndex
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/tcolor
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/text.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/textpeer.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/timer
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/toolbar.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/tree.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/ttkbut.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/ttkmenu.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/ttknote.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/ttkpane.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/ttkprogress.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/ttkscale.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/twind.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/unicodeout.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/vscale.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/demos/widget
+
+build/Power Core Omega/lib/tkinter/tk8.6/dialog.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/entry.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/focus.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/fontchooser.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/iconlist.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/icons.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/images/logo.eps
+
+build/Power Core Omega/lib/tkinter/tk8.6/images/logo100.gif
+
+build/Power Core Omega/lib/tkinter/tk8.6/images/logo64.gif
+
+build/Power Core Omega/lib/tkinter/tk8.6/images/logoLarge.gif
+
+build/Power Core Omega/lib/tkinter/tk8.6/images/logoMed.gif
+
+build/Power Core Omega/lib/tkinter/tk8.6/images/pwrdLogo.eps
+
+build/Power Core Omega/lib/tkinter/tk8.6/images/pwrdLogo100.gif
+
+build/Power Core Omega/lib/tkinter/tk8.6/images/pwrdLogo150.gif
+
+build/Power Core Omega/lib/tkinter/tk8.6/images/pwrdLogo175.gif
+
+build/Power Core Omega/lib/tkinter/tk8.6/images/pwrdLogo200.gif
+
+build/Power Core Omega/lib/tkinter/tk8.6/images/pwrdLogo75.gif
+
+build/Power Core Omega/lib/tkinter/tk8.6/images/README
+
+build/Power Core Omega/lib/tkinter/tk8.6/images/tai-ku.gif
+
+build/Power Core Omega/lib/tkinter/tk8.6/license.terms
+
+build/Power Core Omega/lib/tkinter/tk8.6/listbox.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/megawidget.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/menu.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/mkpsenc.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/msgbox.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/msgs/cs.msg
+
+build/Power Core Omega/lib/tkinter/tk8.6/msgs/da.msg
+
+build/Power Core Omega/lib/tkinter/tk8.6/msgs/de.msg
+
+build/Power Core Omega/lib/tkinter/tk8.6/msgs/el.msg
+
+build/Power Core Omega/lib/tkinter/tk8.6/msgs/en_gb.msg
+
+build/Power Core Omega/lib/tkinter/tk8.6/msgs/en.msg
+
+build/Power Core Omega/lib/tkinter/tk8.6/msgs/eo.msg
+
+build/Power Core Omega/lib/tkinter/tk8.6/msgs/es.msg
+
+build/Power Core Omega/lib/tkinter/tk8.6/msgs/fr.msg
+
+build/Power Core Omega/lib/tkinter/tk8.6/msgs/hu.msg
+
+build/Power Core Omega/lib/tkinter/tk8.6/msgs/it.msg
+
+build/Power Core Omega/lib/tkinter/tk8.6/msgs/nl.msg
+
+build/Power Core Omega/lib/tkinter/tk8.6/msgs/pl.msg
+
+build/Power Core Omega/lib/tkinter/tk8.6/msgs/pt.msg
+
+build/Power Core Omega/lib/tkinter/tk8.6/msgs/ru.msg
+
+build/Power Core Omega/lib/tkinter/tk8.6/msgs/sv.msg
+
+build/Power Core Omega/lib/tkinter/tk8.6/obsolete.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/optMenu.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/palette.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/panedwindow.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/pkgIndex.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/safetk.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/scale.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/scrlbar.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/spinbox.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/tclIndex
+
+build/Power Core Omega/lib/tkinter/tk8.6/tearoff.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/text.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/tk.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/tkfbox.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/ttk/altTheme.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/ttk/aquaTheme.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/ttk/button.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/ttk/clamTheme.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/ttk/classicTheme.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/ttk/combobox.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/ttk/cursors.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/ttk/defaults.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/ttk/entry.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/ttk/fonts.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/ttk/menubutton.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/ttk/notebook.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/ttk/panedwindow.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/ttk/progress.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/ttk/scale.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/ttk/scrollbar.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/ttk/sizegrip.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/ttk/spinbox.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/ttk/treeview.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/ttk/ttk.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/ttk/utils.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/ttk/vistaTheme.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/ttk/winTheme.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/ttk/xpTheme.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/unsupported.tcl
+
+build/Power Core Omega/lib/tkinter/tk8.6/xmfbox.tcl
+
+build/Power Core Omega/main.exe
+
+build/Power Core Omega/python3.dll
+
+build/Power Core Omega/python38.dll
+
+build/Power Core Omega/vcruntime140.dll

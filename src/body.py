@@ -1,4 +1,7 @@
-class Body:
+import pygame
+
+
+class Body(pygame.sprite.Sprite):
     """
     Body class is the base class for all other objects in space that can interact with each other
     Examples: ships, projectiles, etc.
@@ -14,22 +17,32 @@ class Body:
         acceleration: the speed at which this body can accelerate in pixels per second
     """
 
-    def __init__(self, size=(20,), pos=(0, 0), health=100):
+    def __init__(self, size=(20,), pos=(0, 0), health=100, sprite=None):
+        super().__init__()
         if len(size) == 2:
             self.width, self.height = size
         elif len(size) == 1:
-            self.width = size
-            self.height = size
-        self.pos_x, self.pos_y = pos
+            self.width = size[0]
+            self.height = size[0]
+        # self.pos_x, self.pos_y = pos
+        self.image = pygame.Surface((self.width, self.height))
+        self.image.fill((0, 0, 0))
+        self.image.set_colorkey((0, 0, 0))
+        self.rect = self.image.get_rect(center=(800, 800))
+        self.rect.center = pos
+        self.pos = pygame.math.Vector2(self.rect.center)
         if health == 0:
             self.destructible = False
         else:
             self.destructible = True
         self.health = health
+
         self.current_health = self.health
         self.is_dead = False
         self.speed = 0
         self.max_speed = 0
+        self.angle = 90
+        self.direction = pygame.math.Vector2(1, 0)
         self.acceleration = 0
 
     def check_if_alive(self):

@@ -2,7 +2,8 @@ import pygame
 import os
 import sys
 from src import game_obj
-from src import SCREENSIZE
+from src import player_settings
+# from src import SCREENSIZE
 from src.guis import guis
 
 
@@ -14,7 +15,7 @@ os.environ['SDL_VIDEO_CENTERED'] = '1'
 # Initialize Pygame
 pygame.init()
 pygame.display.set_caption("Power Core Omega")
-screen = pygame.display.set_mode(SCREENSIZE)
+screen = pygame.display.set_mode(player_settings.screensize)
 clock = pygame.time.Clock()
 
 # Initialize game state
@@ -22,13 +23,14 @@ game_obj.new_game_state("paused", [guis["pause_gui"]])
 game_obj.new_game_state("running", [guis["start_gui"]])
 game_obj.new_game_state("playing", None)
 
+game_obj.set_game_state("running")
+
 # Initialize game_obj attributes
 game_obj.screen = screen
 game_obj.display = pygame.display
 game_obj.clock = clock
 game_obj.framerate = 60
 
-game_obj.set_game_state("running")
 
 if __name__ == '__main__':
 
@@ -78,4 +80,3 @@ if __name__ == '__main__':
 
         # Update main menu loop
         game_obj.update(fill_color=(80, 80, 80))
-
