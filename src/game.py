@@ -42,20 +42,23 @@ class Game(Instance):
         self.guis = []
         self.display = None
         self.screen = None
+        self.current_surface = None
         self.clock = None
         self.framerate = None
 
     def update(self, fill_color=(0, 0, 0)):
         if len(self.game_state.guis) > 0:
             for gui in self.game_state.guis:
-                gui.update(self.screen)
+                gui.update(self.current_surface)
+
+        self.screen.blit(self.current_surface, (0, 0))
 
         self.display.update()
-        self.screen.fill(fill_color)
+        self.current_surface.fill(fill_color)
         for controller in self.controllers:
             controller.update()
-        self.bodies.draw(self.screen)
-
+        if self.game_state.name == "playing":
+            self.bodies.draw(self.current_surface)
         # self.clock.tick()
         self.clock.tick(self.framerate)
 
@@ -85,11 +88,14 @@ class Game(Instance):
             for controller in self.controllers:
                 controller.get_events(event)
 
-    def new_game_state(self, state, guis):
-        self.game_states.append(self.GameState(state, guis))
+    def new_game_state(self, state, guis, surface):
+        self.game_states.append(self.GameState(state, guis, surface))
 
     def set_game_state(self, state):
         self.game_state, = [st for st in self.game_states if st.name == state]
+        self.current_surface = self.game_state.surface
+        if self.screen:
+            self.screen.fill((0, 0, 0))
 
     class GameState:
         """
@@ -101,7 +107,7 @@ class Game(Instance):
             guis: the guis associated with this GameState object
         """
         #  TODO: seperate screen objects should be stored here so that game sprites are not drawn in menus
-        def __init__(self, name="", guis=None):
+        def __init__(self, name="", guis=None, surface=None):
 
             self.name = name
 
@@ -109,6 +115,8 @@ class Game(Instance):
                 self.guis = []
             else:
                 self.guis = guis
+
+            self.surface = surface
 
     def toggle_pause(self, *_, **__):
         self.paused = not self.paused
@@ -121,6 +129,7 @@ class Game(Instance):
         self.playing = not self.playing
         if self.playing and not self.paused:
             self.set_game_state("playing")
+            print(self.game_state)
 
     def exit_game_loop(self, *_, **__):
         self.playing = False
