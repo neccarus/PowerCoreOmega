@@ -23,7 +23,7 @@ pause_surface = pygame.Surface(size=player_settings.screensize)
 
 clock = pygame.time.Clock()
 
-# Initialize game state
+# Initialize game states
 game_obj.new_game_state("paused", [guis["pause_gui"]], pause_surface)
 game_obj.new_game_state("running", [guis["start_gui"]], main_surface)
 game_obj.new_game_state("playing", None, game_surface)
@@ -33,7 +33,6 @@ game_obj.set_game_state("running")
 # Initialize game_obj attributes
 game_obj.screen = screen
 game_obj.display = pygame.display
-# game_obj.display.init()
 game_obj.clock = clock
 game_obj.framerate = 60
 

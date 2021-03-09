@@ -25,6 +25,7 @@ class Body(pygame.sprite.Sprite):
             self.width = size[0]
             self.height = size[0]
         # self.pos_x, self.pos_y = pos
+        self.sprite = sprite
         self.image = pygame.Surface((self.width, self.height))
         self.image.fill((0, 0, 0))
         self.image.set_colorkey((0, 0, 0))
@@ -39,11 +40,14 @@ class Body(pygame.sprite.Sprite):
 
         self.current_health = self.health
         self.is_dead = False
-        self.speed = 0
-        self.max_speed = 0
+        self.horizontal_speed = 0
+        self.vertical_speed = 0
+        self.horizontal_max_speed = 0
+        self.vertical_max_speed = 0
         self.angle = 90
         self.direction = pygame.math.Vector2(1, 0)
-        self.acceleration = 0
+        self.horizontal_acceleration = 0
+        self.vertical_acceleration = 0
 
     def check_if_alive(self):
         if self.current_health <= 0 and self.destructible:

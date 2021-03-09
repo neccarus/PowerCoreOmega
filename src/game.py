@@ -32,7 +32,11 @@ class Game(Instance):
         self.bodies = []
         self.dead_bodies = []
         self.projectiles = []
-        self.game_states = []
+        self.game_states = {
+            "running": self.GameState(name="running"),
+            "playing": self.GameState(name="playing"),
+            "paused": self.GameState(name="paused"),
+        }
         self.running = True
         self.playing = False
         self.paused = False
@@ -44,6 +48,7 @@ class Game(Instance):
         self.screen = None
         self.current_surface = None
         self.clock = None
+        self.delta_time = 0
         self.framerate = None
 
     def update(self, fill_color=(0, 0, 0)):
@@ -56,11 +61,11 @@ class Game(Instance):
         self.display.update()
         self.current_surface.fill(fill_color)
         for controller in self.controllers:
-            controller.update()
+            controller.update(self.delta_time, self.current_surface.get_rect())
         if self.game_state.name == "playing":
             self.bodies.draw(self.current_surface)
         # self.clock.tick()
-        self.clock.tick(self.framerate)
+        self.delta_time = self.clock.tick(self.framerate)
 
     # should be handled in body class?
     def update_bodies(self):
@@ -88,11 +93,12 @@ class Game(Instance):
             for controller in self.controllers:
                 controller.get_events(event)
 
-    def new_game_state(self, state, guis, surface):
-        self.game_states.append(self.GameState(state, guis, surface))
+    def new_game_state(self, state="running", guis=None, surface=None):
+        self.game_states[state] = self.GameState(state, guis, surface)
 
     def set_game_state(self, state):
-        self.game_state, = [st for st in self.game_states if st.name == state]
+        # self.game_state, = [st for st in self.game_states if st.name == state]
+        self.game_state = self.game_states[state]
         self.current_surface = self.game_state.surface
         if self.screen:
             self.screen.fill((0, 0, 0))
@@ -105,6 +111,7 @@ class Game(Instance):
         Attributes:
             name: the name of the state, used to determine which state the game is in
             guis: the guis associated with this GameState object
+            surface: the surface this game state uses
         """
         #  TODO: seperate screen objects should be stored here so that game sprites are not drawn in menus
         def __init__(self, name="", guis=None, surface=None):
