@@ -17,16 +17,16 @@ pygame.init()
 pygame.display.set_caption("Power Core Omega")
 screen = pygame.display.set_mode(player_settings.screensize)
 
-main_surface = pygame.Surface(size=player_settings.screensize)
-game_surface = pygame.Surface(size=player_settings.screensize)
-pause_surface = pygame.Surface(size=player_settings.screensize)
+# main_surface = pygame.Surface(size=player_settings.screensize)
+# game_surface = pygame.Surface(size=player_settings.screensize)
+# pause_surface = pygame.Surface(size=player_settings.screensize)
 
 clock = pygame.time.Clock()
 
 # Initialize game states
-game_obj.new_game_state("paused", [guis["pause_gui"]], pause_surface)
-game_obj.new_game_state("running", [guis["start_gui"]], main_surface)
-game_obj.new_game_state("playing", None, game_surface)
+# game_obj.new_game_state("paused", [guis["pause_gui"]], pause_surface)
+# game_obj.new_game_state("running", [guis["start_gui"]], main_surface)
+# game_obj.new_game_state("playing", None, game_surface)
 
 game_obj.set_game_state("running")
 

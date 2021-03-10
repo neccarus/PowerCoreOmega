@@ -1,4 +1,6 @@
 from src.body import Body
+import math
+from pygame import Vector2
 
 
 class Ship(Body):
@@ -78,3 +80,79 @@ class Ship(Body):
             self.weapon_locations = [(0, 0)]
         else:
             self.weapon_locations = weapon_locations
+
+    def update(self, actions, delta_time, boundaries, *args, **kwargs) -> None:
+
+        for action in actions:
+            if action == "left":
+                self.direction[0] = -1
+                if self.horizontal_speed > -self.horizontal_max_speed:
+                    self.horizontal_speed += (self.horizontal_acceleration * delta_time / 100) * self.direction[0]
+
+            if action == "right":
+                self.direction[0] = 1
+                if self.horizontal_speed < self.horizontal_max_speed:
+                    self.horizontal_speed += (self.horizontal_acceleration * delta_time / 100) * self.direction[0]
+
+            if action == "forward":
+                self.direction[1] = -1
+                if self.vertical_speed > -self.vertical_max_speed:
+                    self.vertical_speed += (self.vertical_acceleration * delta_time / 100) * self.direction[1]
+
+            if action == "backward":
+                self.direction[1] = 1
+                if self.vertical_speed < self.vertical_max_speed:
+                    self.vertical_speed += (self.vertical_acceleration * delta_time / 100) * self.direction[1]
+
+        if "left" not in actions and "right" not in actions:
+            self.horizontal_speed = self.decelerate(delta_time, "horizontal")
+
+        if "forward" not in actions and "backward" not in actions:
+            self.vertical_speed = self.decelerate(delta_time, "vertical")
+
+        self.move(delta_time, boundaries)
+
+    def decelerate(self, delta_time, direction):
+
+        speed = 0
+        acceleration = 0
+
+        if direction == "horizontal":
+            speed = self.horizontal_speed
+            acceleration = self.horizontal_acceleration
+
+        if direction == "vertical":
+            speed = self.vertical_speed
+            acceleration = self.vertical_acceleration
+
+        if speed and speed > 0:
+            speed -= (acceleration * delta_time / 100)
+        elif speed < 0:
+            speed += (acceleration * delta_time / 100)
+        if math.isclose(speed, 0, abs_tol=0.1):
+            speed = 0
+
+        return speed
+
+    def move(self, delta_time, boundary):
+
+        self.pos += Vector2((delta_time * self.horizontal_speed) / 100,
+                            (delta_time * self.vertical_speed) / 100)
+        self.rect.center = self.pos
+        if self.rect.left < 0:
+            self.rect.left = 0
+            self.pos = self.rect.center
+            self.horizontal_speed = 0
+        elif self.rect.right > boundary.right:
+            self.rect.right = boundary.right
+            self.pos = self.rect.center
+            self.horizontal_speed = 0
+
+        if self.rect.top < 0:
+            self.rect.top = 0
+            self.pos = self.rect.center
+            self.vertical_speed = 0
+        elif self.rect.bottom > boundary.bottom:
+            self.rect.bottom = boundary.bottom
+            self.pos = self.rect.center
+            self.vertical_speed = 0

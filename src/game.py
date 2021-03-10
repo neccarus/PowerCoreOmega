@@ -60,7 +60,7 @@ class Game(Instance):
 
         self.display.update()
         self.current_surface.fill(fill_color)
-        for controller in self.controllers:
+        for controller in self.game_state.controllers:
             controller.update(self.delta_time, self.current_surface.get_rect())
         if self.game_state.name == "playing":
             self.bodies.draw(self.current_surface)
@@ -89,12 +89,12 @@ class Game(Instance):
                 gui.activate_selected(current_mouse_pos, gui)
                 gui.let_go()
 
-        if len(self.controllers) > 0:
+        if len(self.game_state.controllers) > 0:
             for controller in self.controllers:
                 controller.get_events(event)
 
-    def new_game_state(self, state="running", guis=None, surface=None):
-        self.game_states[state] = self.GameState(state, guis, surface)
+    def new_game_state(self, state="running", guis=None, surface=None, controllers=None):
+        self.game_states[state] = self.GameState(state, guis, surface, controllers)
 
     def set_game_state(self, state):
         # self.game_state, = [st for st in self.game_states if st.name == state]
@@ -114,7 +114,7 @@ class Game(Instance):
             surface: the surface this game state uses
         """
         #  TODO: seperate screen objects should be stored here so that game sprites are not drawn in menus
-        def __init__(self, name="", guis=None, surface=None):
+        def __init__(self, name="", guis=None, surface=None, controllers=None):
 
             self.name = name
 
@@ -124,6 +124,10 @@ class Game(Instance):
                 self.guis = guis
 
             self.surface = surface
+            if controllers is None:
+                self.controllers = []
+            else:
+                self.controller = controllers
 
     def toggle_pause(self, *_, **__):
         self.paused = not self.paused
