@@ -29,7 +29,7 @@ class Game(Instance):
         self.name = name
         super().add_instance()
         self.controllers = []
-        self.bodies = []
+        self.bodies = pygame.sprite.Group()
         self.dead_bodies = []
         self.projectiles = []
         self.game_states = {
@@ -94,6 +94,9 @@ class Game(Instance):
                 controller.get_events(event)
 
     def new_game_state(self, state="running", guis=None, surface=None, controllers=None):
+        if controllers is None:
+            controllers = []
+
         self.game_states[state] = self.GameState(state, guis, surface, controllers)
 
     def set_game_state(self, state):
@@ -127,7 +130,7 @@ class Game(Instance):
             if controllers is None:
                 self.controllers = []
             else:
-                self.controller = controllers
+                self.controllers = controllers
 
     def toggle_pause(self, *_, **__):
         self.paused = not self.paused
