@@ -26,7 +26,7 @@ class Player(Instance):
         self.ship.vertical_max_speed = 25
         self.ship.vertical_acceleration = 2.5
 
-    def update(self, delta_time, boundary):
+    def update(self, delta_time, boundary, *_, **__):
 
         self.ship.update(self.actions, delta_time, boundary)
 

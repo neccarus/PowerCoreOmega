@@ -60,8 +60,8 @@ class Game(Instance):
 
         self.display.update()
         self.current_surface.fill(fill_color)
-        for controller in self.game_state.controllers:
-            controller.update(self.delta_time, self.current_surface.get_rect())
+        for index, controller in enumerate(self.controllers):
+            controller.update(self.delta_time, self.current_surface.get_rect(), self.controllers[:index] + self.controllers[index+1:])
         if self.game_state.name == "playing":
             self.bodies.draw(self.current_surface)
         # self.clock.tick()
@@ -89,6 +89,7 @@ class Game(Instance):
                 gui.activate_selected(current_mouse_pos, gui)
                 gui.let_go()
 
+        # TODO: npc objects should not be grouped in here, player needs to be separated
         if len(self.game_state.controllers) > 0:
             for controller in self.controllers:
                 controller.get_events(event)

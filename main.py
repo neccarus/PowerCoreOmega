@@ -4,6 +4,7 @@ import sys
 from src import game_obj
 from src import player_settings
 from src.player import Player
+from src.npc import NPC
 # from src import SCREENSIZE
 from src.guis import guis
 
@@ -25,10 +26,12 @@ pause_surface = pygame.Surface(size=player_settings.screensize)
 clock = pygame.time.Clock()
 
 player = Player(controls=player_settings.controls)
+enemy = NPC()
 
 # Apply player object to game object
-game_obj.bodies.add(player.ship)
+game_obj.bodies.add(player.ship, enemy.ship)
 game_obj.controllers.append(player)
+game_obj.controllers.append(enemy)
 
 # Initialize game states
 game_obj.new_game_state("paused", [guis["pause_gui"]], pause_surface, [player, ])

@@ -29,8 +29,8 @@ class Body(pygame.sprite.Sprite):
         self.image = pygame.Surface((self.width, self.height))
         self.image.fill((0, 0, 0))
         self.image.set_colorkey((0, 0, 0))
-        self.rect = self.image.get_rect(center=(800, 800))
-        self.rect.center = pos
+        self.rect = self.image.get_rect(center=pos)
+        # self.rect.center = pos
         self.pos = pygame.math.Vector2(self.rect.center)
         if health == 0:
             self.destructible = False

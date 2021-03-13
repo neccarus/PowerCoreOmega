@@ -15,7 +15,10 @@ class Controls:
 
     def get_signal(self, _input):
         # print(_input)
-        scheme = [scheme for scheme in self.scheme.values() if _input.key in scheme.inputs]
+        if hasattr(_input, "key"):
+            scheme = [scheme for scheme in self.scheme.values() if _input.key in scheme.inputs]
+        else:
+            scheme = [scheme for scheme in self.scheme.values() if _input in scheme.inputs]
         # print(scheme)
         if len(scheme) > 0:
             return scheme[0].signal
