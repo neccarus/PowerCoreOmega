@@ -1,4 +1,5 @@
 from src.body import Body
+from src.weapons import Weapon
 import math
 from pygame import Vector2
 
@@ -29,11 +30,26 @@ class Ship(Body):
     """
 
     def __init__(self, name="Python", ship_type="Interceptor", shields=None,
-                 armor=None, reactors=None, engines=None, weapons=None, auxiliary_modules=None, shield_slots=0,
-                 armor_slots=0, reactor_slots=0, engine_slots=0, weapon_slots=0, misc_slots=0, drone_slots=0,
+                 armor=None, reactors=None, engines=None, auxiliary_modules=None, shield_slots=0,
+                 armor_slots=0, reactor_slots=0, engine_slots=0, weapon_slots=2, misc_slots=0, drone_slots=0,
                  weapon_locations=None, *args, **kwargs):
 
         super().__init__(*args, **kwargs)
+
+        self.shield_slots = shield_slots
+        self.armor_slots = armor_slots
+        self.reactor_slots = reactor_slots
+        self.engine_slots = engine_slots
+        self.weapon_slots = weapon_slots
+        self.misc_slots = misc_slots
+        self.drone_slots = drone_slots
+
+        if weapon_locations is None:
+            self.weapon_locations = [(0, 0)]
+        else:
+            self.weapon_locations = weapon_locations
+
+        self.weapons = [self.WeaponNode(pos=pos) for pos in self.weapon_locations]
 
         self.name = name
         self.ship_type = ship_type
@@ -58,28 +74,23 @@ class Ship(Body):
         else:
             self.engines = engines
 
-        if weapons is None:
-            self.weapons = []
-        else:
-            self.weapons = weapons
+        # if weapons is None:
+        #     self.weapons = [None for _ in range(self.weapon_slots)]
+        # else:
+        #     weapons = weapons[:self.weapon_slots]  # Truncate any extra weapons
+        #     self.weapons = [weapon if weapon is not None else None for weapon in weapons]
 
         if auxiliary_modules is None:
             self.auxiliary_modules = []
         else:
             self.auxiliary_modules = auxiliary_modules
 
-        self.shield_slots = shield_slots
-        self.armor_slots = armor_slots
-        self.reactor_slots = reactor_slots
-        self.engine_slots = engine_slots
-        self.weapon_slots = weapon_slots
-        self.misc_slots = misc_slots
-        self.drone_slots = drone_slots
+        # self.equip_weapon(Weapon(), 0)
 
-        if weapon_locations is None:
-            self.weapon_locations = [(0, 0)]
-        else:
-            self.weapon_locations = weapon_locations
+    def equip_weapon(self, weapon, slot):
+
+        self.weapons[slot].weapon = weapon
+        self.weapons[slot].weapon.offset = self.weapons[slot].pos
 
     def update(self, actions, delta_time, boundaries, *args, **kwargs) -> None:
 
@@ -87,22 +98,29 @@ class Ship(Body):
             if action == "left":
                 self.direction[0] = -1
                 if self.horizontal_speed > -self.horizontal_max_speed:
-                    self.horizontal_speed += (self.horizontal_acceleration * delta_time / 100) * self.direction[0]
+                    self.horizontal_speed += (self.horizontal_acceleration * delta_time / 1000) * self.direction[0]
 
             if action == "right":
                 self.direction[0] = 1
                 if self.horizontal_speed < self.horizontal_max_speed:
-                    self.horizontal_speed += (self.horizontal_acceleration * delta_time / 100) * self.direction[0]
+                    self.horizontal_speed += (self.horizontal_acceleration * delta_time / 1000) * self.direction[0]
 
             if action == "forward":
                 self.direction[1] = -1
                 if self.vertical_speed > -self.vertical_max_speed:
-                    self.vertical_speed += (self.vertical_acceleration * delta_time / 100) * self.direction[1]
+                    self.vertical_speed += (self.vertical_acceleration * delta_time / 1000) * self.direction[1]
 
             if action == "backward":
                 self.direction[1] = 1
                 if self.vertical_speed < self.vertical_max_speed:
-                    self.vertical_speed += (self.vertical_acceleration * delta_time / 100) * self.direction[1]
+                    self.vertical_speed += (self.vertical_acceleration * delta_time / 1000) * self.direction[1]
+
+            if action == "fire":
+                for weapon in self.weapons:
+                    if weapon.weapon is not None:
+                        weapon.weapon.firing = True
+                    # if weapon.weapon.firing:
+                    #     projectiles.append(weapon.weapon.update(delta_time))
 
         if "left" not in actions and "right" not in actions:
             self.horizontal_speed = self.decelerate(delta_time, "horizontal")
@@ -110,6 +128,16 @@ class Ship(Body):
         if "forward" not in actions and "backward" not in actions:
             self.vertical_speed = self.decelerate(delta_time, "vertical")
 
+        if "fire" not in actions:
+            for weapon in self.weapons:
+                if weapon.weapon is not None:
+                    weapon.weapon.firing = False
+
+        for weapon in self.weapons:
+            if weapon.weapon is not None:
+                weapon.weapon.update(delta_time)
+
+        self.direction = self.direction.rotate(-self.angle)
         self.move(delta_time, boundaries)
 
     def decelerate(self, delta_time, direction):
@@ -126,18 +154,18 @@ class Ship(Body):
             acceleration = self.vertical_acceleration
 
         if speed and speed > 0:
-            speed -= (acceleration * delta_time / 100)
+            speed -= (acceleration * delta_time / 1000)
         elif speed < 0:
-            speed += (acceleration * delta_time / 100)
-        if math.isclose(speed, 0, abs_tol=0.1):
+            speed += (acceleration * delta_time / 1000)
+        if math.isclose(speed, 0, abs_tol=0.01):
             speed = 0
 
         return speed
 
     def move(self, delta_time, boundary):
 
-        self.pos += Vector2((delta_time * self.horizontal_speed) / 100,
-                            (delta_time * self.vertical_speed) / 100)
+        self.pos += Vector2((delta_time * self.horizontal_speed) / 1000,
+                            (delta_time * self.vertical_speed) / 1000)
         self.rect.center = self.pos
         if self.rect.left < 0:
             self.rect.left = 0
@@ -156,3 +184,10 @@ class Ship(Body):
             self.rect.bottom = boundary.bottom
             self.pos = self.rect.center
             self.vertical_speed = 0
+
+    class WeaponNode:
+
+        def __init__(self, pos=(0, 0), weapon=None):
+            self.pos = Vector2(pos)
+            self.weapon = weapon
+

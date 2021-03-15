@@ -5,6 +5,7 @@ from src import game_obj
 from src import player_settings
 from src.player import Player
 from src.npc import NPC
+from src.weapons import Weapon
 # from src import SCREENSIZE
 from src.guis import guis
 
@@ -26,7 +27,12 @@ pause_surface = pygame.Surface(size=player_settings.screensize)
 clock = pygame.time.Clock()
 
 player = Player(controls=player_settings.controls)
+player.ship.equip_weapon(Weapon(parent=player.ship), 0)
+player.ship.equip_weapon(Weapon(parent=player.ship), 1)
+
 enemy = NPC()
+enemy.ship.equip_weapon(Weapon(parent=enemy.ship), 0)
+enemy.ship.equip_weapon(Weapon(parent=enemy.ship), 1)
 
 # Apply player object to game object
 game_obj.bodies.add(player.ship, enemy.ship)

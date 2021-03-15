@@ -7,7 +7,7 @@ import math
 
 class Player(Instance):
 
-    def __init__(self, name="player", ship=Ship(pos=(800, 800)), controls=Controls()):
+    def __init__(self, name="player", ship=Ship(pos=(800, 800), weapon_locations=[(-5, 2), (5, 2)]), controls=Controls()):
         self.name = name
         super().add_instance()  # Add player to instances (Instance)
         self.ship = ship
@@ -21,10 +21,10 @@ class Player(Instance):
         self.original_image = self.ship.image.copy()
 
         # Temporary
-        self.ship.horizontal_max_speed = 50
-        self.ship.horizontal_acceleration = 5
-        self.ship.vertical_max_speed = 25
-        self.ship.vertical_acceleration = 2.5
+        self.ship.horizontal_max_speed = 500
+        self.ship.horizontal_acceleration = 225
+        self.ship.vertical_max_speed = 250
+        self.ship.vertical_acceleration = 125
 
     def update(self, delta_time, boundary, *_, **__):
 

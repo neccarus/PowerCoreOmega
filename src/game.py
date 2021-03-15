@@ -31,7 +31,7 @@ class Game(Instance):
         self.controllers = []
         self.bodies = pygame.sprite.Group()
         self.dead_bodies = []
-        self.projectiles = []
+        self.projectiles = pygame.sprite.Group()
         self.game_states = {
             "running": self.GameState(name="running"),
             "playing": self.GameState(name="playing"),
@@ -60,14 +60,23 @@ class Game(Instance):
 
         self.display.update()
         self.current_surface.fill(fill_color)
+
+        # TODO: this needs to be broken down
         for index, controller in enumerate(self.controllers):
-            controller.update(self.delta_time, self.current_surface.get_rect(), self.controllers[:index] + self.controllers[index+1:])
+            controller.update(self.delta_time, self.current_surface.get_rect(),
+                              self.controllers[:index] + self.controllers[index+1:])
         if self.game_state.name == "playing":
             self.bodies.draw(self.current_surface)
-        # self.clock.tick()
+            for controller in self.controllers:
+                for weapon in controller.ship.weapons:
+                    if weapon.weapon is not None:
+                        if weapon.weapon.firing and weapon.weapon.current_cool_down == 0:
+                            self.projectiles.add(weapon.weapon.fire())
+            self.projectiles.update(self.delta_time, self.display)
+            self.projectiles.draw(self.current_surface)
         self.delta_time = self.clock.tick(self.framerate)
 
-    # should be handled in body class?
+    # TODO: should be handled in body class?
     def update_bodies(self):
         for body in self.bodies[::-1]:
             body.check_if_alive()
@@ -101,7 +110,6 @@ class Game(Instance):
         self.game_states[state] = self.GameState(state, guis, surface, controllers)
 
     def set_game_state(self, state):
-        # self.game_state, = [st for st in self.game_states if st.name == state]
         self.game_state = self.game_states[state]
         self.current_surface = self.game_state.surface
         if self.screen:

@@ -5,7 +5,7 @@ import pygame
 
 class NPC:
 
-    def __init__(self, ship=Ship(pos=(800, 100)), ai=None):
+    def __init__(self, ship=Ship(pos=(800, 100), weapon_locations=[(-5, 2), (5, 2)]), ai=None):
         self.ship = ship
         self.ship.angle = 270
         self.ai = self.AI(ai, self)
@@ -18,10 +18,10 @@ class NPC:
         self.original_image = self.ship.image.copy()
 
         # Temporary
-        self.ship.horizontal_max_speed = 25
-        self.ship.horizontal_acceleration = 4
-        self.ship.vertical_max_speed = 25
-        self.ship.vertical_acceleration = 2.5
+        self.ship.horizontal_max_speed = 250
+        self.ship.horizontal_acceleration = 125
+        self.ship.vertical_max_speed = 250
+        self.ship.vertical_acceleration = 25
 
     def update(self, delta_time, boundary, enemies=None):
         if enemies is None:
@@ -32,7 +32,9 @@ class NPC:
             self.ai.acquire_target()
         if self.target:
             self.ai.move_to_attack()
+            self.ai.attack()
         self.ship.update(self.actions, delta_time, boundary)
+        self.actions = []
 
         # self.ship.update(self.actions, delta_time, boundary)
 
@@ -69,3 +71,7 @@ class NPC:
                 self.parent.actions.append(self.controls.get_signal("right"))
             if self.parent.ship.rect.centerx > self.parent.target.rect.centerx:
                 self.parent.actions.append(self.controls.get_signal("left"))
+
+        def attack(self):
+            if self.parent.ship.rect.centerx in range(self.parent.target.rect.centerx - 60, self.parent.target.rect.centerx + 60):
+                self.parent.actions.append(self.controls.get_signal("fire_weapon"))

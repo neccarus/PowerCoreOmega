@@ -17,8 +17,9 @@ class Body(pygame.sprite.Sprite):
         acceleration: the speed at which this body can accelerate in pixels per second
     """
 
-    def __init__(self, size=(20,), pos=(0, 0), health=100, sprite=None):
-        super().__init__()
+    def __init__(self, size=(20,), pos=(0, 0), health=100, sprite=None, vertical_speed=0, angle=90,
+                 direction=pygame.Vector2(1, 0), *args):
+        super().__init__(*args)
         if len(size) == 2:
             self.width, self.height = size
         elif len(size) == 1:
@@ -41,14 +42,22 @@ class Body(pygame.sprite.Sprite):
         self.current_health = self.health
         self.is_dead = False
         self.horizontal_speed = 0
-        self.vertical_speed = 0
+        self.vertical_speed = vertical_speed
         self.horizontal_max_speed = 0
         self.vertical_max_speed = 0
-        self.angle = 90
-        self.direction = pygame.math.Vector2(1, 0)
+        self.angle = angle
+        self.direction = direction
         self.horizontal_acceleration = 0
         self.vertical_acceleration = 0
 
     def check_if_alive(self):
         if self.current_health <= 0 and self.destructible:
             self.is_dead = True
+
+    def update(self, delta_time, *args, **kwargs):
+        self.check_if_alive()
+        # self.move(delta_time)
+
+    # def move(self, delta_time):
+    #     self.pos += pygame.Vector2((delta_time * self.horizontal_speed) / 1000,
+    #                                (delta_time * self.vertical_speed) / 1000)
