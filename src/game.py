@@ -28,7 +28,9 @@ class Game(Instance):
     def __init__(self, name):
         self.name = name
         super().add_instance()
-        self.controllers = []
+        # self.controllers = []
+        self.player = None
+        self.ai_controllers = []
         self.bodies = pygame.sprite.Group()
         self.dead_bodies = []
         self.projectiles = pygame.sprite.Group()
@@ -62,19 +64,53 @@ class Game(Instance):
         self.current_surface.fill(fill_color)
 
         # TODO: this needs to be broken down
-        for index, controller in enumerate(self.controllers):
-            controller.update(self.delta_time, self.current_surface.get_rect(),
-                              self.controllers[:index] + self.controllers[index+1:])
+        # for index, controller in enumerate(self.controllers):
+        #     controller.update(self.delta_time, self.current_surface.get_rect(),
+        #                       self.controllers[:index] + self.controllers[index+1:])
+        self.player.update(self.delta_time, self.current_surface.get_rect())
         if self.game_state.name == "playing":
             self.bodies.draw(self.current_surface)
-            for controller in self.controllers:
-                for weapon in controller.ship.weapons:
-                    if weapon.weapon is not None:
-                        if weapon.weapon.firing and weapon.weapon.current_cool_down == 0:
-                            self.projectiles.add(weapon.weapon.fire())
+
+            for weapon in self.player.ship.weapons:
+                self.update_weapon(weapon)
+
+            if self.ai_controllers:
+                for controller in self.ai_controllers:
+                    self.update_ai_controller(controller)
+
             self.projectiles.update(self.delta_time, self.display)
+            projectile_hits = pygame.sprite.spritecollide(self.player.ship, self.projectiles, False)
+            for projectile in projectile_hits:
+                if projectile.parent != self.player.ship:
+                    self.player.ship.current_health -= projectile.damage
+                    self.projectiles.remove(projectile)
+            for ai_controller in self.ai_controllers:
+                projectile_hits = pygame.sprite.spritecollide(ai_controller.ship, self.projectiles, False)
+
+                for projectile in projectile_hits:
+                    if projectile.parent != ai_controller.ship:
+                        ai_controller.ship.current_health -= projectile.damage
+                        self.projectiles.remove(projectile)
+
             self.projectiles.draw(self.current_surface)
+
+            for ai_controller in self.ai_controllers:
+                if ai_controller.ship.is_dead:
+                    self.bodies.remove(ai_controller.ship)
+                    self.ai_controllers.remove(ai_controller)
+                    ai_controller.kill()
+
         self.delta_time = self.clock.tick(self.framerate)
+
+    def update_weapon(self, weapon):
+        if weapon.weapon is not None:
+            if weapon.weapon.firing and weapon.weapon.current_cool_down == 0:
+                self.projectiles.add(weapon.weapon.fire())
+
+    def update_ai_controller(self, controller):
+        controller.update(self.delta_time, self.current_surface.get_rect(), self.player)
+        for weapon in controller.ship.weapons:
+            self.update_weapon(weapon)
 
     # TODO: should be handled in body class?
     def update_bodies(self):
@@ -98,9 +134,8 @@ class Game(Instance):
                 gui.activate_selected(current_mouse_pos, gui)
                 gui.let_go()
 
-        # TODO: npc objects should not be grouped in here, player needs to be separated
         if len(self.game_state.controllers) > 0:
-            for controller in self.controllers:
+            for controller in self.game_state.controllers:
                 controller.get_events(event)
 
     def new_game_state(self, state="running", guis=None, surface=None, controllers=None):
