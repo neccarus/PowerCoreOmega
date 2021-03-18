@@ -72,9 +72,9 @@ class Game(Instance):
             for weapon in self.player.ship.weapons:
                 self.update_weapon(weapon)
 
-            if self.ai_controllers:
-                for ai_controller in self.ai_controllers:
-                    self.update_ai_controller(ai_controller)
+            # if self.ai_controllers:
+            #     for ai_controller in self.ai_controllers:
+            #         self.update_ai_controller(ai_controller)
 
             self.projectiles.update(self.delta_time, self.display)
 
@@ -82,28 +82,34 @@ class Game(Instance):
 
             for ai_controller in self.ai_controllers:
                 self.detect_projectile_hits(ai_controller.ship, self.projectiles)
+                self.update_ai_controller(ai_controller)
 
             self.projectiles.draw(self.current_surface)
 
             self.bodies.draw(self.current_surface)
 
             for shield in self.player.ship.shields:
+                # print(shield)
                 # if shield.current_health > 0 and shield not in self.shields:
                 if shield.current_health > 0 and shield not in self.shields:
                     self.shields.add(shield)
-                if shield.current_health <= 0 and shield in self.shields:
-                    print("shields gone")
-                    self.shields.remove(shield)
+                # elif shield.current_health <= 0 and shield in self.shields:
+                #     self.shields.remove(shield)
 
+            # print(self.ai_controllers)
             for ai_controller in self.ai_controllers:
                 for shield in ai_controller.ship.shields:
+                    # print(shield)
                     if shield.current_health > 0 and shield not in self.shields:
                         self.shields.add(shield)
-                    if shield.current_health <= 0 and shield in self.shields:
-                        print("shields gone")
-                        self.shields.remove(shield)
+                    # print(len(self.shields.sprites()))
+                    # elif shield.current_health <= 0 and shield in self.shields:
+                    #     self.shields.remove(shield)
 
-            self.shields.draw(self.current_surface)
+            # self.shields.draw(self.current_surface)
+            for shield in self.shields:
+                if shield.current_health > 0:
+                    self.current_surface.blit(shield.image, shield.rect)
 
         self.delta_time = self.clock.tick(self.framerate)
 
@@ -118,6 +124,7 @@ class Game(Instance):
             self.bodies.remove(ai_controller.ship)
             self.ai_controllers.remove(ai_controller)
             ai_controller.kill()
+            # print("killed")
             return
         for weapon in ai_controller.ship.weapons:
             self.update_weapon(weapon)
@@ -128,6 +135,7 @@ class Game(Instance):
             if projectile.parent != target:
                 target.take_damage(projectile)
                 self.projectiles.remove(projectile)
+        # print(target.current_health)
 
     # TODO: should be handled in body class?
     def update_bodies(self):
@@ -209,5 +217,9 @@ class Game(Instance):
     def exit_game_loop(self, *_, **__):
         self.playing = False
         self.paused = False
+        self.shields = pygame.sprite.Group()
+        self.bodies.empty()
+        self.ai_controllers = []
+        self.projectiles.empty()
         if self.running:
             self.set_game_state("running")

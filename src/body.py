@@ -55,6 +55,7 @@ class Body(pygame.sprite.Sprite):
     def check_if_alive(self):
         if self.current_health <= 0 and self.destructible:
             self.is_dead = True
+            print("I am dead")
 
     def update(self, delta_time, *args, **kwargs):
         self.check_if_alive()

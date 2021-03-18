@@ -75,6 +75,7 @@ if __name__ == '__main__':
 
         if game_obj.playing:
 
+            print("initializing")
             player.acquire_ship(Ship(pos=(800, 800), weapon_locations=[(-5, 2), (5, 2)]))
             player.ship.equip_weapon(copy(splinter_gun), 0)
             player.ship.equip_weapon(copy(splinter_gun), 1)
@@ -84,6 +85,8 @@ if __name__ == '__main__':
             enemy.acquire_ship(Ship(pos=(800, 100), weapon_locations=[(-5, 2), (5, 2)]))
             enemy.ship.equip_weapon(copy(blaster), 0)
             enemy.ship.equip_weapon(copy(blaster), 1)
+            enemy.ship.equip_shield(copy(basic_shield))
+            # game_obj.shields.add(player.ship.shields, enemy.ship.shields)
 
             # Apply player object to game object
             game_obj.bodies.add(player.ship, enemy.ship)
@@ -119,12 +122,6 @@ if __name__ == '__main__':
 
             # Update game loop
             game_obj.update(fill_color=(0, 0, 0))
-
-        else:
-            game_obj.bodies.empty()
-            game_obj.ai_controllers = []
-            game_obj.projectiles.empty()
-            game_obj.shields.empty()
 
         # Update main menu loop
         game_obj.update(fill_color=(80, 80, 80))
