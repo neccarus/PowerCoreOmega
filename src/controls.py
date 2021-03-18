@@ -5,27 +5,27 @@ class Controls:
 
     def __init__(self, forward=pygame.K_w, backward=pygame.K_s, left=pygame.K_a,
                  right=pygame.K_d, fire_weapon=pygame.K_SPACE):
-        self.scheme = {
-            "forward": self.Scheme([forward], "forward"),
-            "backward": self.Scheme([backward], "backward"),
-            "left": self.Scheme([left], "left"),
-            "right": self.Scheme([right], "right"),
-            "fire_weapon": self.Scheme([fire_weapon], "fire"),
+        self.signals = {
+            "forward": self.Signal([forward], "forward"),
+            "backward": self.Signal([backward], "backward"),
+            "left": self.Signal([left], "left"),
+            "right": self.Signal([right], "right"),
+            "fire_weapon": self.Signal([fire_weapon], "fire"),
         }
 
     def get_signal(self, _input):
         # print(_input)
         if hasattr(_input, "key"):
-            scheme = [scheme for scheme in self.scheme.values() if _input.key in scheme.inputs]
+            signal = [signal for signal in self.signals.values() if _input.key in signal.inputs]
         else:
-            scheme = [scheme for scheme in self.scheme.values() if _input in scheme.inputs]
+            signal = [signal for signal in self.signals.values() if _input in signal.inputs]
         # print(scheme)
-        if len(scheme) > 0:
-            return scheme[0].signal
+        if len(signal) > 0:
+            return signal[0].signal
         else:
             return None
 
-    class Scheme:
+    class Signal:
 
         def __init__(self, inputs=None, signal=""):
             if inputs is None:
