@@ -1,5 +1,6 @@
 import pygame
 from guipyg.utils.utils import Instance
+from src.projectile import Projectile
 
 
 class Game(Instance):
@@ -12,7 +13,7 @@ class Game(Instance):
             name: name of the instance, used for GuiPyg's instancing of objects
             bodies: a list of all bodies present near the player
             dead_bodies: any bodies that are currently dead
-            projectiles: a list of all projectiles that are currently active
+            projectiles (list of Projectile): a list of all projectiles that are currently active
             game_states: a list of the available game states
             running: is the game running
             playing: are we currently playing the game
@@ -32,6 +33,7 @@ class Game(Instance):
         self.player = None
         self.ai_controllers = []
         self.bodies = pygame.sprite.Group()
+        self.shields = pygame.sprite.Group()
         self.dead_bodies = []
         self.projectiles = pygame.sprite.Group()
         self.game_states = {
@@ -63,42 +65,45 @@ class Game(Instance):
         self.display.update()
         self.current_surface.fill(fill_color)
 
-        # TODO: this needs to be broken down
-        # for index, controller in enumerate(self.controllers):
-        #     controller.update(self.delta_time, self.current_surface.get_rect(),
-        #                       self.controllers[:index] + self.controllers[index+1:])
-        self.player.update(self.delta_time, self.current_surface.get_rect())
+        self.player.update(self.delta_time, self.current_surface.get_rect(), self.current_surface)
+
         if self.game_state.name == "playing":
-            self.bodies.draw(self.current_surface)
 
             for weapon in self.player.ship.weapons:
                 self.update_weapon(weapon)
 
             if self.ai_controllers:
-                for controller in self.ai_controllers:
-                    self.update_ai_controller(controller)
+                for ai_controller in self.ai_controllers:
+                    self.update_ai_controller(ai_controller)
 
             self.projectiles.update(self.delta_time, self.display)
-            projectile_hits = pygame.sprite.spritecollide(self.player.ship, self.projectiles, False)
-            for projectile in projectile_hits:
-                if projectile.parent != self.player.ship:
-                    self.player.ship.current_health -= projectile.damage
-                    self.projectiles.remove(projectile)
-            for ai_controller in self.ai_controllers:
-                projectile_hits = pygame.sprite.spritecollide(ai_controller.ship, self.projectiles, False)
 
-                for projectile in projectile_hits:
-                    if projectile.parent != ai_controller.ship:
-                        ai_controller.ship.current_health -= projectile.damage
-                        self.projectiles.remove(projectile)
+            self.detect_projectile_hits(self.player.ship, self.projectiles)
+
+            for ai_controller in self.ai_controllers:
+                self.detect_projectile_hits(ai_controller.ship, self.projectiles)
 
             self.projectiles.draw(self.current_surface)
 
+            self.bodies.draw(self.current_surface)
+
+            for shield in self.player.ship.shields:
+                # if shield.current_health > 0 and shield not in self.shields:
+                if shield.current_health > 0 and shield not in self.shields:
+                    self.shields.add(shield)
+                if shield.current_health <= 0 and shield in self.shields:
+                    print("shields gone")
+                    self.shields.remove(shield)
+
             for ai_controller in self.ai_controllers:
-                if ai_controller.ship.is_dead:
-                    self.bodies.remove(ai_controller.ship)
-                    self.ai_controllers.remove(ai_controller)
-                    ai_controller.kill()
+                for shield in ai_controller.ship.shields:
+                    if shield.current_health > 0 and shield not in self.shields:
+                        self.shields.add(shield)
+                    if shield.current_health <= 0 and shield in self.shields:
+                        print("shields gone")
+                        self.shields.remove(shield)
+
+            self.shields.draw(self.current_surface)
 
         self.delta_time = self.clock.tick(self.framerate)
 
@@ -107,10 +112,22 @@ class Game(Instance):
             if weapon.weapon.firing and weapon.weapon.current_cool_down == 0:
                 self.projectiles.add(weapon.weapon.fire())
 
-    def update_ai_controller(self, controller):
-        controller.update(self.delta_time, self.current_surface.get_rect(), self.player)
-        for weapon in controller.ship.weapons:
+    def update_ai_controller(self, ai_controller):
+        ai_controller.update(self.delta_time, self.current_surface.get_rect(), self.current_surface, (self.player, ))
+        if ai_controller.ship.is_dead:
+            self.bodies.remove(ai_controller.ship)
+            self.ai_controllers.remove(ai_controller)
+            ai_controller.kill()
+            return
+        for weapon in ai_controller.ship.weapons:
             self.update_weapon(weapon)
+
+    def detect_projectile_hits(self, target, projectiles): # pass in projectiles as it could be from a seperate list in the future
+        projectile_hits = pygame.sprite.spritecollide(target, projectiles, False)
+        for projectile in projectile_hits:
+            if projectile.parent != target:
+                target.take_damage(projectile)
+                self.projectiles.remove(projectile)
 
     # TODO: should be handled in body class?
     def update_bodies(self):

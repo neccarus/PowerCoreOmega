@@ -49,6 +49,7 @@ class Body(pygame.sprite.Sprite):
         self.direction = direction
         self.horizontal_acceleration = 0
         self.vertical_acceleration = 0
+        self.mask = None
         self.get_mask()
 
     def check_if_alive(self):

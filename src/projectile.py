@@ -14,7 +14,7 @@ class Projectile(Body):
         self.parent = parent
 
         # Temporary
-        pygame.draw.rect(self.image, self.color, pygame.Rect(0, 0, 5, 5))
+        pygame.draw.rect(self.image, self.color, pygame.Rect(0, 0, self.width, self.height))
         self.original_image = self.image.copy()
         self.rect = self.image.get_rect(center=self.pos)
 
@@ -25,6 +25,7 @@ class Projectile(Body):
         self.move(delta_time)
         if not display.get_surface().get_rect().contains(self.rect):
             self.kill()
+            del self
 
     def move(self, delta_time):
         self.pos += (self.direction * self.speed * delta_time) / 1000

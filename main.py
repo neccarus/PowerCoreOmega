@@ -6,8 +6,11 @@ from src import player_settings
 from src.player import Player
 from src.npc import NPC
 from src.weapons import Weapon
+from src.shields import Shield
+from src.ship import Ship
 # from src import SCREENSIZE
 from src.guis import guis
+from copy import copy
 
 if os.name == 'posix':
     os.environ['SDL_AUDIODRIVER'] = 'dsp'
@@ -25,21 +28,21 @@ pause_surface = pygame.Surface(size=player_settings.screensize)
 
 clock = pygame.time.Clock()
 
+shotgun = Weapon(name="shotgun", projectile_color=(255, 255, 0), damage=5, spread=8, projectiles=10,
+                 projectile_grouping=3, fire_rate=1, speed=800)
+
+blaster = Weapon(name="blaster", damage=5, spread=0.7, fire_rate=0.2, speed=900)
+
+splinter_gun = Weapon(name="splinter gun", projectile_color=(255, 150, 0), projectile_size=(4, ),
+                      projectiles=3, projectile_grouping=1.5, fire_rate=0.5, damage=10, spread=3)
+
+basic_shield = Shield(name="basic shield", health=40, regen=5, broken_recharge_time=4)
+
 player = Player(controls=player_settings.controls)
-player.ship.equip_weapon(Weapon(projectile_color=(255, 255, 0), parent=player.ship, damage=4, spread=8, projectiles=10,
-                                projectile_grouping=3, fire_rate=1, speed=800), 0)
-player.ship.equip_weapon(
-    Weapon(projectile_color=(255, 255, 0), parent=player.ship, damage=4, spread=8, projectiles=10,
-           projectile_grouping=3, fire_rate=1, speed=800), 1)
 
-enemy = NPC()
-enemy.ship.equip_weapon(Weapon(parent=enemy.ship), 0)
-enemy.ship.equip_weapon(Weapon(parent=enemy.ship), 1)
+ai_ship = NPC()
 
-# Apply player object to game object
-game_obj.bodies.add(player.ship, enemy.ship)
 game_obj.player = player
-game_obj.ai_controllers.append(enemy)
 
 # Initialize game states
 game_obj.new_game_state("paused", [guis["pause_gui"]], pause_surface, [player, ])
@@ -70,6 +73,23 @@ if __name__ == '__main__':
                         event.key == pygame.K_ESCAPE:
                     sys.exit()
 
+        if game_obj.playing:
+
+            player.acquire_ship(Ship(pos=(800, 800), weapon_locations=[(-5, 2), (5, 2)]))
+            player.ship.equip_weapon(copy(splinter_gun), 0)
+            player.ship.equip_weapon(copy(splinter_gun), 1)
+            player.ship.equip_shield(copy(basic_shield))
+
+            enemy = copy(ai_ship)
+            enemy.acquire_ship(Ship(pos=(800, 100), weapon_locations=[(-5, 2), (5, 2)]))
+            enemy.ship.equip_weapon(copy(blaster), 0)
+            enemy.ship.equip_weapon(copy(blaster), 1)
+
+            # Apply player object to game object
+            game_obj.bodies.add(player.ship, enemy.ship)
+
+            game_obj.ai_controllers.append(enemy)
+
         while game_obj.playing:
             # Game Loop
             for event in pygame.event.get():
@@ -99,6 +119,12 @@ if __name__ == '__main__':
 
             # Update game loop
             game_obj.update(fill_color=(0, 0, 0))
+
+        else:
+            game_obj.bodies.empty()
+            game_obj.ai_controllers = []
+            game_obj.projectiles.empty()
+            game_obj.shields.empty()
 
         # Update main menu loop
         game_obj.update(fill_color=(80, 80, 80))

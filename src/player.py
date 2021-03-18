@@ -7,19 +7,47 @@ import math
 
 class Player(Instance):
 
-    def __init__(self, name="player", ship=Ship(pos=(800, 800), weapon_locations=[(-5, 2), (5, 2)]),
+    def __init__(self, name="player",
+                 ship=None,
                  controls=Controls()):
         self.name = name
         super().add_instance()  # Add player to instances (Instance)
         self.ship = ship
-        self.ship.parent = self
+        if ship:
+            self.ship.parent = self
+
+            # Temporary
+            pygame.draw.polygon(self.ship.image, pygame.Color('dodgerblue'),
+                                ((0, 0), (20, 10), (0, 20)))
+            self.original_image = self.ship.image.copy()
+
+            # Temporary
+            self.ship.horizontal_max_speed = 500
+            self.ship.horizontal_acceleration = 225
+            self.ship.vertical_max_speed = 250
+            self.ship.vertical_acceleration = 125
+            self.ship.get_mask()
+
         self.score = 0
         self.credits = 0
         self.controls = controls
         self.actions = []
 
+    def update(self, delta_time, boundary, surface, *_, **__):
+
+        if self.ship:
+            self.ship.update(self.actions, delta_time, boundary, surface)
+
+            self.ship.image = pygame.transform.rotate(self.original_image, self.ship.angle)
+            self.ship.rect = self.ship.image.get_rect(center=self.ship.rect.center)
+
+    def acquire_ship(self, ship):
+        self.ship = ship
+        self.ship.parent = self
+
         # Temporary
-        pygame.draw.polygon(self.ship.image, pygame.Color('dodgerblue'), ((0, 0), (20, 10), (0, 20)))
+        pygame.draw.polygon(self.ship.image, pygame.Color('dodgerblue'),
+                            ((0, 0), (20, 10), (0, 20)))
         self.original_image = self.ship.image.copy()
 
         # Temporary
@@ -28,13 +56,6 @@ class Player(Instance):
         self.ship.vertical_max_speed = 250
         self.ship.vertical_acceleration = 125
         self.ship.get_mask()
-
-    def update(self, delta_time, boundary, *_, **__):
-
-        self.ship.update(self.actions, delta_time, boundary)
-
-        self.ship.image = pygame.transform.rotate(self.original_image, self.ship.angle)
-        self.ship.rect = self.ship.image.get_rect(center=self.ship.rect.center)
 
     def kill(self):
         del self.ship

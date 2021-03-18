@@ -2,9 +2,10 @@ from src.body import Body
 from src.weapons import Weapon
 import math
 from pygame import Vector2
+from guipyg.utils.utils import Instance
 
 
-class Ship(Body):
+class Ship(Body, Instance):
     """
     Ship class is what all ships in game are derived from, base class is Body.
 
@@ -35,6 +36,7 @@ class Ship(Body):
                  weapon_locations=None, parent=None, *args, **kwargs):
 
         super().__init__(*args, **kwargs)
+        super().add_instance()
 
         self.shield_slots = shield_slots
         self.armor_slots = armor_slots
@@ -44,6 +46,8 @@ class Ship(Body):
         self.misc_slots = misc_slots
         self.drone_slots = drone_slots
         self.parent = parent
+        self.shielded = False
+        self.shield_health = 0
 
         if weapon_locations is None:
             self.weapon_locations = [(0, 0)]
@@ -75,25 +79,23 @@ class Ship(Body):
         else:
             self.engines = engines
 
-        # if weapons is None:
-        #     self.weapons = [None for _ in range(self.weapon_slots)]
-        # else:
-        #     weapons = weapons[:self.weapon_slots]  # Truncate any extra weapons
-        #     self.weapons = [weapon if weapon is not None else None for weapon in weapons]
-
         if auxiliary_modules is None:
             self.auxiliary_modules = []
         else:
             self.auxiliary_modules = auxiliary_modules
 
-        # self.equip_weapon(Weapon(), 0)
-
     def equip_weapon(self, weapon, slot):
 
         self.weapons[slot].weapon = weapon
-        self.weapons[slot].weapon.offset = self.weapons[slot].pos
+        weapon.equip_to_parent(self, slot)
 
-    def update(self, actions, delta_time, boundaries, *args, **kwargs) -> None:
+    def equip_shield(self, shield):
+
+        self.shields.append(shield)
+        shield.equip_to_parent(self)
+        self.shielded = True
+
+    def update(self, actions, delta_time, boundaries, surface, *args, **kwargs) -> None:
 
         super().update(delta_time, *args, **kwargs)
         for action in actions:
@@ -121,8 +123,6 @@ class Ship(Body):
                 for weapon in self.weapons:
                     if weapon.weapon is not None:
                         weapon.weapon.firing = True
-                    # if weapon.weapon.firing:
-                    #     projectiles.append(weapon.weapon.update(delta_time))
 
         if "left" not in actions and "right" not in actions:
             self.horizontal_speed = self.decelerate(delta_time, "horizontal")
@@ -141,6 +141,15 @@ class Ship(Body):
 
         self.direction = self.direction.rotate(-self.angle)
         self.move(delta_time, boundaries)
+
+        self.shield_health = 0
+        for shield in self.shields:
+            shield.update(delta_time, surface)
+            self.shield_health += shield.current_health
+        if self.shield_health > 0:
+            self.shielded = True
+        else:
+            self.shielded = False
 
     def decelerate(self, delta_time, direction):
 
@@ -169,8 +178,8 @@ class Ship(Body):
         self.pos += Vector2((delta_time * self.horizontal_speed) / 1000,
                             (delta_time * self.vertical_speed) / 1000)
         self.rect.center = self.pos
-        if self.rect.left < 0:
-            self.rect.left = 0
+        if self.rect.left < boundary.left:
+            self.rect.left = boundary.left
             self.pos = self.rect.center
             self.horizontal_speed = 0
         elif self.rect.right > boundary.right:
@@ -178,14 +187,37 @@ class Ship(Body):
             self.pos = self.rect.center
             self.horizontal_speed = 0
 
-        if self.rect.top < 0:
-            self.rect.top = 0
+        if self.rect.top < boundary.top:
+            self.rect.top = boundary.top
             self.pos = self.rect.center
             self.vertical_speed = 0
         elif self.rect.bottom > boundary.bottom:
             self.rect.bottom = boundary.bottom
             self.pos = self.rect.center
             self.vertical_speed = 0
+
+    def take_damage(self, source):
+        damage = source.damage
+        if len(self.shields) > 0:
+            if self.shielded:
+                if self.shield_health > 0:
+                    self.shield_health -= damage
+                for shield in self.shields:
+                    if 0 < shield.current_health <= damage:
+                        segmented_damage = int(damage - shield.current_health)
+                        shield.current_health -= segmented_damage
+                        damage -= int(segmented_damage)
+                        # print(damage)
+
+                    elif shield.current_health > 0 and damage < shield.current_health:
+                        shield.current_health -= damage
+                        # print(damage)
+                        break
+
+            elif not self.shielded:
+                self.current_health -= damage
+        else:
+            self.current_health -= damage
 
     class WeaponNode:
 
