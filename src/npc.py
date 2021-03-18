@@ -7,6 +7,7 @@ class NPC:
 
     def __init__(self, ship=Ship(pos=(800, 100), weapon_locations=[(-5, 2), (5, 2)]), ai=None):
         self.ship = ship
+        self.ship.parent = self
         self.ship.angle = 270
         self.ai = self.AI(ai, self)
         self.enemies = []
@@ -22,12 +23,14 @@ class NPC:
         self.ship.horizontal_acceleration = 125
         self.ship.vertical_max_speed = 250
         self.ship.vertical_acceleration = 25
+        self.ship.get_mask()
 
     def update(self, delta_time, boundary, enemies=None):
         if enemies is None:
             self.enemies = []
         else:
             self.enemies = enemies
+        # self.get_events()
         if not self.target:
             self.ai.acquire_target()
         if self.target:
@@ -41,10 +44,17 @@ class NPC:
         self.ship.image = pygame.transform.rotate(self.original_image, self.ship.angle)
         self.ship.rect = self.ship.image.get_rect(center=self.ship.rect.center)
 
-    # TODO: NPC needs to be separated from game object controllers
-    def get_events(self, *_, **__):
+    def kill(self):
+        del self.ship
+        del self
 
-        pass
+    # TODO: NPC needs to be separated from game object controllers
+    # def get_events(self, *_, **__):
+    #     if not self.target:
+    #         self.ai.acquire_target()
+    #     if self.target:
+    #         self.ai.move_to_attack()
+    #         self.ai.attack()
 
     class AI:
 
@@ -56,14 +66,17 @@ class NPC:
         def acquire_target(self):
             shortest_distance = 0
             target = None
-            if self.parent.enemies:
-                for enemy in self.parent.enemies:
-                    enemy_ship = enemy.ship
-                    distance = self.parent.ship.pos.distance_to(enemy_ship.pos)
-                    if shortest_distance == 0 or distance < shortest_distance:
-                        target = enemy_ship
+
+            # TODO rework this code to incorporate "Factions"
+            # if self.parent.enemies:
+            #     for enemy in self.parent.enemies:
+            enemy_ship = self.parent.enemies.ship
+            distance = self.parent.ship.pos.distance_to(enemy_ship.pos)
+            if shortest_distance == 0 or distance < shortest_distance:
+                target = enemy_ship
 
             self.parent.target = target
+            print(self.parent.target.name)
 
         def move_to_attack(self):
             # TODO: redo calculations

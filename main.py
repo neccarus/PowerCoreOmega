@@ -9,7 +9,6 @@ from src.weapons import Weapon
 # from src import SCREENSIZE
 from src.guis import guis
 
-
 if os.name == 'posix':
     os.environ['SDL_AUDIODRIVER'] = 'dsp'
 
@@ -27,8 +26,11 @@ pause_surface = pygame.Surface(size=player_settings.screensize)
 clock = pygame.time.Clock()
 
 player = Player(controls=player_settings.controls)
-player.ship.equip_weapon(Weapon(parent=player.ship), 0)
-player.ship.equip_weapon(Weapon(parent=player.ship), 1)
+player.ship.equip_weapon(Weapon(projectile_color=(255, 255, 0), parent=player.ship, damage=4, spread=8, projectiles=10,
+                                projectile_grouping=3, fire_rate=1, speed=800), 0)
+player.ship.equip_weapon(
+    Weapon(projectile_color=(255, 255, 0), parent=player.ship, damage=4, spread=8, projectiles=10,
+           projectile_grouping=3, fire_rate=1, speed=800), 1)
 
 enemy = NPC()
 enemy.ship.equip_weapon(Weapon(parent=enemy.ship), 0)
@@ -36,8 +38,8 @@ enemy.ship.equip_weapon(Weapon(parent=enemy.ship), 1)
 
 # Apply player object to game object
 game_obj.bodies.add(player.ship, enemy.ship)
-game_obj.controllers.append(player)
-game_obj.controllers.append(enemy)
+game_obj.player = player
+game_obj.ai_controllers.append(enemy)
 
 # Initialize game states
 game_obj.new_game_state("paused", [guis["pause_gui"]], pause_surface, [player, ])
@@ -51,7 +53,6 @@ game_obj.screen = screen
 game_obj.display = pygame.display
 game_obj.clock = clock
 game_obj.framerate = 60
-
 
 if __name__ == '__main__':
 

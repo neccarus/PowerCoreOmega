@@ -4,14 +4,17 @@ import pygame
 
 class Projectile(Body):
 
-    def __init__(self, speed, pos, *args, **kwargs):
+    def __init__(self, speed, pos, damage=0, color=(0, 255, 0), parent=None, *args, **kwargs):
 
         super().__init__(*args, **kwargs)
         self.speed = speed
         self.pos = pygame.Vector2(pos)
+        self.damage = damage
+        self.color = color
+        self.parent = parent
 
         # Temporary
-        pygame.draw.rect(self.image, (0, 255, 0), pygame.Rect(0, 0, 5, 5))
+        pygame.draw.rect(self.image, self.color, pygame.Rect(0, 0, 5, 5))
         self.original_image = self.image.copy()
         self.rect = self.image.get_rect(center=self.pos)
 

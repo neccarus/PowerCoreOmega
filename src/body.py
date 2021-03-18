@@ -49,6 +49,7 @@ class Body(pygame.sprite.Sprite):
         self.direction = direction
         self.horizontal_acceleration = 0
         self.vertical_acceleration = 0
+        self.get_mask()
 
     def check_if_alive(self):
         if self.current_health <= 0 and self.destructible:
@@ -57,6 +58,9 @@ class Body(pygame.sprite.Sprite):
     def update(self, delta_time, *args, **kwargs):
         self.check_if_alive()
         # self.move(delta_time)
+
+    def get_mask(self):
+        self.mask = pygame.mask.from_surface(self.image)
 
     # def move(self, delta_time):
     #     self.pos += pygame.Vector2((delta_time * self.horizontal_speed) / 1000,

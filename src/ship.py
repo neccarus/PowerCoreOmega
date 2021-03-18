@@ -32,7 +32,7 @@ class Ship(Body):
     def __init__(self, name="Python", ship_type="Interceptor", shields=None,
                  armor=None, reactors=None, engines=None, auxiliary_modules=None, shield_slots=0,
                  armor_slots=0, reactor_slots=0, engine_slots=0, weapon_slots=2, misc_slots=0, drone_slots=0,
-                 weapon_locations=None, *args, **kwargs):
+                 weapon_locations=None, parent=None, *args, **kwargs):
 
         super().__init__(*args, **kwargs)
 
@@ -43,6 +43,7 @@ class Ship(Body):
         self.weapon_slots = weapon_slots
         self.misc_slots = misc_slots
         self.drone_slots = drone_slots
+        self.parent = parent
 
         if weapon_locations is None:
             self.weapon_locations = [(0, 0)]
@@ -94,6 +95,7 @@ class Ship(Body):
 
     def update(self, actions, delta_time, boundaries, *args, **kwargs) -> None:
 
+        super().update(delta_time, *args, **kwargs)
         for action in actions:
             if action == "left":
                 self.direction[0] = -1
@@ -191,3 +193,5 @@ class Ship(Body):
             self.pos = Vector2(pos)
             self.weapon = weapon
 
+        def detach(self):
+            self.weapon = None

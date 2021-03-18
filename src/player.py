@@ -7,10 +7,12 @@ import math
 
 class Player(Instance):
 
-    def __init__(self, name="player", ship=Ship(pos=(800, 800), weapon_locations=[(-5, 2), (5, 2)]), controls=Controls()):
+    def __init__(self, name="player", ship=Ship(pos=(800, 800), weapon_locations=[(-5, 2), (5, 2)]),
+                 controls=Controls()):
         self.name = name
         super().add_instance()  # Add player to instances (Instance)
         self.ship = ship
+        self.ship.parent = self
         self.score = 0
         self.credits = 0
         self.controls = controls
@@ -25,6 +27,7 @@ class Player(Instance):
         self.ship.horizontal_acceleration = 225
         self.ship.vertical_max_speed = 250
         self.ship.vertical_acceleration = 125
+        self.ship.get_mask()
 
     def update(self, delta_time, boundary, *_, **__):
 
@@ -32,6 +35,10 @@ class Player(Instance):
 
         self.ship.image = pygame.transform.rotate(self.original_image, self.ship.angle)
         self.ship.rect = self.ship.image.get_rect(center=self.ship.rect.center)
+
+    def kill(self):
+        del self.ship
+        del self
 
     def get_events(self, event):
         if event.type == pygame.KEYDOWN:
