@@ -72,10 +72,6 @@ class Game(Instance):
             for weapon in self.player.ship.weapons:
                 self.update_weapon(weapon)
 
-            # if self.ai_controllers:
-            #     for ai_controller in self.ai_controllers:
-            #         self.update_ai_controller(ai_controller)
-
             self.projectiles.update(self.delta_time, self.display)
 
             self.detect_projectile_hits(self.player.ship, self.projectiles)
@@ -89,13 +85,12 @@ class Game(Instance):
             self.bodies.draw(self.current_surface)
 
             for shield in self.player.ship.shields:
+
                 if shield.current_health > 0 and shield not in self.shields:
                     self.shields.add(shield)
 
-            # print(self.ai_controllers)
             for ai_controller in self.ai_controllers:
                 for shield in ai_controller.ship.shields:
-                    # print(shield)
                     if shield.current_health > 0 and shield not in self.shields:
                         self.shields.add(shield)
 

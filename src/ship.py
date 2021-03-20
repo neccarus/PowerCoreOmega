@@ -81,16 +81,6 @@ class Ship(Body, Instance):
         else:
             self.auxiliary_modules = auxiliary_modules
 
-    # def kill(self) -> None:
-    #     for shield in self.shields:
-    #         shield.kill()
-    #     super().kill()
-    #
-    # def remove(self, *args):
-    #     for shield in self.shields:
-    #         shield.kill()
-    #     super().remove(*args)
-
     def equip_weapon(self, weapon, slot):
 
         self.weapons[slot].weapon = weapon
