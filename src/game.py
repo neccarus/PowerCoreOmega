@@ -89,12 +89,8 @@ class Game(Instance):
             self.bodies.draw(self.current_surface)
 
             for shield in self.player.ship.shields:
-                # print(shield)
-                # if shield.current_health > 0 and shield not in self.shields:
                 if shield.current_health > 0 and shield not in self.shields:
                     self.shields.add(shield)
-                # elif shield.current_health <= 0 and shield in self.shields:
-                #     self.shields.remove(shield)
 
             # print(self.ai_controllers)
             for ai_controller in self.ai_controllers:
@@ -102,11 +98,7 @@ class Game(Instance):
                     # print(shield)
                     if shield.current_health > 0 and shield not in self.shields:
                         self.shields.add(shield)
-                    # print(len(self.shields.sprites()))
-                    # elif shield.current_health <= 0 and shield in self.shields:
-                    #     self.shields.remove(shield)
 
-            # self.shields.draw(self.current_surface)
             for shield in self.shields:
                 if shield.current_health > 0:
                     self.current_surface.blit(shield.image, shield.rect)
@@ -116,7 +108,9 @@ class Game(Instance):
     def update_weapon(self, weapon):
         if weapon.weapon is not None:
             if weapon.weapon.firing and weapon.weapon.current_cool_down == 0:
-                self.projectiles.add(weapon.weapon.fire())
+                projectiles_to_add = weapon.weapon.fire()
+                if len(projectiles_to_add) > 0:
+                    self.projectiles.add(projectiles_to_add)
 
     def update_ai_controller(self, ai_controller):
         ai_controller.update(self.delta_time, self.current_surface.get_rect(), self.current_surface, (self.player, ))

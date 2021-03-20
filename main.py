@@ -8,6 +8,7 @@ from src.npc import NPC
 from src.weapons import Weapon
 from src.shields import Shield
 from src.ship import Ship
+from src.reactors import Reactor
 # from src import SCREENSIZE
 from src.guis import guis
 from copy import copy
@@ -34,7 +35,11 @@ shotgun = Weapon(name="shotgun", projectile_color=(255, 255, 0), damage=5, sprea
 blaster = Weapon(name="blaster", damage=5, spread=0.7, fire_rate=0.2, speed=900)
 
 splinter_gun = Weapon(name="splinter gun", projectile_color=(255, 150, 0), projectile_size=(4, ),
-                      projectiles=3, projectile_grouping=1.5, fire_rate=0.5, damage=10, spread=3)
+                      projectiles=3, projectile_grouping=1.5, fire_rate=0.5, damage=10, spread=3,
+                      heat_generated=25, power_use=6)
+
+basic_reactor = Reactor(name="basic reactor", recharge_rate=6, power_capacity=50,
+                        cooling_rate=3, heat_capacity=400, heat_inefficiency=2)
 
 basic_shield = Shield(name="basic shield", health=40, regen=5, broken_recharge_time=4)
 
@@ -76,16 +81,19 @@ if __name__ == '__main__':
         if game_obj.playing:
 
             print("initializing")
-            player.acquire_ship(Ship(pos=(800, 800), weapon_locations=[(-5, 2), (5, 2)]))
+            player.acquire_ship(Ship(pos=(800, 800), weapon_locations=[(-5, 2), (5, 2)],
+                                     cooling_modifier=1.25))
             player.ship.equip_weapon(copy(splinter_gun), 0)
             player.ship.equip_weapon(copy(splinter_gun), 1)
             player.ship.equip_shield(copy(basic_shield))
+            player.ship.equip_reactor(copy(basic_reactor))
 
             enemy = copy(ai_ship)
             enemy.acquire_ship(Ship(pos=(800, 100), weapon_locations=[(-5, 2), (5, 2)]))
             enemy.ship.equip_weapon(copy(blaster), 0)
             enemy.ship.equip_weapon(copy(blaster), 1)
             enemy.ship.equip_shield(copy(basic_shield))
+            enemy.ship.equip_reactor(copy(basic_reactor))
             # game_obj.shields.add(player.ship.shields, enemy.ship.shields)
 
             # Apply player object to game object

@@ -7,3 +7,7 @@ class Settings(Instance):
         self.controls = controls
         self.screensize = screensize
         self.fullscreen = fullscreen
+
+
+def clamp(num, smallest, largest):
+    return max(smallest, min(num, largest))

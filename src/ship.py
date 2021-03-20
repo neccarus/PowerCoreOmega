@@ -31,21 +31,21 @@ class Ship(Body, Instance):
     """
 
     def __init__(self, name="Python", ship_type="Interceptor", shields=None,
-                 armor=None, reactors=None, engines=None, auxiliary_modules=None, shield_slots=0,
-                 armor_slots=0, reactor_slots=0, engine_slots=0, weapon_slots=2, misc_slots=0, drone_slots=0,
-                 weapon_locations=None, parent=None, *args, **kwargs):
+                 armor=None, reactor=None, engines=None, auxiliary_modules=None, shield_slots=0,
+                 armor_slots=0, engine_slots=0, weapon_slots=2, misc_slots=0, drone_slots=0,
+                 weapon_locations=None, parent=None, cooling_modifier=1, *args, **kwargs):
 
         super().__init__(*args, **kwargs)
         super().add_instance()
 
         self.shield_slots = shield_slots
         self.armor_slots = armor_slots
-        self.reactor_slots = reactor_slots
         self.engine_slots = engine_slots
         self.weapon_slots = weapon_slots
         self.misc_slots = misc_slots
         self.drone_slots = drone_slots
         self.parent = parent
+        self.cooling_modifier = cooling_modifier
         self.shielded = False
         self.shield_health = 0
 
@@ -69,10 +69,7 @@ class Ship(Body, Instance):
         else:
             self.armor = armor
 
-        if reactors is None:
-            self.reactors = []
-        else:
-            self.reactors = reactors
+        self.reactor = reactor
 
         if engines is None:
             self.engines = []
@@ -104,6 +101,11 @@ class Ship(Body, Instance):
         self.shields.append(shield)
         shield.equip_to_parent(self)
         self.shielded = True
+
+    def equip_reactor(self, reactor):
+
+        self.reactor = reactor
+        reactor.equip_to_parent(self)
 
     def update(self, actions, delta_time, boundaries, surface, *args, **kwargs) -> None:
 
@@ -152,6 +154,7 @@ class Ship(Body, Instance):
         self.direction = self.direction.rotate(-self.angle)
         self.move(delta_time, boundaries)
 
+        # TODO: shield handling needs to be reworked for a single shield module and should be moved to the Shield class
         self.shield_health = 0
         for shield in self.shields:
             shield.update(delta_time, surface)
@@ -160,6 +163,8 @@ class Ship(Body, Instance):
             self.shielded = True
         else:
             self.shielded = False
+
+        self.reactor.update(delta_time)
 
     def decelerate(self, delta_time, direction):
 

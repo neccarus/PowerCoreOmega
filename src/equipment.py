@@ -21,4 +21,11 @@ class Equipment(sprite.Sprite):
         self.image.set_colorkey((0, 0, 0))
         self.rect = self.image.get_rect()
         self.pos = Vector2(self.rect.center)
+        self.angle = 0
 
+    def equip_to_parent(self, parent):
+
+        self.parent = parent
+        self.angle = self.parent.angle - 90
+        self.pos = self.parent.pos
+        # self.rotate()
