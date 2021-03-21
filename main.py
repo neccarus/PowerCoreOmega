@@ -39,7 +39,7 @@ splinter_gun = Weapon(name="splinter gun", projectile_color=(255, 150, 0), proje
                       heat_generated=25, power_use=6)
 
 basic_reactor = Reactor(name="basic reactor", recharge_rate=6, power_capacity=50,
-                        cooling_rate=3, heat_capacity=400, heat_inefficiency=2)
+                        cooling_rate=4.5, heat_capacity=400, heat_inefficiency=1.75, overheat_threshold=0.92)
 
 basic_shield = Shield(name="basic shield", health=40, regen=5, broken_recharge_time=4)
 

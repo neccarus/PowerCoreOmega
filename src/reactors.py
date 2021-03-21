@@ -22,7 +22,7 @@ class Reactor(Equipment):
         super().equip_to_parent(parent)
 
     def update(self, delta_time, *args, **kwargs) -> None:
-        if self.current_heat < self.heat_capacity and self.current_power < self.power_capacity:
+        if not self.overheating and self.current_power < self.power_capacity:
             power_generated = clamp(self.current_power + (self.recharge_rate * delta_time / 1000),
                                     0, self.power_capacity) - self.current_power
             self.current_heat += power_generated * self.heat_inefficiency
@@ -36,6 +36,6 @@ class Reactor(Equipment):
             if self.current_heat < self.heat_capacity * self.overheat_threshold:
                 self.overheating = False
 
-        print(f"Current Power {self.current_power}/Power Capacity {self.power_capacity}")
-        print(f"Current Heat {self.current_heat}/Heat Capacity {self.heat_capacity}")
-        print(f"Overheating: {self.overheating}")
+        # print(f"Current Power {self.current_power}/Power Capacity {self.power_capacity}")
+        # print(f"Current Heat {self.current_heat}/Heat Capacity {self.heat_capacity}")
+        # print(f"Overheating: {self.overheating}")
