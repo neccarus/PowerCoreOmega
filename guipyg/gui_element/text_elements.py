@@ -5,6 +5,7 @@ import pygame
 class TextElement(Element):
 
     def __init__(self, text="", default_text="Text", antialias=False, *args, **kwargs):
+        # TODO: TextElements should be able to size themselves if not given a width/height, or there could be an option for autosizing
         self.text = text
         self.default_text = default_text
         self.antialias = antialias

@@ -93,3 +93,4 @@ pause_gui.apply_theme()
 
 guis["start_gui"] = start_gui
 guis["pause_gui"] = pause_gui
+guis["game_gui"] = None

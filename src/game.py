@@ -1,5 +1,7 @@
 import pygame
 from guipyg.utils.utils import Instance
+from guipyg.gui_element.graph_elements import BarElement
+from guipyg.gui import GUI
 from src.projectile import Projectile
 
 
@@ -58,7 +60,7 @@ class Game(Instance):
     def update(self, fill_color=(0, 0, 0)):
         if len(self.game_state.guis) > 0:
             for gui in self.game_state.guis:
-                gui.update(self.current_surface)
+                gui.update(self.current_surface, need_update=True)
 
         self.screen.blit(self.current_surface, (0, 0))
 

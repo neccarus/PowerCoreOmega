@@ -74,7 +74,7 @@ class GUI(ElementGroup):
         self.set_clip(self.clip_rect)
 
     def update(self,
-               screen):  # TODO: there must be a more efficient way to do this than have every function loop over every element
+               screen, need_update=False):  # TODO: there must be a more efficient way to do this than have every function loop over every element
         # screen to blit to
         if self.need_update and self.is_active:
             self.fill((0, 0, 0))
@@ -85,7 +85,7 @@ class GUI(ElementGroup):
             self.draw_element_border()
             self.blit_elements()
         screen.blit(self, (self.pos_x, self.pos_y))
-        self.need_update = False
+        self.need_update = need_update
 
     def select_element(self, mouse_pos):
         if not self.selected_element:
