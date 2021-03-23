@@ -126,6 +126,9 @@ class Ship(Body, Instance):
                     if weapon.weapon is not None:
                         weapon.weapon.firing = True
 
+            if action == "heatsink":
+                self.reactor.is_venting = True
+
         if "left" not in actions and "right" not in actions:
             self.horizontal_speed = self.decelerate(delta_time, "horizontal")
 
@@ -136,6 +139,9 @@ class Ship(Body, Instance):
             for weapon in self.weapons:
                 if weapon.weapon is not None:
                     weapon.weapon.firing = False
+
+        if "heatsink" not in actions:
+            self.reactor.is_venting = False
 
         for weapon in self.weapons:
             if weapon.weapon is not None:

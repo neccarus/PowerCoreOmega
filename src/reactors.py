@@ -17,6 +17,8 @@ class Reactor(Equipment):
         self.overheat_threshold = overheat_threshold
         self.overheating = False
         self.current_heat = 0
+        # TODO: need to connect is_venting to a timer and each heatsink works for a limited time
+        self.is_venting = False  # venting causes heat to dissipate 4 times faster
 
     def equip_to_parent(self, parent):
         super().equip_to_parent(parent)
@@ -32,10 +34,6 @@ class Reactor(Equipment):
             self.overheating = True
 
         if self.current_heat > 0:
-            self.current_heat -= (self.cooling_rate * self.parent.cooling_modifier) * delta_time / 1000
+            self.current_heat -= (self.cooling_rate * self.parent.cooling_modifier * (self.is_venting * 4)) * delta_time / 1000
             if self.current_heat < self.heat_capacity * self.overheat_threshold:
                 self.overheating = False
-
-        # print(f"Current Power {self.current_power}/Power Capacity {self.power_capacity}")
-        # print(f"Current Heat {self.current_heat}/Heat Capacity {self.heat_capacity}")
-        # print(f"Overheating: {self.overheating}")

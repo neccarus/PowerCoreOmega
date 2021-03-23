@@ -32,15 +32,14 @@ pause_surface = pygame.Surface(size=player_settings.screensize)
 clock = pygame.time.Clock()
 
 shotgun = Weapon(name="shotgun", projectile_color=(255, 255, 0), damage=5, spread=8, projectiles=10,
-                 projectile_grouping=3, fire_rate=1, speed=800)
+                 projectile_grouping=3, fire_rate=1, speed=800, power_use=8)
 
 blaster = Weapon(name="blaster", damage=5, spread=0.7, fire_rate=0.2, speed=900)
 
 splinter_gun = Weapon(name="splinter gun", projectile_color=(255, 150, 0), projectile_size=(4,),
-                      projectiles=3, projectile_grouping=1.5, fire_rate=0.5, damage=10, spread=3,
-                      heat_generated=25, power_use=6)
+                      projectiles=3, projectile_grouping=1.5, fire_rate=0.5, damage=10, spread=3, power_use=5)
 
-basic_reactor = Reactor(name="basic reactor", recharge_rate=10, power_capacity=50,
+basic_reactor = Reactor(name="basic reactor", recharge_rate=10, power_capacity=75,
                         cooling_rate=7.5, heat_capacity=400, heat_inefficiency=1.75, overheat_threshold=0.92)
 
 basic_shield = Shield(name="basic shield", health=40, regen=5, broken_recharge_time=4, recharge_power_ratio=1.5)
@@ -64,13 +63,10 @@ game_obj.display = pygame.display
 game_obj.clock = clock
 game_obj.framerate = 60
 
-player_gui = GUI(pos_x=game_obj.screen.get_width() * 0.45, pos_y=game_obj.screen.get_height() * 0.8, width=250,
+player_gui = GUI(pos_x=game_obj.screen.get_width() * 0.42, pos_y=game_obj.screen.get_height() * 0.8, width=250,
                  height=100,
                  hide_text=True, has_border=False)
 game_obj.game_states['playing'].guis = [player_gui, ]
-# game_obj.game_states['playing'].guis.append(player_gui)
-print(f"game_gui {game_obj.game_states['playing'].guis}")
-# print(guis["game_gui"])
 
 if __name__ == '__main__':
 
@@ -92,9 +88,9 @@ if __name__ == '__main__':
 
             print("initializing")
             player.acquire_ship(Ship(pos=(800, 800), weapon_locations=[(-5, 2), (5, 2)],
-                                     cooling_modifier=1.25))
+                                     cooling_modifier=1))
             player.ship.equip_weapon(copy(splinter_gun), 0)
-            player.ship.equip_weapon(copy(splinter_gun), 1)
+            player.ship.equip_weapon(copy(shotgun), 1)
             player.ship.equip_shield(copy(basic_shield))
             player.ship.equip_reactor(copy(basic_reactor))
 
