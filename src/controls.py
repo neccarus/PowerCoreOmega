@@ -4,14 +4,16 @@ import pygame
 class Controls:
 
     def __init__(self, forward=pygame.K_w, backward=pygame.K_s, left=pygame.K_a,
-                 right=pygame.K_d, fire_weapon=pygame.K_SPACE, heatsink=pygame.K_c):
+                 right=pygame.K_d, fire_weapon=pygame.K_SPACE, heat_sink=pygame.K_2,
+                 shield_booster=pygame.K_1):
         self.signals = {
             "forward": self.Signal([forward], "forward"),
             "backward": self.Signal([backward], "backward"),
             "left": self.Signal([left], "left"),
             "right": self.Signal([right], "right"),
             "fire_weapon": self.Signal([fire_weapon], "fire"),
-            "eject_heatsink": self.Signal([heatsink], "heatsink"),
+            "eject_heatsink": self.Signal([heat_sink], "heat_sink"),
+            "boost_shields": self.Signal([shield_booster], "shield_booster")
         }
 
     def get_signal(self, _input):

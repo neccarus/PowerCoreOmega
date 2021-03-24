@@ -86,15 +86,16 @@ class Game(Instance):
 
             self.bodies.draw(self.current_surface)
 
-            for shield in self.player.ship.shields:
-
-                if shield.current_health > 0 and shield not in self.shields:
-                    self.shields.add(shield)
+            if self.player.ship.shield.current_health > 0 and self.player.ship.shield not in self.shields:
+                self.shields.add(self.player.ship.shield)
+            # for shield in self.player.ship.shields:
+            #
+            #     if shield.current_health > 0 and shield not in self.shields:
+            #         self.shields.add(shield)
 
             for ai_controller in self.ai_controllers:
-                for shield in ai_controller.ship.shields:
-                    if shield.current_health > 0 and shield not in self.shields:
-                        self.shields.add(shield)
+                if ai_controller.ship.shield.current_health > 0 and ai_controller.ship.shield not in self.shields:
+                    self.shields.add(ai_controller.ship.shield)
 
             for shield in self.shields:
                 if shield.current_health > 0:

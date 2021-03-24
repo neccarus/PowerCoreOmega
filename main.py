@@ -102,8 +102,8 @@ if __name__ == '__main__':
             player_health_bar = BarElement(high_value=player.ship.health, current_value=player.ship.current_health,
                                            related_object=player.ship, low_position=(0, 20), high_position=(200, 20),
                                            color=(255, 75, 0), width=200, height=20)
-            player_shield_bar = BarElement(high_value=player.ship.shields[0].health,
-                                           current_value=player.ship.shields[0].current_health,
+            player_shield_bar = BarElement(high_value=player.ship.shield.health,
+                                           current_value=player.ship.shield.current_health,
                                            related_object=player.ship, low_position=(0, 40), high_position=(200, 40),
                                            color=(0, 75, 255), width=200, height=20)
             player_power_bar = BarElement(high_value=player.ship.reactor.power_capacity,
@@ -141,7 +141,7 @@ if __name__ == '__main__':
 
             # TODO: this should maybe be taken care of in the player update method
             player_health_bar.current_value = player.ship.current_health
-            player_shield_bar.current_value = player.ship.shields[0].current_health
+            player_shield_bar.current_value = player.ship.shield.current_health
             player_power_bar.current_value = player.ship.reactor.current_power
             player_heat_bar.current_value = player.ship.reactor.current_heat
 

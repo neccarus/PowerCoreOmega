@@ -10,6 +10,7 @@ class Shield(Equipment):
         self.health = health
         self.current_health = health
         self.regen = regen
+        self.consumable_regen = 0
         self.broken_recharge_time = broken_recharge_time
         self.recharge_power_ratio = recharge_power_ratio
         self.color = color
@@ -26,8 +27,8 @@ class Shield(Equipment):
         self.rect = self.image.get_rect(center=self.parent.rect.center)
         # print(self.current_health)
 
-        if self.current_health > self.health:
-            self.current_health = self.health
+        # if self.current_health > self.health:
+        #     self.current_health = self.health
 
         if self.current_health <= 0 and self.current_recharge < self.broken_recharge_time:
             self.recharging = False
@@ -42,7 +43,10 @@ class Shield(Equipment):
             if health_regenerated * self.recharge_power_ratio > self.parent.reactor.current_power / self.recharge_power_ratio:
                 health_regenerated = self.parent.reactor.current_power / self.recharge_power_ratio
             self.current_health += health_regenerated
+            self.current_health += self.consumable_regen * delta_time / 1000
             self.parent.reactor.current_power -= health_regenerated * self.recharge_power_ratio
+        if self.current_health > self.health:
+            self.current_health = self.health
 
         if self.parent.reactor.overheating:
             self.recharging = False

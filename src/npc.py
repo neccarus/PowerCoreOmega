@@ -41,8 +41,8 @@ class NPC:
         self.original_image = self.ship.image.copy()
 
         # Temporary
-        self.ship.horizontal_max_speed = 500
-        self.ship.horizontal_acceleration = 225
+        self.ship.horizontal_max_speed = 450
+        self.ship.horizontal_acceleration = 375
         self.ship.vertical_max_speed = 250
         self.ship.vertical_acceleration = 125
         self.ship.angle = 270

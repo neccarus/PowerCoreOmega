@@ -23,9 +23,9 @@ class Player(Instance):
 
             # Temporary
             self.ship.horizontal_max_speed = 500
-            self.ship.horizontal_acceleration = 225
+            self.ship.horizontal_acceleration = 500
             self.ship.vertical_max_speed = 250
-            self.ship.vertical_acceleration = 125
+            self.ship.vertical_acceleration = 250
             self.ship.get_mask()
 
         self.score = 0

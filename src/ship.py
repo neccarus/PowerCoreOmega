@@ -3,6 +3,8 @@ from src.weapons import Weapon
 import math
 from pygame import Vector2
 from guipyg.utils.utils import Instance
+from copy import copy
+from src.consumables import consumable_dict
 
 
 class Ship(Body, Instance):
@@ -30,15 +32,14 @@ class Ship(Body, Instance):
         weapon_locations: a list containing the pixel locations of where the weapons are located on the ship
     """
 
-    def __init__(self, name="Python", ship_type="Interceptor", shields=None,
-                 armor=None, reactor=None, engines=None, auxiliary_modules=None, shield_slots=0,
+    def __init__(self, name="Python", ship_type="Interceptor", shield=None,
+                 armor=None, reactor=None, engines=None, auxiliary_modules=None,
                  armor_slots=0, engine_slots=0, weapon_slots=2, misc_slots=0, drone_slots=0,
                  weapon_locations=None, parent=None, cooling_modifier=1, *args, **kwargs):
 
         super().__init__(*args, **kwargs)
         super().add_instance()
 
-        self.shield_slots = shield_slots
         self.armor_slots = armor_slots
         self.engine_slots = engine_slots
         self.weapon_slots = weapon_slots
@@ -47,7 +48,14 @@ class Ship(Body, Instance):
         self.parent = parent
         self.cooling_modifier = cooling_modifier
         self.shielded = False
+        self.shield = shield
         self.shield_health = 0
+        self.shield_boosters = 0
+        self.heat_sinks = 0
+        self.consumable_effects = []
+        self.consumable_used = False
+        self.consumable_cool_down = 5000
+        self.current_consumable_cool_down = 0
 
         if weapon_locations is None:
             self.weapon_locations = [(0, 0)]
@@ -58,11 +66,6 @@ class Ship(Body, Instance):
 
         self.name = name
         self.ship_type = ship_type
-
-        if shields is None:
-            self.shields = []
-        else:
-            self.shields = shields
 
         if armor is None:
             self.armor = []
@@ -88,7 +91,7 @@ class Ship(Body, Instance):
 
     def equip_shield(self, shield):
 
-        self.shields.append(shield)
+        self.shield = shield
         shield.equip_to_parent(self)
         self.shielded = True
 
@@ -126,8 +129,15 @@ class Ship(Body, Instance):
                     if weapon.weapon is not None:
                         weapon.weapon.firing = True
 
-            if action == "heatsink":
-                self.reactor.is_venting = True
+            if action == "heat_sink":
+                if not self.consumable_used:
+                    self.add_consumable(copy(consumable_dict['heat_sink']))
+                    self.consumable_used = True
+
+            if action == "shield_booster":
+                if not self.consumable_used:
+                    self.add_consumable(copy(consumable_dict['shield_booster']))
+                    self.consumable_used = True
 
         if "left" not in actions and "right" not in actions:
             self.horizontal_speed = self.decelerate(delta_time, "horizontal")
@@ -140,8 +150,19 @@ class Ship(Body, Instance):
                 if weapon.weapon is not None:
                     weapon.weapon.firing = False
 
-        if "heatsink" not in actions:
-            self.reactor.is_venting = False
+        # if "heatsink" not in actions:
+        #     self.reactor.is_venting = False
+
+        for consumable in self.consumable_effects:
+            consumable.update(delta_time)
+
+        self.remove_expired_consumables()
+
+        if self.consumable_used:
+            self.current_consumable_cool_down += delta_time
+        if self.current_consumable_cool_down >= self.consumable_cool_down:
+            self.current_consumable_cool_down = 0
+            self.consumable_used = False
 
         for weapon in self.weapons:
             if weapon.weapon is not None:
@@ -151,11 +172,8 @@ class Ship(Body, Instance):
         self.move(delta_time, boundaries)
 
         # TODO: shield handling needs to be reworked for a single shield module and should be moved to the Shield class
-        self.shield_health = 0
-        for shield in self.shields:
-            shield.update(delta_time, surface)
-            self.shield_health += shield.current_health
-        if self.shield_health > 0:
+        self.shield.update(delta_time, surface)
+        if self.shield.current_health > 0:
             self.shielded = True
         else:
             self.shielded = False
@@ -209,26 +227,27 @@ class Ship(Body, Instance):
 
     def take_damage(self, source):
         damage = source.damage
-        if len(self.shields) > 0:
-            if self.shielded:
-                if self.shield_health > 0:
-                    self.shield_health -= damage
-                for shield in self.shields:
-                    if 0 < shield.current_health <= damage:
-                        segmented_damage = int(damage - shield.current_health)
-                        shield.current_health -= segmented_damage
-                        damage -= int(segmented_damage)
-                        # print(damage)
+        if self.shielded:
+            if 0 < self.shield.current_health <= damage:
+                segmented_damage = int(damage - self.shield.current_health)
+                self.shield.current_health -= segmented_damage
+                damage -= int(segmented_damage)
 
-                    elif shield.current_health > 0 and damage < shield.current_health:
-                        shield.current_health -= damage
-                        # print(damage)
-                        break
+            elif self.shield.current_health > 0 and damage < self.shield.current_health:
+                self.shield.current_health -= damage
 
-            elif not self.shielded:
-                self.current_health -= damage
-        else:
+        elif not self.shielded:
             self.current_health -= damage
+
+    def add_consumable(self, consumable):
+        consumable.parent = self
+        self.consumable_effects.append(consumable)
+
+    def remove_expired_consumables(self):
+        for consumable in self.consumable_effects:
+            if consumable.expired:
+                self.consumable_effects.remove(consumable)
+                del consumable
 
     class WeaponNode:
 
