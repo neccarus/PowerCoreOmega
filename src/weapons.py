@@ -2,6 +2,7 @@ from src.equipment import Equipment
 from src.projectile import Projectile
 import pygame
 from random import uniform
+from copy import copy
 
 
 class Weapon(Equipment):
@@ -9,7 +10,7 @@ class Weapon(Equipment):
     def __init__(self, damage=0, speed=800, fire_rate=0.1,
                  spread=0, projectiles=1, projectile_grouping=0,
                  projectile_color=(0, 255, 0), projectile_size=(5,),
-                 offset=pygame.Vector2(0, 0), power_use=0,
+                 offset=pygame.Vector2(0, 0), power_use=0, effects=None,
                  *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.damage = damage
@@ -25,6 +26,10 @@ class Weapon(Equipment):
         # self.parent = parent
         self.offset = offset
         self.power_use = power_use
+        if effects is None:
+            self.effects = []
+        else:
+            self.effects = effects
         self.angle = 0
         # self.pos = pygame.Vector2(0, 0)
         self.firing = False
@@ -56,8 +61,8 @@ class Weapon(Equipment):
                                         color=self.projectile_color,
                                         parent=self.parent,
                                         direction=pygame.Vector2(1, 0).rotate
-                                        (-self.parent.angle +
-                                         uniform(-self.spread, self.spread)))
+                                        (-self.parent.angle + uniform(-self.spread, self.spread)),
+                                        effects=copy(self.effects))
                 projectiles.append(projectile)
 
         return projectiles

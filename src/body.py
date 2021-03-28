@@ -18,7 +18,7 @@ class Body(pygame.sprite.Sprite):
     """
 
     def __init__(self, size=(20,), pos=(0, 0), health=100, sprite=None, vertical_speed=0, angle=90,
-                 direction=pygame.Vector2(1, 0), *args):
+                 direction=pygame.Vector2(1, 0), color=(1, 1, 1), *args):
         super().__init__(*args)
         if len(size) == 2:
             self.width, self.height = size
@@ -47,6 +47,7 @@ class Body(pygame.sprite.Sprite):
         self.vertical_max_speed = 0
         self.angle = angle
         self.direction = direction
+        self.color = color
         self.horizontal_acceleration = 0
         self.vertical_acceleration = 0
         self.mask = None

@@ -20,13 +20,14 @@ class Player(Instance):
             pygame.draw.polygon(self.ship.image, pygame.Color('dodgerblue'),
                                 ((0, 0), (20, 10), (0, 20)))
             self.original_image = self.ship.image.copy()
+            self.ship.mask = pygame.mask.from_surface(self.ship.image)
 
             # Temporary
             self.ship.horizontal_max_speed = 500
             self.ship.horizontal_acceleration = 500
             self.ship.vertical_max_speed = 250
             self.ship.vertical_acceleration = 250
-            self.ship.get_mask()
+            # self.ship.get_mask()
 
         self.score = 0
         self.credits = 0

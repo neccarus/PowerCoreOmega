@@ -3,6 +3,7 @@ from guipyg.utils.utils import Instance
 from guipyg.gui_element.graph_elements import BarElement
 from guipyg.gui import GUI
 from src.projectile import Projectile
+from copy import copy
 
 
 class Game(Instance):
@@ -38,6 +39,7 @@ class Game(Instance):
         self.shields = pygame.sprite.Group()
         self.dead_bodies = []
         self.projectiles = pygame.sprite.Group()
+        self.explosions = pygame.sprite.Group()
         self.game_states = {
             "running": self.GameState(name="running"),
             "playing": self.GameState(name="playing"),
@@ -62,11 +64,6 @@ class Game(Instance):
             for gui in self.game_state.guis:
                 gui.update(self.current_surface, need_update=True)
 
-        self.screen.blit(self.current_surface, (0, 0))
-
-        self.display.update()
-        self.current_surface.fill(fill_color)
-
         self.player.update(self.delta_time, self.current_surface.get_rect(), self.current_surface)
 
         if self.game_state.name == "playing":
@@ -75,23 +72,23 @@ class Game(Instance):
                 self.update_weapon(weapon)
 
             self.projectiles.update(self.delta_time, self.display)
+            self.explosions.update(self.delta_time)
+            self.remove_expired_explosions()
 
             self.detect_projectile_hits(self.player.ship, self.projectiles)
+            self.detect_explosion_hits(self.player.ship, self.explosions)
 
             for ai_controller in self.ai_controllers:
                 self.detect_projectile_hits(ai_controller.ship, self.projectiles)
+                self.detect_explosion_hits(ai_controller.ship, self.explosions)
                 self.update_ai_controller(ai_controller)
 
             self.projectiles.draw(self.current_surface)
-
+            # self.explosions.draw(self.current_surface)
             self.bodies.draw(self.current_surface)
 
             if self.player.ship.shield.current_health > 0 and self.player.ship.shield not in self.shields:
                 self.shields.add(self.player.ship.shield)
-            # for shield in self.player.ship.shields:
-            #
-            #     if shield.current_health > 0 and shield not in self.shields:
-            #         self.shields.add(shield)
 
             for ai_controller in self.ai_controllers:
                 if ai_controller.ship.shield.current_health > 0 and ai_controller.ship.shield not in self.shields:
@@ -101,7 +98,28 @@ class Game(Instance):
                 if shield.current_health > 0:
                     self.current_surface.blit(shield.image, shield.rect)
 
+            for explosion in self.explosions:
+                if not explosion.expired:
+                    self.current_surface.blit(explosion.image, explosion.rect)
+
+            # print(self.explosions)
+
+        self.screen.blit(self.current_surface, (0, 0))
+
+        self.display.update()
+        self.current_surface.fill(fill_color)
+
         self.delta_time = self.clock.tick(self.framerate)
+
+    def remove_expired_explosions(self):
+        explosions_to_remove = []
+        for explosion in self.explosions:
+            if explosion.expired and len(explosion.groups()) > 0:
+                explosions_to_remove.append(explosion)
+                explosion = None
+
+        # self.explosions.remove(explosions_to_remove)
+        del explosions_to_remove
 
     def update_weapon(self, weapon):
         if weapon.weapon is not None:
@@ -116,7 +134,6 @@ class Game(Instance):
             self.bodies.remove(ai_controller.ship)
             self.ai_controllers.remove(ai_controller)
             ai_controller.kill()
-            # print("killed")
             return
         for weapon in ai_controller.ship.weapons:
             self.update_weapon(weapon)
@@ -125,9 +142,21 @@ class Game(Instance):
         projectile_hits = pygame.sprite.spritecollide(target, projectiles, False)
         for projectile in projectile_hits:
             if projectile.parent != target:
-                target.take_damage(projectile)
+                target.take_damage(projectile.damage)
+                if len(projectile.effects) > 0:
+                    for effect in projectile.effects:
+                        self.explosions.add(effect)
+                        effect.spawn(pos=projectile.pos, parent=projectile.parent)
                 self.projectiles.remove(projectile)
-        # print(target.current_health)
+                del projectile
+
+    def detect_explosion_hits(self, target, explosions): # pass in explosions as it could be from a seperate list in the future
+        explosion_hits = pygame.sprite.spritecollide(target, explosions, False)
+        for explosion in explosion_hits:
+            if explosion.parent != target:
+                if target not in explosion.targets_hit:
+                    target.take_damage(explosion.direct_damage)
+                    explosion.targets_hit.append(target)
 
     # TODO: should be handled in body class?
     def update_bodies(self):

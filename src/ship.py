@@ -56,6 +56,7 @@ class Ship(Body, Instance):
         self.consumable_used = False
         self.consumable_cool_down = 5000
         self.current_consumable_cool_down = 0
+        self.dot_effects = []
 
         if weapon_locations is None:
             self.weapon_locations = [(0, 0)]
@@ -152,11 +153,15 @@ class Ship(Body, Instance):
 
         # if "heatsink" not in actions:
         #     self.reactor.is_venting = False
+        for effect in self.dot_effects:
+            self.take_damage(effect.update(delta_time))
+            print(effect)
 
         for consumable in self.consumable_effects:
             consumable.update(delta_time)
 
-        self.remove_expired_consumables()
+        self.remove_expired_effects(self.consumable_effects)
+        self.remove_expired_effects(self.dot_effects)
 
         if self.consumable_used:
             self.current_consumable_cool_down += delta_time
@@ -225,29 +230,35 @@ class Ship(Body, Instance):
             self.pos = self.rect.center
             self.vertical_speed = 0
 
-    def take_damage(self, source):
-        damage = source.damage
+    def take_damage(self, damage):
         if self.shielded:
             if 0 < self.shield.current_health <= damage:
-                segmented_damage = int(damage - self.shield.current_health)
-                self.shield.current_health -= segmented_damage
-                damage -= int(segmented_damage)
+                segmented_damage = damage - self.shield.current_health
+                self.shield.current_health = 0
+                damage -= segmented_damage
+                self.shielded = False
 
             elif self.shield.current_health > 0 and damage < self.shield.current_health:
                 self.shield.current_health -= damage
 
-        elif not self.shielded:
+        if not self.shielded:
             self.current_health -= damage
+        # print(f'{self.current_health} {self.shield.current_health}')
+        # print(damage)
+
+    def receive_damage_over_time_effect(self, damage_over_time, duration):
+        self.dot_effects.append(self.DOTEffect(damage_over_time, duration))
 
     def add_consumable(self, consumable):
         consumable.parent = self
         self.consumable_effects.append(consumable)
 
-    def remove_expired_consumables(self):
-        for consumable in self.consumable_effects:
-            if consumable.expired:
-                self.consumable_effects.remove(consumable)
-                del consumable
+    @staticmethod
+    def remove_expired_effects(effects):
+        for effect in effects:
+            if effect.expired:
+                effects.remove(effect)
+                # del effect
 
     class WeaponNode:
 
@@ -257,3 +268,19 @@ class Ship(Body, Instance):
 
         def detach(self):
             self.weapon = None
+
+    class DOTEffect:
+
+        def __init__(self, damage, duration):
+            self.damage = damage
+            self.duration = duration
+            self.current_duration = 0
+            self.expired = False
+
+        def update(self, delta_time):
+            damage_dealt = (self.damage / (self.duration / 1000)) * (delta_time / 1000)
+            self.current_duration += delta_time
+            if self.current_duration >= self.duration:
+                self.expired = True
+            print(damage_dealt)
+            return damage_dealt
