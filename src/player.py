@@ -1,8 +1,6 @@
-from .ship import Ship
 from guipyg.utils.utils import Instance
 import pygame
 from .controls import Controls
-import math
 
 
 class Player(Instance):

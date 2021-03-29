@@ -4,12 +4,13 @@ import pygame
 
 class TextElement(Element):
 
-    def __init__(self, text="", default_text="Text", antialias=False, *args, **kwargs):
+    def __init__(self, text="", default_text="Text", antialias=False, font="times new roman", font_size=22, *args, **kwargs):
         # TODO: TextElements should be able to size themselves if not given a width/height, or there could be an option for autosizing
         self.text = text
         self.default_text = default_text
         self.antialias = antialias
         super().__init__(*args, **kwargs)
+        self.font = pygame.font.SysFont(font, font_size)
         self.set_colorkey(self.color)
         self.update_text_box()
 

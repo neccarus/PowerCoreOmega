@@ -32,7 +32,6 @@ class Game(Instance):
     def __init__(self, name):
         self.name = name
         super().add_instance()
-        # self.controllers = []
         self.player = None
         self.ai_controllers = []
         self.bodies = pygame.sprite.Group()

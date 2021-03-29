@@ -1,5 +1,4 @@
 from src.body import Body
-from src.weapons import Weapon
 import math
 from pygame import Vector2
 from guipyg.utils.utils import Instance
@@ -125,7 +124,7 @@ class Ship(Body, Instance):
                 if self.vertical_speed < self.vertical_max_speed:
                     self.vertical_speed += (self.vertical_acceleration * delta_time / 1000) * self.direction[1]
 
-            if action == "fire":
+            if action == "fire_weapon":
                 for weapon in self.weapons:
                     if weapon.weapon is not None:
                         weapon.weapon.firing = True
@@ -146,16 +145,13 @@ class Ship(Body, Instance):
         if "forward" not in actions and "backward" not in actions:
             self.vertical_speed = self.decelerate(delta_time, "vertical")
 
-        if "fire" not in actions:
+        if "fire_weapon" not in actions:
             for weapon in self.weapons:
                 if weapon.weapon is not None:
                     weapon.weapon.firing = False
 
-        # if "heatsink" not in actions:
-        #     self.reactor.is_venting = False
         for effect in self.dot_effects:
             self.take_damage(effect.update(delta_time))
-            print(effect)
 
         for consumable in self.consumable_effects:
             consumable.update(delta_time)
@@ -282,5 +278,4 @@ class Ship(Body, Instance):
             self.current_duration += delta_time
             if self.current_duration >= self.duration:
                 self.expired = True
-            print(damage_dealt)
             return damage_dealt

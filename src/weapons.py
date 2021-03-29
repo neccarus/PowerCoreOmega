@@ -23,7 +23,6 @@ class Weapon(Equipment):
         self.projectile_grouping = projectile_grouping
         self.projectile_color = projectile_color
         self.projectile_size = projectile_size
-        # self.parent = parent
         self.offset = offset
         self.power_use = power_use
         if effects is None:
@@ -31,7 +30,6 @@ class Weapon(Equipment):
         else:
             self.effects = effects
         self.angle = 0
-        # self.pos = pygame.Vector2(0, 0)
         self.firing = False
 
     def equip_to_parent(self, parent, slot):

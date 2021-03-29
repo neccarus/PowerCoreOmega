@@ -11,7 +11,7 @@ class NPC:
         if self.ship:
             self.ship.parent = self
             self.ship.angle = 270
-        self.ai = ai  # self.AI(ai, self)
+        self.ai = ai
         self.enemies = []
         self.actions = []
         self.target = None
@@ -96,7 +96,7 @@ class NPC:
         def __init__(self, name="ai", parent=None):
             self.name = name
             self.parent = parent
-            self.controls = Controls("forward", "backward", "left", "right", "fire_weapon")
+            self.controls = Controls(["forward", ], ["backward", ], ["left", ], ["right", ], ["fire_weapon", ])
 
         #  TODO fix this method
         def acquire_target(self):

@@ -38,7 +38,6 @@ class ShieldBooster(Consumable):
     def update(self, delta_time):
         super().update(delta_time)
         if self.finished_delay:
-            # self.parent.reactor.current_heat += self.heat_generated * delta_time / 1000
             self.parent.reactor.apply_heat(self.heat_generated, delta_time)
             if not self.effect_applied and not self.expired:
                 self.parent.shield.consumable_regen += self.effect_power

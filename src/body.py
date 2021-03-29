@@ -25,13 +25,11 @@ class Body(pygame.sprite.Sprite):
         elif len(size) == 1:
             self.width = size[0]
             self.height = size[0]
-        # self.pos_x, self.pos_y = pos
         self.sprite = sprite
         self.image = pygame.Surface((self.width, self.height))
         self.image.fill((0, 0, 0))
         self.image.set_colorkey((0, 0, 0))
         self.rect = self.image.get_rect(center=pos)
-        # self.rect.center = pos
         self.pos = pygame.math.Vector2(self.rect.center)
         if health == 0:
             self.destructible = False
@@ -59,11 +57,6 @@ class Body(pygame.sprite.Sprite):
 
     def update(self, delta_time, *args, **kwargs):
         self.check_if_alive()
-        # self.move(delta_time)
 
     def get_mask(self):
         self.mask = pygame.mask.from_surface(self.image)
-
-    # def move(self, delta_time):
-    #     self.pos += pygame.Vector2((delta_time * self.horizontal_speed) / 1000,
-    #                                (delta_time * self.vertical_speed) / 1000)

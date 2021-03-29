@@ -10,10 +10,11 @@ from src.shields import Shield
 from src.ship import Ship
 from src.reactors import Reactor
 from src.guis import guis
-from copy import copy, deepcopy
+from copy import copy
 from guipyg.gui import GUI
 from guipyg.gui_element.graph_elements import BarElement
 from src.projectile import Explosion
+from guipyg.gui_element.text_elements import Label
 
 if os.name == 'posix':
     os.environ['SDL_AUDIODRIVER'] = 'dsp'
@@ -23,15 +24,14 @@ os.environ['SDL_VIDEO_CENTERED'] = '1'
 # Initialize Pygame
 pygame.init()
 pygame.display.set_caption("Power Core Omega")
-screen = pygame.display.set_mode(player_settings.screensize)
+screen = pygame.display.set_mode(player_settings.screensize,
+                                 pygame.FULLSCREEN * player_settings.fullscreen | pygame.SCALED | pygame.DOUBLEBUF | pygame.HWSURFACE)
 
 main_surface = pygame.Surface(size=player_settings.screensize)
 game_surface = pygame.Surface(size=player_settings.screensize)
 pause_surface = pygame.Surface(size=player_settings.screensize)
 
 clock = pygame.time.Clock()
-
-# plasma_explosion = projectile_effect_dict['small_explosion']
 
 shotgun = Weapon(name="shotgun", projectile_color=(255, 255, 0), damage=5, spread=8, projectiles=10,
                  projectile_grouping=3, fire_rate=1, speed=800, power_use=8)
@@ -70,7 +70,7 @@ game_obj.display = pygame.display
 game_obj.clock = clock
 game_obj.framerate = 60
 
-player_gui = GUI(pos_x=game_obj.screen.get_width() * 0.90, pos_y=game_obj.screen.get_height() * 0.85, width=150,
+player_gui = GUI(pos_x=game_obj.screen.get_width() * 0.85, pos_y=game_obj.screen.get_height() * 0.85, width=200,
                  height=100, hide_text=True, has_border=False)
 game_obj.game_states['playing'].guis = [player_gui, ]
 
@@ -105,22 +105,34 @@ if __name__ == '__main__':
 
             player_gui.elements = []
 
+            player_health_label = Label(text="Health", pos_x=0, pos_y=0, height=20, width=100, font_color=(0, 255, 0),
+                                        font_size=20)
+            player_shield_label = Label(text="Shield", pos_x=0, pos_y=20, height=20, width=100, font_color=(0, 75, 255),
+                                        font_size=20)
+            player_power_label = Label(text="Power", pos_x=0, pos_y=40, height=20, width=100, font_color=(255, 255, 0),
+                                       font_size=20)
+            player_heat_label = Label(text="Heat", pos_x=0, pos_y=60, height=20, width=100, font_color=(255, 0, 0),
+                                      font_size=20)
             player_health_bar = BarElement(high_value=player.ship.health, current_value=player.ship.current_health,
-                                           related_object=player.ship, low_position=(0, 15), high_position=(125, 15),
-                                           color=(0, 255, 0), width=125, height=15)
+                                           related_object=player.ship, low_position=(100, 0), high_position=(200, 20),
+                                           color=(0, 255, 0), width=100, height=20)
             player_shield_bar = BarElement(high_value=player.ship.shield.health,
                                            current_value=player.ship.shield.current_health,
-                                           related_object=player.ship, low_position=(0, 30), high_position=(125, 30),
-                                           color=(0, 75, 255), width=125, height=15)
+                                           related_object=player.ship, low_position=(100, 20), high_position=(200, 40),
+                                           color=(0, 75, 255), width=100, height=20)
             player_power_bar = BarElement(high_value=player.ship.reactor.power_capacity,
                                           current_value=player.ship.reactor.current_power,
-                                          related_object=player.ship, low_position=(0, 45), high_position=(125, 45),
-                                          color=(255, 255, 0), width=125, height=15)
+                                          related_object=player.ship, low_position=(100, 40), high_position=(200, 60),
+                                          color=(255, 255, 0), width=100, height=20)
             player_heat_bar = BarElement(high_value=player.ship.reactor.heat_capacity,
                                          current_value=player.ship.reactor.current_heat,
-                                         related_object=player.ship, low_position=(0, 60), high_position=(125, 60),
-                                         color=(255, 0, 0), width=125, height=15)
+                                         related_object=player.ship, low_position=(100, 60), high_position=(200, 80),
+                                         color=(255, 0, 0), width=100, height=20)
 
+            player_gui.elements.append(player_health_label)
+            player_gui.elements.append(player_shield_label)
+            player_gui.elements.append(player_power_label)
+            player_gui.elements.append(player_heat_label)
             if player_health_bar not in player_gui.elements:
                 player_gui.elements.append(player_health_bar)
             if player_shield_bar not in player_gui.elements:
@@ -136,7 +148,6 @@ if __name__ == '__main__':
             enemy.ship.equip_weapon(copy(blaster), 1)
             enemy.equip_shield(copy(basic_shield))
             enemy.ship.equip_reactor(copy(basic_reactor))
-            # game_obj.shields.add(player.ship.shields, enemy.ship.shields)
 
             # Apply player object to game object
             game_obj.bodies.add(player.ship, enemy.ship)
