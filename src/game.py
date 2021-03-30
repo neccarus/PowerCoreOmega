@@ -1,9 +1,6 @@
 import pygame
 from guipyg.utils.utils import Instance
-from guipyg.gui_element.graph_elements import BarElement
-from guipyg.gui import GUI
 from src.projectile import Projectile
-from copy import copy
 
 
 class Game(Instance):
@@ -83,25 +80,18 @@ class Game(Instance):
                 self.update_ai_controller(ai_controller)
 
             self.projectiles.draw(self.current_surface)
-            # self.explosions.draw(self.current_surface)
             self.bodies.draw(self.current_surface)
 
-            if self.player.ship.shield.current_health > 0 and self.player.ship.shield not in self.shields:
-                self.shields.add(self.player.ship.shield)
+            if self.player.ship.shield.current_health > 0:
+                self.current_surface.blit(self.player.ship.shield.image, self.player.ship.shield.rect)
 
             for ai_controller in self.ai_controllers:
-                if ai_controller.ship.shield.current_health > 0 and ai_controller.ship.shield not in self.shields:
-                    self.shields.add(ai_controller.ship.shield)
-
-            for shield in self.shields:
-                if shield.current_health > 0:
-                    self.current_surface.blit(shield.image, shield.rect)
+                if ai_controller.ship.shield.current_health > 0:
+                    self.current_surface.blit(ai_controller.ship.shield.image, ai_controller.ship.shield.rect)
 
             for explosion in self.explosions:
                 if not explosion.expired:
                     self.current_surface.blit(explosion.image, explosion.rect)
-
-            # print(self.explosions)
 
         self.screen.blit(self.current_surface, (0, 0))
 
@@ -117,7 +107,6 @@ class Game(Instance):
                 explosions_to_remove.append(explosion)
                 explosion = None
 
-        # self.explosions.remove(explosions_to_remove)
         del explosions_to_remove
 
     def update_weapon(self, weapon):
@@ -140,7 +129,7 @@ class Game(Instance):
     def detect_projectile_hits(self, target, projectiles): # pass in projectiles as it could be from a seperate list in the future
         projectile_hits = pygame.sprite.spritecollide(target, projectiles, False)
         for projectile in projectile_hits:
-            if projectile.parent != target:
+            if projectile.parent != target and projectile.parent.faction != target.faction:
                 target.take_damage(projectile.damage)
                 if len(projectile.effects) > 0:
                     for effect in projectile.effects:

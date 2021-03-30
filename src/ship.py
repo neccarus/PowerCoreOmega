@@ -4,6 +4,8 @@ from pygame import Vector2
 from guipyg.utils.utils import Instance
 from copy import copy
 from src.consumables import consumable_dict
+from src.shields import Shield
+from src.reactors import Reactor
 
 
 class Ship(Body, Instance):
@@ -91,8 +93,8 @@ class Ship(Body, Instance):
 
     def equip_shield(self, shield):
 
-        self.shield = shield
-        shield.equip_to_parent(self)
+        self.shield = Shield(**shield.__dict__)
+        self.shield.equip_to_parent(self)
         self.shielded = True
 
     def equip_reactor(self, reactor):
@@ -129,12 +131,12 @@ class Ship(Body, Instance):
                     if weapon.weapon is not None:
                         weapon.weapon.firing = True
 
-            if action == "heat_sink":
+            if action == "eject_heat_sink":
                 if not self.consumable_used:
                     self.add_consumable(copy(consumable_dict['heat_sink']))
                     self.consumable_used = True
 
-            if action == "shield_booster":
+            if action == "boost_shields":
                 if not self.consumable_used:
                     self.add_consumable(copy(consumable_dict['shield_booster']))
                     self.consumable_used = True
@@ -172,7 +174,6 @@ class Ship(Body, Instance):
         self.direction = self.direction.rotate(-self.angle)
         self.move(delta_time, boundaries)
 
-        # TODO: shield handling needs to be reworked for a single shield module and should be moved to the Shield class
         self.shield.update(delta_time, surface)
         if self.shield.current_health > 0:
             self.shielded = True

@@ -1,7 +1,6 @@
 from guipyg.utils.utils import Instance
 from src.controls import Controls
 import json
-import pygame
 
 
 class Settings(Instance):
@@ -16,19 +15,17 @@ class Settings(Instance):
         with open(file_name, 'r') as read_file:
             settings_json = json.load(read_file)
 
-        # print(settings_json)
-        # if hasattr(settings_json, 'controls'):
-        for obj in settings_json['controls']:
-            settings_json['controls'][obj] = Controls.Signal(settings_json['controls'][obj].values())
-        settings_json['controls'] = Controls(settings_json['controls'].values())
-        # TODO: FIX THIS BUG!!!
-        print(settings_json['controls'].signals['forward'].__dict__)
+        for signal in settings_json['controls'].keys():
+            if 'inputs' in settings_json['controls'][signal].keys():
+                settings_json['controls'][signal] = settings_json['controls'][signal]['inputs']
+        settings_json['controls'] = Controls(**settings_json['controls'])
 
         return cls._decode_settings(settings_json)
 
     @classmethod
     def _decode_settings(cls, settings_json):
         setting_obj = Settings(**settings_json)
+        print(setting_obj.controls)
         return setting_obj
 
     @classmethod
@@ -46,22 +43,18 @@ class Settings(Instance):
     class SettingsEncoder(json.JSONEncoder):
 
         def default(self, o):
-            # if hasattr(o, 'controls'):
-            #     o.function = self._encode_controls(o.function)
-            if hasattr(o, 'controls'):
-                del o.controls.signals
             return o.__dict__
 
         @staticmethod
-        def _encode_controls(function):
+        def _encode_controls(control):
             encoded_controls = {
-                'forward': function.signals['forward'],
-                'backward': function.signals['backward'],
-                'left': function.signals['left'],
-                'right': function.signals['right'],
-                'fire_weapon': function.signals['fire_weapon'],
-                'eject_heat_sink': function.signals['eject_heat_sink'],
-                'boost_shields': function.signals['boost_shields'],
+                'forward': control.forward,
+                'backward': control.backward,
+                'left': control.left,
+                'right': control.right,
+                'fire_weapon': control.fire_weapon,
+                'eject_heat_sink': control.eject_heat_sink,
+                'boost_shields': control.boost_shields,
             }
             return encoded_controls
 

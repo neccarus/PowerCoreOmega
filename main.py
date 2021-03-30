@@ -94,9 +94,9 @@ if __name__ == '__main__':
 
             print("initializing")
             player.acquire_ship(Ship(pos=(800, 800), weapon_locations=[(-5, 2), (5, 2)],
-                                     cooling_modifier=1))
-            player.ship.equip_weapon(copy(plasma_launcher), 0)
-            player.ship.equip_weapon(copy(plasma_launcher), 1)
+                                     cooling_modifier=1.2))
+            player.ship.equip_weapon(copy(splinter_gun), 0)
+            player.ship.equip_weapon(copy(splinter_gun), 1)
             player.ship.equip_shield(copy(basic_shield))
             player.ship.equip_reactor(copy(basic_reactor))
 
@@ -142,17 +142,26 @@ if __name__ == '__main__':
             if player_heat_bar not in player_gui.elements:
                 player_gui.elements.append(player_heat_bar)
 
-            enemy = NPC()
+            enemy = NPC(faction='enemy')
             enemy.acquire_ship(Ship(pos=(800, 100), weapon_locations=[(-5, 2), (5, 2)]))
             enemy.ship.equip_weapon(copy(blaster), 0)
             enemy.ship.equip_weapon(copy(blaster), 1)
             enemy.equip_shield(copy(basic_shield))
             enemy.ship.equip_reactor(copy(basic_reactor))
 
+            enemy2 = NPC(faction='enemy')
+            enemy2.acquire_ship(Ship(pos=(300, 200), weapon_locations=[(-5, 2), (5, 2)]))
+            enemy2.ship.equip_weapon(copy(blaster), 0)
+            enemy2.ship.equip_weapon(copy(blaster), 1)
+            enemy2.equip_shield(copy(basic_shield))
+            enemy2.ship.equip_reactor(copy(basic_reactor))
+
             # Apply player object to game object
-            game_obj.bodies.add(player.ship, enemy.ship)
+            game_obj.bodies.add(player.ship, enemy.ship, enemy2.ship)
             game_obj.explosions = pygame.sprite.Group()
+            game_obj.shields = pygame.sprite.Group()
             game_obj.ai_controllers.append(enemy)
+            game_obj.ai_controllers.append(enemy2)
 
         while game_obj.playing:
 

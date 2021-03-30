@@ -52,12 +52,12 @@ class Shield(Equipment):
 
     def equip_to_parent(self, parent):
         self.parent = parent
-        self.pos = parent.pos
+        self.pos = self.parent.pos
         self.mask = pygame.mask.from_surface(self.parent.image)
         self.mask.scale((int(self.parent.width * 1.15), int(self.parent.height * 1.15)))
         self.rect = self.mask.get_rect()
         self.width, self.height = self.rect.width, self.rect.height
-        self.angle = parent.angle
+        self.angle = self.parent.angle
         self.image = self.mask.to_surface(self.image, setcolor=self.color)
         self.image = self.image.convert_alpha()
         self.original_image = self.image

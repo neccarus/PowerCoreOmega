@@ -7,7 +7,8 @@ class Player(Instance):
 
     def __init__(self, name="player",
                  ship=None,
-                 controls=Controls()):
+                 controls=Controls(),
+                 faction="player"):
         self.name = name
         super().add_instance()  # Add player to instances (Instance)
         self.ship = ship
@@ -30,6 +31,7 @@ class Player(Instance):
         self.score = 0
         self.credits = 0
         self.controls = controls
+        self.faction = faction
         self.actions = []
 
     def update(self, delta_time, boundary, surface, *_, **__):
@@ -43,6 +45,7 @@ class Player(Instance):
     def acquire_ship(self, ship):
         self.ship = ship
         self.ship.parent = self
+        self.ship.faction = self.faction
 
         # Temporary
         pygame.draw.polygon(self.ship.image, pygame.Color('dodgerblue'),
