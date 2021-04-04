@@ -12,6 +12,9 @@ from src.utils import load_single_sprite
 import os
 
 
+cwd = os.getcwd()
+
+
 class Ship(Body, Instance):
     """
     Ship class is what all ships in game are derived from, base class is Body.
@@ -294,7 +297,7 @@ class Ship(Body, Instance):
             return damage_dealt
 
 
-ship_sprite_dict = {"Python": load_single_sprite(os.path.join('graphics', 'ships'), 'Python Ship rev2.png'),
-                    "Cestus": load_single_sprite(os.path.join('graphics', 'ships'), 'Cestus Ship rev1.png'),
-                    "Broadsword": load_single_sprite(os.path.join('graphics', 'ships'), 'Broadsword Ship rev1.png'),
-                    "Mud Skipper": load_single_sprite(os.path.join('graphics', 'ships'), 'Basic Enemy Ship rev1.png')}
+ship_sprite_dict = {"Python": load_single_sprite(os.path.join(cwd, 'graphics', 'ships'), 'Python_Ship_rev2.png'),
+                    "Cestus": load_single_sprite(os.path.join(cwd, 'graphics', 'ships'), 'Cestus_Ship_rev1.png'),
+                    "Broadsword": load_single_sprite(os.path.join(cwd, 'graphics', 'ships'), 'Broadsword_Ship_rev1.png'),
+                    "Mud Skipper": load_single_sprite(os.path.join(cwd, 'graphics', 'ships'), 'Basic_Enemy_Ship_rev1.png')}
