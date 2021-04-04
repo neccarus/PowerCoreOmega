@@ -3,6 +3,7 @@ import pygame
 from guipyg.gui_element.graph_elements import BarElement
 from guipyg.gui import GUI
 import itertools
+from src.ship import ship_sprite_dict
 
 
 class NPC:
@@ -36,7 +37,7 @@ class NPC:
         self.ship.update(self.actions, delta_time, boundary, surface)
         self.actions = []
 
-        self.ship.image = pygame.transform.rotate(self.original_image, self.ship.angle)
+        self.ship.image = pygame.transform.rotate(self.ship.current_image, self.ship.angle)
         # self.ship.mask = pygame.mask.from_surface(self.ship.image)
         self.ship.rect = self.ship.image.get_rect(center=self.ship.rect.center)
         self.set_display_ui_pos()
@@ -52,10 +53,12 @@ class NPC:
         self.ship.faction = self.faction
 
         # Temporary
-        pygame.draw.polygon(self.ship.image, (255, 0, 0),
-                            ((0, 0), (20, 10), (0, 20)))
-        self.original_image = self.ship.image.copy()
-        self.ship.mask = pygame.mask.from_surface(self.ship.image)
+        self.ship.image = ship_sprite_dict["Mud Skipper"].convert_alpha()
+        self.ship.image = pygame.transform.scale(self.ship.image, (32, 32))
+        self.ship.image = pygame.transform.rotate(self.ship.image, 270)
+        self.ship.rect = self.ship.image.get_rect()
+        self.ship.width, self.ship.height = self.ship.rect.width, self.ship.rect.height
+        self.ship.original_image = self.ship.image.copy()
 
         # Temporary
         self.ship.horizontal_max_speed = 450

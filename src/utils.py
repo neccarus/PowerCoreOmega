@@ -64,7 +64,7 @@ class Settings(Instance):
 setting_defaults = {
     'controls': Controls(),
     'screensize': (1600, 900),
-    'fullscreen': False,
+    'fullscreen': True,
 }
 
 

@@ -104,7 +104,6 @@ class Ship(Body, Instance):
         self.shielded = True
         self.shielded_image = self.original_image.copy()
         pygame.draw.polygon(self.shielded_image, self.shield.color, self.shield.mask, 3)
-        print(self.shielded_image)
 
     def equip_reactor(self, reactor):
 
@@ -295,4 +294,7 @@ class Ship(Body, Instance):
             return damage_dealt
 
 
-ship_sprite_dict = {"Python": load_single_sprite(os.path.join('graphics', 'ships'), 'Python Ship rev2.png')}
+ship_sprite_dict = {"Python": load_single_sprite(os.path.join('graphics', 'ships'), 'Python Ship rev2.png'),
+                    "Cestus": load_single_sprite(os.path.join('graphics', 'ships'), 'Cestus Ship rev1.png'),
+                    "Broadsword": load_single_sprite(os.path.join('graphics', 'ships'), 'Broadsword Ship rev1.png'),
+                    "Mud Skipper": load_single_sprite(os.path.join('graphics', 'ships'), 'Basic Enemy Ship rev1.png')}

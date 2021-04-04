@@ -79,21 +79,8 @@ class Game(Instance):
                 self.detect_explosion_hits(ai_controller.ship, self.explosions)
                 self.update_ai_controller(ai_controller)
 
-            self.current_surface.blit(self.player.ship.shielded_image, (0, 0))
-            # if self.player.ship.shielded:
-            #     pygame.draw.polygon(self.player.ship.image, self.player.ship.shield.color, self.player.ship.shield.mask, 3)
-            #     self.player.ship.dirty = 1
-
             self.projectiles.draw(self.current_surface)
             self.bodies.draw(self.current_surface)
-
-            # if self.player.ship.shield.current_health > 0:
-            #     self.current_surface.blit(self.player.ship.shield.image, self.player.ship.shield.rect)
-
-
-            # for ai_controller in self.ai_controllers:
-            #     if ai_controller.ship.shield.current_health > 0:
-            #         self.current_surface.blit(ai_controller.ship.shield.image, ai_controller.ship.shield.rect)
 
             for explosion in self.explosions:
                 if not explosion.expired:

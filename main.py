@@ -37,8 +37,11 @@ plasma_launcher = Weapon(name="plasma launcher", projectile_color=(100, 255, 0),
 
 basic_reactor = Reactor(name="basic reactor", recharge_rate=10, power_capacity=75,
                         cooling_rate=7.5, heat_capacity=400, heat_inefficiency=1.75, overheat_threshold=0.92)
+advanced_reactor = Reactor(name="advanced reactor", recharge_rate=24, power_capacity=200,
+                           cooling_rate=16, heat_capacity=500, heat_inefficiency=1.6, overheat_threshold=0.94)
 
 basic_shield = Shield(name="basic shield", health=40, regen=5, broken_recharge_time=4, recharge_power_ratio=1.5)
+advanced_shield = Shield(name="advanced shield", health=140, regen=8, broken_recharge_time=5, recharge_power_ratio=1.65)
 
 player = Player(controls=player_settings.controls)
 
@@ -82,12 +85,16 @@ if __name__ == '__main__':
         if game_obj.playing:
 
             print("initializing")
-            player.acquire_ship(Ship(pos=(800, 800), weapon_locations=[(-5, 2), (5, 2)],
-                                     cooling_modifier=1.2))
+            player.acquire_ship(Ship(pos=(800, 800), weapon_locations=[(-10, 2), (10, 2), (-19, 6), (19, 6), (-27, 9), (27, 9)],
+                                     cooling_modifier=1.1))
             player.ship.equip_weapon(copy(splinter_gun), 0)
             player.ship.equip_weapon(copy(splinter_gun), 1)
-            player.ship.equip_shield(copy(basic_shield))
-            player.ship.equip_reactor(copy(basic_reactor))
+            player.ship.equip_weapon(copy(splinter_gun), 2)
+            player.ship.equip_weapon(copy(splinter_gun), 3)
+            player.ship.equip_weapon(copy(splinter_gun), 4)
+            player.ship.equip_weapon(copy(splinter_gun), 5)
+            player.ship.equip_shield(copy(advanced_shield))
+            player.ship.equip_reactor(copy(advanced_reactor))
 
             # setup GUI related to player
             # TODO: this should maybe be stored in the player object
