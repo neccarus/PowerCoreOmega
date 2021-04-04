@@ -12,7 +12,9 @@ from src.utils import load_single_sprite
 import os
 
 
+# TODO: need to handle Mac not using the proper directory
 cwd = os.getcwd()
+print(f'Current working directory: {cwd}')
 
 
 class Ship(Body, Instance):
@@ -297,7 +299,7 @@ class Ship(Body, Instance):
             return damage_dealt
 
 
-ship_sprite_dict = {"Python": load_single_sprite(os.path.join(cwd, 'graphics', 'ships'), 'Python_Ship_rev2.png'),
-                    "Cestus": load_single_sprite(os.path.join(cwd, 'graphics', 'ships'), 'Cestus_Ship_rev1.png'),
-                    "Broadsword": load_single_sprite(os.path.join(cwd, 'graphics', 'ships'), 'Broadsword_Ship_rev1.png'),
-                    "Mud Skipper": load_single_sprite(os.path.join(cwd, 'graphics', 'ships'), 'Basic_Enemy_Ship_rev1.png')}
+# ship_sprite_dict = {"Python": load_single_sprite(os.path.join(cwd, 'graphics', 'ships'), 'Python_Ship_rev2.png'),
+#                     "Cestus": load_single_sprite(os.path.join(cwd, 'graphics', 'ships'), 'Cestus_Ship_rev1.png'),
+#                     "Broadsword": load_single_sprite(os.path.join(cwd, 'graphics', 'ships'), 'Broadsword_Ship_rev1.png'),
+#                     "Mud Skipper": load_single_sprite(os.path.join(cwd, 'graphics', 'ships'), 'Basic_Enemy_Ship_rev1.png')}

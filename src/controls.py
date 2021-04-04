@@ -3,8 +3,11 @@ import pygame
 
 class Controls:
 
-    def __init__(self, forward=(pygame.K_w, ), backward=(pygame.K_s, ), left=(pygame.K_a, ),
-                 right=(pygame.K_d, ), fire_weapon=(pygame.K_SPACE, ), eject_heat_sink=(pygame.K_2, ),
+    def __init__(self, forward=(pygame.K_w, pygame.K_UP),
+                 backward=(pygame.K_s, pygame.K_DOWN),
+                 left=(pygame.K_a, pygame.K_LEFT),
+                 right=(pygame.K_d, pygame.K_RIGHT),
+                 fire_weapon=(pygame.K_SPACE, ), eject_heat_sink=(pygame.K_2, ),
                  boost_shields=(pygame.K_1, ), *args, **kwargs):
         self.forward = self.Signal([*forward], "forward")
         self.backward = self.Signal([*backward], "backward")

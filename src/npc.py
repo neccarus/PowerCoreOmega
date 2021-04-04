@@ -3,7 +3,7 @@ import pygame
 from guipyg.gui_element.graph_elements import BarElement
 from guipyg.gui import GUI
 import itertools
-from src.ship import ship_sprite_dict
+from src import ship_sprite_dict
 
 
 class NPC:

@@ -1,8 +1,7 @@
 import pygame
 from .game import Game
-from .utils import Settings, setting_defaults
+from .utils import Settings, setting_defaults, load_single_sprite
 from .controls import Controls
-from .player import Player
 import os
 
 cwd = os.getcwd()
@@ -29,3 +28,9 @@ except (OSError, IOError) as e:
 screen = pygame.display.set_mode(player_settings.screensize,
                                  pygame.FULLSCREEN * player_settings.fullscreen | pygame.SCALED | pygame.DOUBLEBUF | pygame.HWSURFACE)
 pygame.display.set_caption("Power Core Omega")
+
+# ship sprites loaded here to avoid cwd issues on Mac
+ship_sprite_dict = {"Python": load_single_sprite(os.path.join(cwd, 'graphics', 'ships'), 'Python_Ship_rev2.png'),
+                    "Cestus": load_single_sprite(os.path.join(cwd, 'graphics', 'ships'), 'Cestus_Ship_rev1.png'),
+                    "Broadsword": load_single_sprite(os.path.join(cwd, 'graphics', 'ships'), 'Broadsword_Ship_rev1.png'),
+                    "Mud Skipper": load_single_sprite(os.path.join(cwd, 'graphics', 'ships'), 'Basic_Enemy_Ship_rev1.png')}

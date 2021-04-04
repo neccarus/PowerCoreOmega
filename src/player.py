@@ -1,7 +1,7 @@
 from guipyg.utils.utils import Instance
 import pygame
+from src import ship_sprite_dict
 from .controls import Controls
-from src.ship import ship_sprite_dict
 
 
 class Player(Instance):
