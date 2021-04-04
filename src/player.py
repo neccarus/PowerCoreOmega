@@ -1,6 +1,7 @@
 from guipyg.utils.utils import Instance
 import pygame
 from .controls import Controls
+from src.ship import ship_sprite_dict
 
 
 class Player(Instance):
@@ -16,8 +17,10 @@ class Player(Instance):
             self.ship.parent = self
 
             # Temporary
-            pygame.draw.polygon(self.ship.image, pygame.Color('dodgerblue'),
-                                ((0, 0), (20, 10), (0, 20)))
+            # pygame.draw.polygon(self.ship.image, pygame.Color('dodgerblue'),
+            #                     ((0, 0), (20, 10), (0, 20)))
+            self.ship.image = ship_sprite_dict["Python"].convert_alpha(self.ship.image)
+            self.ship.rect = self.ship.image.get_rect()
             self.original_image = self.ship.image.copy()
             self.ship.mask = pygame.mask.from_surface(self.ship.image)
 
@@ -39,7 +42,7 @@ class Player(Instance):
         if self.ship:
             self.ship.update(self.actions, delta_time, boundary, surface)
 
-            self.ship.image = pygame.transform.rotate(self.original_image, self.ship.angle)
+            self.ship.image = pygame.transform.rotate(self.ship.current_image, self.ship.angle)
             self.ship.rect = self.ship.image.get_rect(center=self.ship.rect.center)
 
     def acquire_ship(self, ship):
@@ -48,16 +51,23 @@ class Player(Instance):
         self.ship.faction = self.faction
 
         # Temporary
-        pygame.draw.polygon(self.ship.image, pygame.Color('dodgerblue'),
-                            ((0, 0), (20, 10), (0, 20)))
-        self.original_image = self.ship.image.copy()
+        # pygame.draw.polygon(self.ship.image, pygame.Color('dodgerblue'),
+        #                     ((0, 0), (20, 10), (0, 20)))
+        # self.original_image = self.ship.image.copy()
+        self.ship.image = ship_sprite_dict["Python"].convert_alpha()
+        self.ship.image = pygame.transform.scale(self.ship.image, (32, 32))
+        self.ship.image = pygame.transform.rotate(self.ship.image, 270)
+        self.ship.rect = self.ship.image.get_rect()
+        self.ship.width, self.ship.height = self.ship.rect.width, self.ship.rect.height
+        self.ship.original_image = self.ship.image.copy()
+        print(self.ship.original_image)
 
         # Temporary
         self.ship.horizontal_max_speed = 500
-        self.ship.horizontal_acceleration = 225
+        self.ship.horizontal_acceleration = 500
         self.ship.vertical_max_speed = 250
-        self.ship.vertical_acceleration = 125
-        self.ship.get_mask()
+        self.ship.vertical_acceleration = 250
+        # self.ship.get_mask()
 
     def kill(self):
         del self.ship

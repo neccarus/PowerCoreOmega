@@ -1,13 +1,13 @@
 import pygame
 import os
 import sys
-from src import game_obj
+from src import game_obj, screen
 from src import player_settings
+from src.ship import Ship
 from src.player import Player
 from src.npc import NPC
 from src.weapons import Weapon
 from src.shields import Shield
-from src.ship import Ship
 from src.reactors import Reactor
 from src.guis import guis
 from copy import copy
@@ -15,17 +15,6 @@ from guipyg.gui import GUI
 from guipyg.gui_element.graph_elements import BarElement
 from src.projectile import Explosion
 from guipyg.gui_element.text_elements import Label
-
-if os.name == 'posix':
-    os.environ['SDL_AUDIODRIVER'] = 'dsp'
-
-os.environ['SDL_VIDEO_CENTERED'] = '1'
-
-# Initialize Pygame
-pygame.init()
-pygame.display.set_caption("Power Core Omega")
-screen = pygame.display.set_mode(player_settings.screensize,
-                                 pygame.FULLSCREEN * player_settings.fullscreen | pygame.SCALED | pygame.DOUBLEBUF | pygame.HWSURFACE)
 
 main_surface = pygame.Surface(size=player_settings.screensize)
 game_surface = pygame.Surface(size=player_settings.screensize)
@@ -159,7 +148,7 @@ if __name__ == '__main__':
             # Apply player object to game object
             game_obj.bodies.add(player.ship, enemy.ship, enemy2.ship)
             game_obj.explosions = pygame.sprite.Group()
-            game_obj.shields = pygame.sprite.Group()
+            # game_obj.shields = pygame.sprite.Group()
             game_obj.ai_controllers.append(enemy)
             game_obj.ai_controllers.append(enemy2)
 

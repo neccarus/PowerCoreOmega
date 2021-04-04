@@ -4,7 +4,7 @@ import pygame
 
 class Shield(Equipment):
 
-    def __init__(self, health=10, regen=1, broken_recharge_time=5, recharge_power_ratio=1, color=(0, 0, 255, 100), *args, **kwargs):
+    def __init__(self, health=10, regen=1, broken_recharge_time=5, recharge_power_ratio=1, color=(0, 0, 255, 200), *args, **kwargs):
 
         super().__init__(*args, **kwargs)
         self.health = health
@@ -18,13 +18,12 @@ class Shield(Equipment):
         self.recharging = True
         self.mask = None
         self.angle = 0
-        self.shield_image = []
         self.original_image = None
 
     def update(self, delta_time, surface):
-        self.pos = self.parent.pos
-        self.image = pygame.transform.rotate(self.original_image, self.angle)
-        self.rect = self.image.get_rect(center=self.parent.rect.center)
+        # self.pos = self.parent.pos
+        # self.image = pygame.transform.rotate(self.original_image, self.angle)
+        # self.rect = self.image.get_rect(center=self.parent.rect.center)
 
         if self.current_health <= 0 and self.current_recharge < self.broken_recharge_time:
             self.recharging = False
@@ -52,12 +51,13 @@ class Shield(Equipment):
 
     def equip_to_parent(self, parent):
         self.parent = parent
-        self.pos = self.parent.pos
-        self.mask = pygame.mask.from_surface(self.parent.image)
-        self.mask.scale((int(self.parent.width * 1.15), int(self.parent.height * 1.15)))
-        self.rect = self.mask.get_rect()
-        self.width, self.height = self.rect.width, self.rect.height
-        self.angle = self.parent.angle
-        self.image = self.mask.to_surface(self.image, setcolor=self.color)
-        self.image = self.image.convert_alpha()
-        self.original_image = self.image
+        # self.pos = self.parent.pos
+        self.mask = pygame.mask.from_surface(self.parent.image).outline()
+        print(self.mask)
+        # self.mask.scale((int(self.parent.width * 1.15), int(self.parent.height * 1.15)))
+        # self.rect = self.mask.get_rect()
+        # self.width, self.height = self.rect.width, self.rect.height
+        # self.angle = self.parent.angle - 180
+        # self.image = self.mask.to_surface(self.image, setcolor=self.color)
+        # self.image = self.image.convert_alpha()
+        # self.original_image = self.image

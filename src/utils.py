@@ -1,6 +1,8 @@
 from guipyg.utils.utils import Instance
 from src.controls import Controls
 import json
+import pygame
+import os
 
 
 class Settings(Instance):
@@ -59,12 +61,19 @@ class Settings(Instance):
             return encoded_controls
 
 
-def clamp(num, smallest, largest):
-    return max(smallest, min(num, largest))
-
-
 setting_defaults = {
     'controls': Controls(),
     'screensize': (1600, 900),
     'fullscreen': False,
 }
+
+
+def clamp(num, smallest, largest):
+    return max(smallest, min(num, largest))
+
+
+def load_single_sprite(folder, file):
+    sprite = pygame.image.load(os.path.join(folder, file))
+    # cannot convert without pygame.display initialized
+    # sprite.convert_alpha()
+    return sprite

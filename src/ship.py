@@ -1,3 +1,5 @@
+import pygame
+
 from src.body import Body
 import math
 from pygame import Vector2
@@ -6,6 +8,8 @@ from copy import copy
 from src.consumables import consumable_dict
 from src.shields import Shield
 from src.reactors import Reactor
+from src.utils import load_single_sprite
+import os
 
 
 class Ship(Body, Instance):
@@ -58,6 +62,8 @@ class Ship(Body, Instance):
         self.consumable_cool_down = 5000
         self.current_consumable_cool_down = 0
         self.dot_effects = []
+        self.shielded_image = None
+        self.current_image = None
 
         if weapon_locations is None:
             self.weapon_locations = [(0, 0)]
@@ -96,6 +102,9 @@ class Ship(Body, Instance):
         self.shield = Shield(**shield.__dict__)
         self.shield.equip_to_parent(self)
         self.shielded = True
+        self.shielded_image = self.original_image.copy()
+        pygame.draw.polygon(self.shielded_image, self.shield.color, self.shield.mask, 3)
+        print(self.shielded_image)
 
     def equip_reactor(self, reactor):
 
@@ -180,6 +189,12 @@ class Ship(Body, Instance):
         else:
             self.shielded = False
 
+        if self.shielded:
+            # pygame.draw.polygon(self.image, self.shield.color, self.shield.mask, 3)
+            # self.dirty = 1
+            self.current_image = self.shielded_image
+        else:
+            self.current_image = self.original_image
         self.reactor.update(delta_time)
 
     def decelerate(self, delta_time, direction):
@@ -240,8 +255,6 @@ class Ship(Body, Instance):
 
         if not self.shielded:
             self.current_health -= damage
-        # print(f'{self.current_health} {self.shield.current_health}')
-        # print(damage)
 
     def receive_damage_over_time_effect(self, damage_over_time, duration):
         self.dot_effects.append(self.DOTEffect(damage_over_time, duration))
@@ -280,3 +293,6 @@ class Ship(Body, Instance):
             if self.current_duration >= self.duration:
                 self.expired = True
             return damage_dealt
+
+
+ship_sprite_dict = {"Python": load_single_sprite(os.path.join('graphics', 'ships'), 'Python Ship rev2.png')}

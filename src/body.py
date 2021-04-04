@@ -1,7 +1,7 @@
 import pygame
 
 
-class Body(pygame.sprite.Sprite):
+class Body(pygame.sprite.DirtySprite):
     """
     Body class is the base class for all other objects in space that can interact with each other
     Examples: ships, projectiles, etc.
@@ -25,10 +25,12 @@ class Body(pygame.sprite.Sprite):
         elif len(size) == 1:
             self.width = size[0]
             self.height = size[0]
-        self.sprite = sprite
+        # self.sprite = sprite
+        self.dirty = 0
         self.image = pygame.Surface((self.width, self.height))
         self.image.fill((0, 0, 0))
         self.image.set_colorkey((0, 0, 0))
+        self.original_image = self.image.copy()
         self.rect = self.image.get_rect(center=pos)
         self.pos = pygame.math.Vector2(self.rect.center)
         if health == 0:
