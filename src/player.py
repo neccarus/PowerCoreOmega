@@ -17,8 +17,6 @@ class Player(Instance):
             self.ship.parent = self
 
             # Temporary
-            # pygame.draw.polygon(self.ship.image, pygame.Color('dodgerblue'),
-            #                     ((0, 0), (20, 10), (0, 20)))
             self.ship.image = ship_sprite_dict["Python"].convert_alpha(self.ship.image)
             self.ship.rect = self.ship.image.get_rect()
             self.original_image = self.ship.image.copy()
@@ -29,7 +27,6 @@ class Player(Instance):
             self.ship.horizontal_acceleration = 500
             self.ship.vertical_max_speed = 250
             self.ship.vertical_acceleration = 250
-            # self.ship.get_mask()
 
         self.score = 0
         self.credits = 0
@@ -51,9 +48,6 @@ class Player(Instance):
         self.ship.faction = self.faction
 
         # Temporary
-        # pygame.draw.polygon(self.ship.image, pygame.Color('dodgerblue'),
-        #                     ((0, 0), (20, 10), (0, 20)))
-        # self.original_image = self.ship.image.copy()
         self.ship.image = ship_sprite_dict["Cestus"].convert_alpha()
         self.ship.image = pygame.transform.scale(self.ship.image, (64, 64))
         self.ship.image = pygame.transform.rotate(self.ship.image, 270)

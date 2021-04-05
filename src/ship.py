@@ -7,14 +7,12 @@ from guipyg.utils.utils import Instance
 from copy import copy
 from src.consumables import consumable_dict
 from src.shields import Shield
-from src.reactors import Reactor
-from src.utils import load_single_sprite
 import os
 
 
 # TODO: need to handle Mac not using the proper directory
-cwd = os.getcwd()
-print(f'Current working directory: {cwd}')
+# cwd = os.getcwd()
+# print(f'Current working directory: {cwd}')
 
 
 class Ship(Body, Instance):
@@ -108,7 +106,7 @@ class Ship(Body, Instance):
         self.shield.equip_to_parent(self)
         self.shielded = True
         self.shielded_image = self.original_image.copy()
-        pygame.draw.polygon(self.shielded_image, self.shield.color, self.shield.mask, 3)
+        pygame.draw.polygon(self.shielded_image, self.shield.color, self.shield.mask, 1)
 
     def equip_reactor(self, reactor):
 

@@ -21,9 +21,6 @@ class Shield(Equipment):
         self.original_image = None
 
     def update(self, delta_time, surface):
-        # self.pos = self.parent.pos
-        # self.image = pygame.transform.rotate(self.original_image, self.angle)
-        # self.rect = self.image.get_rect(center=self.parent.rect.center)
 
         if self.current_health <= 0 and self.current_recharge < self.broken_recharge_time:
             self.recharging = False
