@@ -216,7 +216,7 @@ class Ship(Body, Instance):
             speed -= (acceleration * delta_time / 1000)
         elif speed < 0:
             speed += (acceleration * delta_time / 1000)
-        if math.isclose(speed, 0, abs_tol=0.01):
+        if math.isclose(speed, 0, abs_tol=0.5):
             speed = 0
 
         return speed

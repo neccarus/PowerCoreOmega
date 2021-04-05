@@ -1,6 +1,8 @@
 import pygame
 from guipyg.utils.utils import Instance
 from src.projectile import Projectile
+from src.effects import Particle
+import random
 
 
 class Game(Instance):
@@ -54,6 +56,7 @@ class Game(Instance):
         self.clock = None
         self.delta_time = 0
         self.framerate = None
+        self.particles = Particle.particles
 
     def update(self, fill_color=(0, 0, 0)):
         if len(self.game_state.guis) > 0:
@@ -63,6 +66,8 @@ class Game(Instance):
         self.player.update(self.delta_time, self.current_surface.get_rect(), self.current_surface)
 
         if self.game_state.name == "playing":
+
+            # self.particles.append(Particle((400, 400), (random.randint(-10, 10), -3), 1000, (100, 100, 255)))
 
             for weapon in self.player.ship.weapons:
                 self.update_weapon(weapon)
@@ -85,6 +90,8 @@ class Game(Instance):
             for explosion in self.explosions:
                 if not explosion.expired:
                     self.current_surface.blit(explosion.image, explosion.rect)
+
+        Particle.update_particles(self.delta_time, self.current_surface)
 
         self.screen.blit(self.current_surface, (0, 0))
 
@@ -124,6 +131,9 @@ class Game(Instance):
         for projectile in projectile_hits:
             if projectile.parent != target and projectile.parent.faction != target.faction:
                 target.take_damage(projectile.damage)
+                Particle.particle_cluster(projectile.damage//2, projectile.pos,
+                                          ((projectile.direction * -projectile.speed * self.delta_time / 1000) * projectile.damage/100),
+                                          3, 400, projectile.color)
                 if len(projectile.effects) > 0:
                     for effect in projectile.effects:
                         self.explosions.add(effect)
