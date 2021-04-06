@@ -91,7 +91,7 @@ class Game(Instance):
                 if not explosion.expired:
                     self.current_surface.blit(explosion.image, explosion.rect)
 
-        Particle.update_particles(self.delta_time, self.current_surface)
+            Particle.update_particles(self.delta_time, self.current_surface)
 
         self.screen.blit(self.current_surface, (0, 0))
 
