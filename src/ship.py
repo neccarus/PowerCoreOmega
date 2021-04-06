@@ -7,12 +7,6 @@ from guipyg.utils.utils import Instance
 from copy import copy
 from src.consumables import consumable_dict
 from src.shields import Shield
-import os
-
-
-# TODO: need to handle Mac not using the proper directory
-# cwd = os.getcwd()
-# print(f'Current working directory: {cwd}')
 
 
 class Ship(Body, Instance):
@@ -216,7 +210,7 @@ class Ship(Body, Instance):
             speed -= (acceleration * delta_time / 1000)
         elif speed < 0:
             speed += (acceleration * delta_time / 1000)
-        if math.isclose(speed, 0, abs_tol=0.5):
+        if math.isclose(speed, 0, abs_tol=1):
             speed = 0
 
         return speed
@@ -295,9 +289,3 @@ class Ship(Body, Instance):
             if self.current_duration >= self.duration:
                 self.expired = True
             return damage_dealt
-
-
-# ship_sprite_dict = {"Python": load_single_sprite(os.path.join(cwd, 'graphics', 'ships'), 'Python_Ship_rev2.png'),
-#                     "Cestus": load_single_sprite(os.path.join(cwd, 'graphics', 'ships'), 'Cestus_Ship_rev1.png'),
-#                     "Broadsword": load_single_sprite(os.path.join(cwd, 'graphics', 'ships'), 'Broadsword_Ship_rev1.png'),
-#                     "Mud Skipper": load_single_sprite(os.path.join(cwd, 'graphics', 'ships'), 'Basic_Enemy_Ship_rev1.png')}

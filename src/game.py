@@ -69,6 +69,8 @@ class Game(Instance):
 
             # self.particles.append(Particle((400, 400), (random.randint(-10, 10), -3), 1000, (100, 100, 255)))
 
+            # pygame.draw.rect(self.current_surface, (135, 135, 135), (100, 100, 800, 600))
+
             for weapon in self.player.ship.weapons:
                 self.update_weapon(weapon)
 
@@ -131,9 +133,9 @@ class Game(Instance):
         for projectile in projectile_hits:
             if projectile.parent != target and projectile.parent.faction != target.faction:
                 target.take_damage(projectile.damage)
-                Particle.particle_cluster(projectile.damage//2, projectile.pos,
+                Particle.particle_cluster(projectile.damage//3, projectile.pos,
                                           ((projectile.direction * -projectile.speed * self.delta_time / 1000) * projectile.damage/100),
-                                          3, 400, projectile.color)
+                                          3, random.randint(350, 450), projectile.color, glowing=True)
                 if len(projectile.effects) > 0:
                     for effect in projectile.effects:
                         self.explosions.add(effect)
@@ -197,7 +199,6 @@ class Game(Instance):
             guis: the guis associated with this GameState object
             surface: the surface this game state uses
         """
-        #  TODO: seperate screen objects should be stored here so that game sprites are not drawn in menus
         def __init__(self, name="", guis=None, surface=None, controllers=None):
 
             self.name = name
