@@ -3,6 +3,8 @@ from guipyg.utils.utils import Instance
 from src.projectile import Projectile
 from src.effects import Particle
 import random
+from copy import copy
+from src.npc import NPC
 
 
 class Game(Instance):
@@ -57,6 +59,7 @@ class Game(Instance):
         self.delta_time = 0
         self.framerate = None
         self.particles = Particle.particles
+        self.spawner = None
 
     def update(self, fill_color=(0, 0, 0)):
         if len(self.game_state.guis) > 0:
@@ -66,6 +69,20 @@ class Game(Instance):
         self.player.update(self.delta_time, self.current_surface.get_rect(), self.current_surface)
 
         if self.game_state.name == "playing":
+
+            if self.spawner:
+                spawned = self.spawner.update(self.delta_time)
+                if spawned:
+                    spawned[0].pos = spawned[1]
+                    enemy = NPC(faction='enemy')
+                    enemy.acquire_ship(copy(spawned[0]))
+                    enemy.equip_shield(copy(spawned[0].shield))
+                    enemy.ship.equip_reactor(copy(spawned[0].reactor))
+                    for slot, weapon in enumerate(spawned[0].weapons):
+                        enemy.ship.equip_weapon(copy(weapon.weapon), slot)
+                    # self.bodies.add(enemy[0].ship)
+                    self.ai_controllers.append(enemy)
+                    self.bodies.add(enemy.ship)
 
             # self.particles.append(Particle((400, 400), (random.randint(-10, 10), -3), 1000, (100, 100, 255)))
 
@@ -236,3 +253,26 @@ class Game(Instance):
         self.projectiles.empty()
         if self.running:
             self.set_game_state("running")
+
+
+class Spawner:
+
+    def __init__(self, wave, position, timer, ship, amount_to_spawn=1):
+        self.wave = wave
+        self.position = position
+        self.timer = timer
+        self.current_timer = 0
+        self.ship = ship
+        self.amount_to_spawn = amount_to_spawn
+
+    def update(self, delta_time):
+        ship_spawn = None
+        self.current_timer += delta_time
+        if self.current_timer >= self.timer:
+            self.current_timer -= self.timer
+            ship_spawn = self.spawn_ship()
+        return ship_spawn
+
+    def spawn_ship(self):
+        return copy(self.ship), self.position
+

@@ -12,11 +12,11 @@ class NPC:
     def __init__(self, ship=None, ai=None, faction=None):
         self.id = next(NPC.id_iter)
         self.ship = ship
-        if self.ship:
-            self.ship.parent = self
-            self.ship.angle = 270
-        self.ai = ai
         self.faction = faction
+        if ai is None:
+            self.ai = ai
+        if self.ship:
+            self.acquire_ship(ship)
         self.enemies = []
         self.actions = []
         self.target = None
@@ -68,6 +68,13 @@ class NPC:
         self.ship.angle = 270
         self.ship.get_mask()
         self.setup_ship_ui()
+        # if self.ship.shield:
+        #     self.ship.shield.parent = self.ship
+        # if self.ship.reactor:
+        #     self.ship.reactor.parent = self.ship
+        # for weapon in self.ship.weapons:
+        #     if weapon:
+        #         weapon.parent = self.ship
 
     def set_display_ui_pos(self):
         self.display_ui.pos_x, self.display_ui.pos_y = self.ship.pos[0] - self.ship.width, \

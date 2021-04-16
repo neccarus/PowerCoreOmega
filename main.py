@@ -15,6 +15,8 @@ from guipyg.gui import GUI
 from guipyg.gui_element.graph_elements import BarElement
 from src.projectile import Explosion
 from guipyg.gui_element.text_elements import Label
+from src.game import Spawner
+import random
 
 main_surface = pygame.Surface(size=player_settings.screensize)
 game_surface = pygame.Surface(size=player_settings.screensize)
@@ -35,13 +37,19 @@ plasma_launcher = Weapon(name="plasma launcher", projectile_color=(100, 255, 0),
                          effects=[Explosion(radius=50, explosion_lifetime=0.25, direct_damage=40,
                                             damage_over_time=40, duration=4, color=(170, 200, 20)), ])
 
+weapon_list = [shotgun, blaster, splinter_gun, plasma_launcher]
+
 basic_reactor = Reactor(name="basic reactor", recharge_rate=10, power_capacity=75,
                         cooling_rate=7.5, heat_capacity=400, heat_inefficiency=1.75, overheat_threshold=0.92)
 advanced_reactor = Reactor(name="advanced reactor", recharge_rate=24, power_capacity=200,
                            cooling_rate=16, heat_capacity=500, heat_inefficiency=1.6, overheat_threshold=0.94)
 
+reactor_list = [basic_reactor, advanced_reactor]
+
 basic_shield = Shield(name="basic shield", health=40, regen=5, broken_recharge_time=4, recharge_power_ratio=1.5)
 advanced_shield = Shield(name="advanced shield", health=140, regen=8, broken_recharge_time=5, recharge_power_ratio=1.65)
+
+shield_list = [basic_shield, advanced_shield]
 
 player = Player(controls=player_settings.controls)
 
@@ -86,7 +94,7 @@ if __name__ == '__main__':
 
             print("initializing")
             player.acquire_ship(Ship(pos=(800, 800), weapon_locations=[(-10, 2), (10, 2), (-19, 6), (19, 6), (-27, 9), (27, 9)],
-                                     cooling_modifier=1.1))
+                                     cooling_modifier=1.45))
             player.ship.equip_weapon(copy(splinter_gun), 0)
             player.ship.equip_weapon(copy(splinter_gun), 1)
             player.ship.equip_weapon(copy(splinter_gun), 2)
@@ -158,6 +166,12 @@ if __name__ == '__main__':
             # game_obj.shields = pygame.sprite.Group()
             game_obj.ai_controllers.append(enemy)
             game_obj.ai_controllers.append(enemy2)
+            game_obj.spawner = Spawner(1, pygame.Vector2(200, 200), 10000,
+                                       Ship(weapon_locations=[(-5, 2), (5, 2)],
+                                            shield=random.choice(copy(shield_list)),
+                                            reactor=random.choice(copy(reactor_list)),
+                                            weapons=[(weapon, slot) for weapon, slot in [(copy(random.choice(weapon_list)), 0), (copy(random.choice(weapon_list)), 1)]]),
+                                       1000)
 
         while game_obj.playing:
 

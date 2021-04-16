@@ -37,7 +37,7 @@ class Ship(Body, Instance):
     def __init__(self, name="Python", ship_type="Interceptor", shield=None,
                  armor=None, reactor=None, engines=None, auxiliary_modules=None,
                  armor_slots=0, engine_slots=0, weapon_slots=2, misc_slots=0, drone_slots=0,
-                 weapon_locations=None, parent=None, cooling_modifier=1, *args, **kwargs):
+                 weapon_locations=None, weapons=None, parent=None, cooling_modifier=1, *args, **kwargs):
 
         super().__init__(*args, **kwargs)
         super().add_instance()
@@ -50,7 +50,6 @@ class Ship(Body, Instance):
         self.parent = parent
         self.cooling_modifier = cooling_modifier
         self.shielded = False
-        self.shield = shield
         self.shield_health = 0
         self.shield_boosters = 0
         self.heat_sinks = 0
@@ -69,6 +68,9 @@ class Ship(Body, Instance):
 
         self.weapons = [self.WeaponNode(pos=pos) for pos in self.weapon_locations]
 
+        if weapons is not None:
+            [self.equip_weapon(weapon, slot) for weapon, slot in weapons]
+
         self.name = name
         self.ship_type = ship_type
 
@@ -77,7 +79,15 @@ class Ship(Body, Instance):
         else:
             self.armor = armor
 
-        self.reactor = reactor
+        if reactor is not None:
+            self.equip_reactor(reactor)
+        else:
+            self.reactor = reactor
+
+        # if shield is not None:
+        #     self.equip_shield(shield)
+        # else:
+        self.shield = shield
 
         if engines is None:
             self.engines = []

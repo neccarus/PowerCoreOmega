@@ -25,6 +25,7 @@ class Reactor(Equipment):
         super().equip_to_parent(parent)
 
     def update(self, delta_time, *args, **kwargs) -> None:
+        self.pos = self.parent.pos
         if not self.overheating and self.current_power < self.power_capacity:
             power_generated = clamp(self.current_power + (self.recharge_rate * delta_time / 1000),
                                     0, self.power_capacity) - self.current_power
