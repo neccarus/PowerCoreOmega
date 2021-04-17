@@ -1,5 +1,7 @@
+# import tracemalloc
+# tracemalloc.start()
+
 import pygame
-import os
 import sys
 from src import game_obj, screen
 from src import player_settings
@@ -175,6 +177,9 @@ if __name__ == '__main__':
 
         while game_obj.playing:
 
+            # current, peak = tracemalloc.get_traced_memory()
+            # print(f"Current memory usage is {current / 10 ** 6}MB; Peak was {peak / 10 ** 6}MB")
+
             # TODO: this should maybe be taken care of in the player update method
             player_health_bar.current_value = player.ship.current_health
             player_shield_bar.current_value = player.ship.shield.current_health
@@ -212,3 +217,5 @@ if __name__ == '__main__':
 
         # Update main menu loop
         game_obj.update(fill_color=(80, 80, 80))
+
+    # tracemalloc.stop()
