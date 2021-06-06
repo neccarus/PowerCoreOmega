@@ -163,7 +163,9 @@ if __name__ == '__main__':
             enemy2.ship.equip_reactor(copy(basic_reactor))
 
             # Apply player object to game object
-            game_obj.bodies.add(player.ship, enemy.ship, enemy2.ship)
+            game_obj.bodies.append(player.ship) #, enemy.ship, enemy2.ship)
+            game_obj.bodies.append(enemy.ship)
+            game_obj.bodies.append(enemy2.ship)
             game_obj.explosions = pygame.sprite.Group()
             # game_obj.shields = pygame.sprite.Group()
             game_obj.ai_controllers.append(enemy)

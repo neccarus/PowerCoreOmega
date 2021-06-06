@@ -6954,3 +6954,35 @@ build/Power Core Omega/python39.dll
 build/Power Core Omega/settings.json
 
 build/
+
+venv/Lib/site-packages/pip-21.1.1.dist-info/entry_points.txt
+
+venv/Lib/site-packages/pip-21.1.1.dist-info/INSTALLER
+
+venv/Lib/site-packages/pip-21.1.1.dist-info/LICENSE.txt
+
+venv/Lib/site-packages/pip-21.1.1.dist-info/METADATA
+
+venv/Lib/site-packages/pip-21.1.1.dist-info/RECORD
+
+venv/Lib/site-packages/pip-21.1.1.dist-info/top_level.txt
+
+venv/Lib/site-packages/pip-21.1.1.dist-info/WHEEL
+
+venv/Lib/site-packages/setuptools-56.0.0.dist-info/dependency_links.txt
+
+venv/Lib/site-packages/setuptools-56.0.0.dist-info/entry_points.txt
+
+venv/Lib/site-packages/setuptools-56.0.0.dist-info/INSTALLER
+
+venv/Lib/site-packages/setuptools-56.0.0.dist-info/LICENSE
+
+venv/Lib/site-packages/setuptools-56.0.0.dist-info/METADATA
+
+venv/Lib/site-packages/setuptools-56.0.0.dist-info/RECORD
+
+venv/Lib/site-packages/setuptools-56.0.0.dist-info/top_level.txt
+
+venv/Lib/site-packages/setuptools-56.0.0.dist-info/WHEEL
+
+venv/Scripts/pip3.9.exe

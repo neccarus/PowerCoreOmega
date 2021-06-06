@@ -35,8 +35,7 @@ class Game(Instance):
         super().add_instance()
         self.player = None
         self.ai_controllers = []
-        self.bodies = pygame.sprite.Group()
-        # self.shields = pygame.sprite.Group()
+        self.bodies = []
         self.dead_bodies = []
         self.projectiles = pygame.sprite.Group()
         self.explosions = pygame.sprite.Group()
@@ -80,9 +79,8 @@ class Game(Instance):
                     enemy.ship.equip_reactor(copy(spawned[0].reactor))
                     for slot, weapon in enumerate(spawned[0].weapons):
                         enemy.ship.equip_weapon(copy(weapon.weapon), slot)
-                    # self.bodies.add(enemy[0].ship)
                     self.ai_controllers.append(enemy)
-                    self.bodies.add(enemy.ship)
+                    self.bodies.append(enemy.ship)
 
             # self.particles.append(Particle((400, 400), (random.randint(-10, 10), -3), 1000, (100, 100, 255)))
 
@@ -104,7 +102,8 @@ class Game(Instance):
                 self.update_ai_controller(ai_controller)
 
             self.projectiles.draw(self.current_surface)
-            self.bodies.draw(self.current_surface)
+            for body in self.bodies:
+                self.current_surface.blit(body.image, body.rect)
 
             for explosion in self.explosions:
                 if not explosion.expired:
@@ -175,6 +174,7 @@ class Game(Instance):
             if body.is_dead:
                 self.dead_bodies.append(body)
                 self.bodies.remove(body)
+        self.dead_bodies = []
 
     def handle_events(self, event):
         # TODO: maybe this should operate based on game state
@@ -248,7 +248,7 @@ class Game(Instance):
         self.playing = False
         self.paused = False
         self.shields = pygame.sprite.Group()
-        self.bodies.empty()
+        self.bodies = []
         self.ai_controllers = []
         self.projectiles.empty()
         if self.running:
