@@ -155,14 +155,14 @@ class Game(Instance):
                 if len(projectile.effects) > 0:
                     for effect in projectile.effects:
                         self.explosions.add(effect)
-                        effect.spawn(pos=projectile.pos, parent=projectile.parent)
+                        effect.spawn(pos=projectile.pos, parent=projectile)
                 self.projectiles.remove(projectile)
                 del projectile
 
     def detect_explosion_hits(self, target, explosions): # pass in explosions as it could be from a seperate list in the future
         explosion_hits = pygame.sprite.spritecollide(target, explosions, False)
         for explosion in explosion_hits:
-            if explosion.parent != target:
+            if explosion.parent.parent != target:
                 if target not in explosion.targets_hit:
                     target.take_damage(explosion.direct_damage)
                     explosion.targets_hit.append(target)

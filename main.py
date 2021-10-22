@@ -150,8 +150,8 @@ if __name__ == '__main__':
 
             enemy = NPC(faction='enemy')
             enemy.acquire_ship(Ship(pos=(800, 100), weapon_locations=[(-5, 2), (5, 2)]))
-            enemy.ship.equip_weapon(copy(blaster), 0)
-            enemy.ship.equip_weapon(copy(blaster), 1)
+            enemy.ship.equip_weapon(copy(plasma_launcher), 0)
+            enemy.ship.equip_weapon(copy(plasma_launcher), 1)
             enemy.equip_shield(copy(basic_shield))
             enemy.ship.equip_reactor(copy(basic_reactor))
 

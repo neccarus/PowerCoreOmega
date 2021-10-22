@@ -63,3 +63,7 @@ class Body(pygame.sprite.DirtySprite):
 
     def get_mask(self):
         self.mask = pygame.mask.from_surface(self.image)
+
+    def move(self, delta_time):
+        self.pos += (self.direction * self.speed * delta_time) / 1000
+        self.rect.center = self.pos

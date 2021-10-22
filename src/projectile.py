@@ -86,12 +86,15 @@ class Explosion(ProjectileEffect):
 
     def update(self, delta_time, *args, **kwargs):
         super().update(delta_time, *args, **kwargs)
+        self.move(delta_time)
         if self.current_duration >= self.explosion_lifetime:
             self.image.fill((0, 0, 0))
             # self.mask = self.image.get_masks()
 
     def spawn(self, *args, **kwargs):
         super().spawn(*args, **kwargs)
+        self.direction = self.parent.direction
+        self.speed = self.parent.speed / 4
         pygame.draw.circle(self.image, self.color, self.image.get_rect().center, self.radius)
         self.mask = self.image.get_masks()
         return Explosion(self.radius, self.explosion_lifetime, self.direct_damage, self.damage_over_time,
