@@ -85,7 +85,7 @@ class HeatSink(Consumable):
 
 consumable_dict = {
     'heat_sink': HeatSink(name='heat_sink', effect_power=4, duration=4,
-                          delay=3),
+                          delay=1.25),
     'shield_booster': ShieldBooster(name='shield_booster', effect_power=6, duration=4,
                                     delay=1, heat_generated=25)
 }

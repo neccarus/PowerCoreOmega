@@ -18,7 +18,7 @@ class Body(pygame.sprite.DirtySprite):
     """
 
     def __init__(self, size=(20,), pos=(0, 0), health=100, sprite=None, vertical_speed=0, angle=90,
-                 direction=pygame.Vector2(1, 0), color=(1, 1, 1), faction=None, *args):
+                 direction=pygame.Vector2(1, 0), color=(1, 1, 1), faction=None, *args, **kwargs):
         super().__init__(*args)
         if len(size) == 2:
             self.width, self.height = size

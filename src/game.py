@@ -5,6 +5,10 @@ from src.effects import Particle
 import random
 from copy import copy
 from src.npc import NPC
+from src.weapons import Weapon
+from src.shields import Shield
+from src.reactors import Reactor
+from src.ship import Ship
 
 
 class Game(Instance):
@@ -74,17 +78,11 @@ class Game(Instance):
                 if spawned:
                     spawned[0].pos = spawned[1]
                     enemy = NPC(faction='enemy')
-                    enemy.acquire_ship(copy(spawned[0]))
-                    enemy.equip_shield(copy(spawned[0].shield))
-                    enemy.ship.equip_reactor(copy(spawned[0].reactor))
-                    for slot, weapon in enumerate(spawned[0].weapons):
-                        enemy.ship.equip_weapon(copy(weapon.weapon), slot)
+                    enemy.acquire_ship(spawned[0])
+                    enemy.equip_shield(spawned[0].shield)
+                    enemy.ship.equip_reactor(spawned[0].reactor)
                     self.ai_controllers.append(enemy)
                     self.bodies.append(enemy.ship)
-
-            # self.particles.append(Particle((400, 400), (random.randint(-10, 10), -3), 1000, (100, 100, 255)))
-
-            # pygame.draw.rect(self.current_surface, (135, 135, 135), (100, 100, 800, 600))
 
             for weapon in self.player.ship.weapons:
                 self.update_weapon(weapon)
@@ -135,7 +133,7 @@ class Game(Instance):
                     self.projectiles.add(projectiles_to_add)
 
     def update_ai_controller(self, ai_controller):
-        ai_controller.update(self.delta_time, self.current_surface.get_rect(), self.current_surface, (self.player, ))
+        ai_controller.update(self.delta_time, self.current_surface.get_rect(), self.current_surface, (self.player,))
         if ai_controller.ship.is_dead:
             self.bodies.remove(ai_controller.ship)
             self.ai_controllers.remove(ai_controller)
@@ -144,13 +142,15 @@ class Game(Instance):
         for weapon in ai_controller.ship.weapons:
             self.update_weapon(weapon)
 
-    def detect_projectile_hits(self, target, projectiles): # pass in projectiles as it could be from a seperate list in the future
+    def detect_projectile_hits(self, target,
+                               projectiles):  # pass in projectiles as it could be from a seperate list in the future
         projectile_hits = pygame.sprite.spritecollide(target, projectiles, False)
         for projectile in projectile_hits:
             if projectile.parent != target and projectile.parent.faction != target.faction:
                 target.take_damage(projectile.damage)
-                Particle.particle_cluster(projectile.damage//3, projectile.pos,
-                                          ((projectile.direction * -projectile.speed * self.delta_time / 1000) * projectile.damage/100),
+                Particle.particle_cluster(projectile.damage // 3, projectile.pos,
+                                          ((
+                                                   projectile.direction * -projectile.speed * self.delta_time / 1000) * projectile.damage / 100),
                                           3, random.randint(350, 450), projectile.color, glowing=True)
                 if len(projectile.effects) > 0:
                     for effect in projectile.effects:
@@ -159,7 +159,8 @@ class Game(Instance):
                 self.projectiles.remove(projectile)
                 del projectile
 
-    def detect_explosion_hits(self, target, explosions): # pass in explosions as it could be from a seperate list in the future
+    def detect_explosion_hits(self, target,
+                              explosions):  # pass in explosions as it could be from a seperate list in the future
         explosion_hits = pygame.sprite.spritecollide(target, explosions, False)
         for explosion in explosion_hits:
             if explosion.parent.parent != target:
@@ -216,6 +217,7 @@ class Game(Instance):
             guis: the guis associated with this GameState object
             surface: the surface this game state uses
         """
+
         def __init__(self, name="", guis=None, surface=None, controllers=None):
 
             self.name = name
@@ -257,22 +259,53 @@ class Game(Instance):
 
 class Spawner:
 
-    def __init__(self, wave, position, timer, ship, amount_to_spawn=1):
+    def __init__(self, wave, position, timer, ship,
+                 weapon_selection=None, shield_selection=None, reactor_selection=None,
+                 amount_to_spawn=1,
+                 x_pos_min=0, x_pos_max=0,
+                 y_pos_min=0, y_pos_max=0):
         self.wave = wave
         self.position = position
+        self.x_pos_min = x_pos_min
+        self.x_pos_max = x_pos_max
+        self.y_pos_min = y_pos_min
+        self.y_pos_max = y_pos_max
         self.timer = timer
         self.current_timer = 0
         self.ship = ship
+        if weapon_selection is None:
+            self.weapon_selection = []
+        else:
+            self.weapon_selection = weapon_selection
+        if shield_selection is None:
+            self.shield_selection = []
+        else:
+            self.shield_selection = shield_selection
+        if reactor_selection is None:
+            self.reactor_selection = []
+        else:
+            self.reactor_selection = reactor_selection
         self.amount_to_spawn = amount_to_spawn
+
+    def set_random_pos(self):
+        self.position = pygame.Vector2(random.randint(self.x_pos_min, self.x_pos_max + 1),
+                                       random.randint(self.y_pos_min, self.y_pos_max + 1)
+                                       )
 
     def update(self, delta_time):
         ship_spawn = None
         self.current_timer += delta_time
         if self.current_timer >= self.timer:
             self.current_timer -= self.timer
+            self.set_random_pos()
             ship_spawn = self.spawn_ship()
         return ship_spawn
 
     def spawn_ship(self):
-        return copy(self.ship), self.position
-
+        ship = Ship(weapon_locations=[(-5, 2), (5, 2)],
+                    shield=Shield(**random.choice(self.shield_selection).__dict__),
+                    reactor=Reactor(**random.choice(self.reactor_selection).__dict__))
+        for index, _ in enumerate(ship.weapon_locations):
+            weapon = Weapon(**random.choice(self.weapon_selection).__dict__)
+            ship.equip_weapon(weapon, index)
+        return ship, self.position

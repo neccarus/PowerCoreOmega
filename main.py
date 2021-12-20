@@ -171,11 +171,14 @@ if __name__ == '__main__':
             game_obj.ai_controllers.append(enemy)
             game_obj.ai_controllers.append(enemy2)
             game_obj.spawner = Spawner(1, pygame.Vector2(200, 200), 10000,
-                                       Ship(weapon_locations=[(-5, 2), (5, 2)],
-                                            shield=random.choice(copy(shield_list)),
-                                            reactor=random.choice(copy(reactor_list)),
-                                            weapons=[(weapon, slot) for weapon, slot in [(copy(random.choice(weapon_list)), 0), (copy(random.choice(weapon_list)), 1)]]),
-                                       1000)
+                                       Ship(weapon_locations=[(-5, 2), (5, 2)],),
+                                            # weapons=[(weapon, slot) for weapon, slot in [(copy(random.choice(weapon_list)), 0), (copy(random.choice(weapon_list)), 1)]]),
+                                       amount_to_spawn=1000,
+                                       weapon_selection=weapon_list,
+                                       shield_selection=shield_list,
+                                       reactor_selection=reactor_list,
+                                       x_pos_min=10, x_pos_max=game_obj.screen.get_width()-10,
+                                       y_pos_min=50, y_pos_max=300)
 
         while game_obj.playing:
 
