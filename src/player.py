@@ -33,6 +33,10 @@ class Player(Instance):
         self.controls = controls
         self.faction = faction
         self.actions = []
+        self.consumables = {
+            'heat_sinks': 0,
+            'shield_boosters': 0,
+        }
 
     def update(self, delta_time, boundary, surface, *_, **__):
 

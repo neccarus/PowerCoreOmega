@@ -37,7 +37,7 @@ splinter_gun = Weapon(name="splinter gun", projectile_color=(255, 150, 0), proje
 plasma_launcher = Weapon(name="plasma launcher", projectile_color=(100, 255, 0), projectile_size=(6,),
                          projectiles=1, fire_rate=0.5, damage=5, spread=1, power_use=12, speed=600,
                          effects=[Explosion(radius=50, explosion_lifetime=0.25, direct_damage=40,
-                                            damage_over_time=40, duration=4, color=(170, 200, 20)), ])
+                                            damage_over_time=20, duration=4, color=(170, 200, 20)), ])
 
 weapon_list = [shotgun, blaster, splinter_gun, plasma_launcher]
 
@@ -50,8 +50,9 @@ reactor_list = [basic_reactor, advanced_reactor]
 
 basic_shield = Shield(name="basic shield", health=40, regen=5, broken_recharge_time=4, recharge_power_ratio=1.5)
 advanced_shield = Shield(name="advanced shield", health=140, regen=8, broken_recharge_time=5, recharge_power_ratio=1.65)
+turbo_shield = Shield(name='turbo shield', health=65, regen=18, broken_recharge_time=2.5, recharge_power_ratio=1.8)
 
-shield_list = [basic_shield, advanced_shield]
+shield_list = [basic_shield, advanced_shield, turbo_shield]
 
 player = Player(controls=player_settings.controls)
 

@@ -53,6 +53,8 @@ class Body(pygame.sprite.DirtySprite):
         self.vertical_acceleration = 0
         self.mask = None
         self.get_mask()
+        self.collided = False
+        self.colliding_with = []
 
     def check_if_alive(self):
         if self.current_health <= 0 and self.destructible:
