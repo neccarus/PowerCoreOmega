@@ -36,6 +36,7 @@ class Player(Instance):
         self.consumables = {
             'heat_sinks': 0,
             'shield_boosters': 0,
+            'power_surges': 0,
         }
 
     def update(self, delta_time, boundary, surface, *_, **__):

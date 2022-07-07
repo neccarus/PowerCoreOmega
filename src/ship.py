@@ -156,6 +156,11 @@ class Ship(Body, Instance):
                     self.add_consumable(copy(consumable_dict['shield_booster']))
                     self.consumable_used = True
 
+            if action == "power_surge":
+                if not self.consumable_used:
+                    self.add_consumable(copy(consumable_dict['power_surge']))
+                    self.consumable_used = True
+
         if "left" not in actions and "right" not in actions:
             self.horizontal_speed = self.decelerate(delta_time, "horizontal")
 

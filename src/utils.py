@@ -57,6 +57,7 @@ class Settings(Instance):
                 'fire_weapon': control.fire_weapon,
                 'eject_heat_sink': control.eject_heat_sink,
                 'boost_shields': control.boost_shields,
+                'power_surge': control.power_surge,
             }
             return encoded_controls
 

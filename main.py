@@ -27,17 +27,17 @@ pause_surface = pygame.Surface(size=player_settings.screensize)
 clock = pygame.time.Clock()
 
 shotgun = Weapon(name="shotgun", projectile_color=(255, 255, 0), damage=5, spread=8, projectiles=10,
-                 projectile_grouping=3, fire_rate=1, speed=800, power_use=8)
+                 projectile_grouping=3, fire_rate=1, speed=800, power_use=10)
 
-blaster = Weapon(name="blaster", damage=5, spread=0.7, fire_rate=0.2, speed=900)
+blaster = Weapon(name="blaster", damage=5, spread=0.6, fire_rate=0.15, speed=1100)
 
 splinter_gun = Weapon(name="splinter gun", projectile_color=(255, 150, 0), projectile_size=(4,),
-                      projectiles=3, projectile_grouping=1.5, fire_rate=0.5, damage=10, spread=3, power_use=5)
+                      projectiles=3, projectile_grouping=1.5, fire_rate=0.5, speed=950, damage=10, spread=3, power_use=5)
 
-plasma_launcher = Weapon(name="plasma launcher", projectile_color=(100, 255, 0), projectile_size=(6,),
-                         projectiles=1, fire_rate=0.5, damage=5, spread=1, power_use=12, speed=600,
-                         effects=[Explosion(radius=50, explosion_lifetime=0.25, direct_damage=40,
-                                            damage_over_time=20, duration=4, color=(170, 200, 20)), ])
+plasma_launcher = Weapon(name="plasma launcher", projectile_color=(50, 255, 10), projectile_size=(6,),
+                         projectiles=1, fire_rate=1.5, damage=25, spread=1, power_use=12, speed=600,
+                         effects=[Explosion(radius=50, explosion_lifetime=0.25, direct_damage=20,
+                                            damage_over_time=40, duration=4, color=(170, 200, 20)), ])
 
 weapon_list = [shotgun, blaster, splinter_gun, plasma_launcher]
 

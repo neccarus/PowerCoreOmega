@@ -43,6 +43,8 @@ class ShieldBooster(Consumable):
     def update(self, delta_time):
         super().update(delta_time)
         if self.finished_delay:
+            # When the shield boost is activated,automatically regen broken shields
+            self.parent.shield.current_recharge = self.parent.shield.broken_recharge_time
             self.parent.reactor.apply_heat(self.heat_generated, delta_time)
             if not self.effect_applied and not self.expired:
                 self.parent.shield.consumable_regen += self.effect_power
@@ -56,9 +58,11 @@ class ShieldBooster(Consumable):
                 particle_spawn = Vector2(random.choice(self.parent.shield.mask))
                 particle_direction = particle_spawn - Vector2(self.parent.rect.width / 2, self.parent.rect.height / 2)
                 particle_speed = random.uniform(1.0, 2.25) * particle_direction.normalize()
-                Particle.particles.append(Particle(particle_spawn + Vector2(self.parent.rect.left, self.parent.rect.top),
-                                                   (Vector2(self.parent.horizontal_speed, self.parent.vertical_speed) * delta_time / 1000) + particle_speed,
-                                                   500, self.parent.shield.color, glowing=True))
+                Particle.particles.append(
+                    Particle(particle_spawn + Vector2(self.parent.rect.left, self.parent.rect.top),
+                             (Vector2(self.parent.horizontal_speed,
+                                      self.parent.vertical_speed) * delta_time / 1000) + particle_speed,
+                             500, self.parent.shield.color, glowing=True))
                 self.particle_spawn_counter = self.particle_spawn_counter - self.particle_spawn_rate
 
 
@@ -79,13 +83,40 @@ class HeatSink(Consumable):
                 self.parent.reactor.venting_multiplier = 1
                 self.parent.reactor.is_venting = False
             Particle.particles.append(Particle(self.parent.reactor.pos,
-                                               (Vector2(self.parent.horizontal_speed, self.parent.vertical_speed) * delta_time / 1000) + Vector2(random.uniform(-0.9, 0.9), random.uniform(-0.9, 0.9)),
+                                               (Vector2(self.parent.horizontal_speed,
+                                                        self.parent.vertical_speed) * delta_time / 1000) + Vector2(
+                                                   random.uniform(-0.9, 0.9), random.uniform(-0.9, 0.9)),
                                                500, (255, 0, 0), glowing=True))
+
+
+class PowerSurge(Consumable):
+
+    def __init__(self, heat_generated=1, *args, **kwargs):
+
+        super().__init__(*args, **kwargs)
+        self.heat_generated = heat_generated
+
+    def update(self, delta_time):
+        super().update(delta_time)
+        if self.finished_delay:
+            self.parent.reactor.apply_heat(self.heat_generated, delta_time)
+            if not self.effect_applied and not self.expired:
+                self.parent.reactor.recharge_rate += self.effect_power
+                self.effect_applied = True
+            if self.expired:
+                self.parent.reactor.recharge_rate -= self.effect_power
+
+            Particle.particles.append(Particle(self.parent.reactor.pos,
+                                               (Vector2(self.parent.horizontal_speed,
+                                                        self.parent.vertical_speed) * delta_time / 1000) + Vector2(
+                                                   random.uniform(-1.5, 1.5), random.uniform(-1.5, 1.5)),
+                                               500, (255, 255, 0), glowing=True))
 
 
 consumable_dict = {
     'heat_sink': HeatSink(name='heat_sink', effect_power=4, duration=4,
                           delay=1.25),
-    'shield_booster': ShieldBooster(name='shield_booster', effect_power=6, duration=4,
-                                    delay=1, heat_generated=25)
+    'shield_booster': ShieldBooster(name='shield_booster', effect_power=12, duration=4,
+                                    delay=1, heat_generated=25),
+    'power_surge': PowerSurge(name='power_surge', effect_power=18, duration=3.5, delay=0.5, heat_generated=30),
 }
