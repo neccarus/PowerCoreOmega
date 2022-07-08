@@ -33,18 +33,20 @@ class Settings(Instance):
     @classmethod
     def save_new_settings(cls, file_name, settings):
         with open(file_name, 'w') as write_file:
-            json.dump(settings, write_file, cls=cls.SettingsEncoder)
+            json.dump(settings, write_file, cls=cls.SettingsEncoder, indent=2)
 
     @classmethod
     def save_over_settings(cls, file_name, settings):
         old_settings = cls.load_settings(file_name).__dict__
         merged_settings = {**old_settings, **settings}
         with open(file_name, 'w') as write_file:
-            json.dump(merged_settings, write_file, cls=cls.SettingsEncoder)
+            json.dump(merged_settings, write_file, cls=cls.SettingsEncoder, indent=2)
 
     class SettingsEncoder(json.JSONEncoder):
 
         def default(self, o):
+            if hasattr(o, 'signals'):
+                del o.signals
             return o.__dict__
 
         @staticmethod
