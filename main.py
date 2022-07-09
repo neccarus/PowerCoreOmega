@@ -45,8 +45,10 @@ basic_reactor = Reactor(name="basic reactor", recharge_rate=10, power_capacity=7
                         cooling_rate=7.5, heat_capacity=400, heat_inefficiency=1.75, overheat_threshold=0.92)
 advanced_reactor = Reactor(name="advanced reactor", recharge_rate=24, power_capacity=200,
                            cooling_rate=16, heat_capacity=500, heat_inefficiency=1.6, overheat_threshold=0.94)
+omega_reactor = Reactor(name="omega_reactor", recharge_rate=32, power_capacity=280,
+                        cooling_rate=21, heat_capacity=600, heat_inefficiency=1.48, overheat_threshold=0.95)
 
-reactor_list = [basic_reactor, advanced_reactor]
+reactor_list = [basic_reactor, advanced_reactor, omega_reactor]
 
 basic_shield = Shield(name="basic shield", health=40, regen=5, broken_recharge_time=4, recharge_power_ratio=1.5)
 advanced_shield = Shield(name="advanced shield", health=140, regen=8, broken_recharge_time=5, recharge_power_ratio=1.65)
@@ -96,16 +98,13 @@ if __name__ == '__main__':
         if game_obj.playing:
 
             print("initializing")
-            player.acquire_ship(Ship(pos=(800, 800), weapon_locations=[(-10, 2), (10, 2), (-19, 6), (19, 6), (-27, 9), (27, 9)],
+            player.acquire_ship(Ship(pos=(800, 800), weapon_mounts=[(-10, 2), (10, 2), (-19, 6),
+                                                                       (19, 6), (-27, 9), (27, 9)],
                                      cooling_modifier=1.45))
-            player.ship.equip_weapon(copy(splinter_gun), 0)
-            player.ship.equip_weapon(copy(splinter_gun), 1)
-            player.ship.equip_weapon(copy(splinter_gun), 2)
-            player.ship.equip_weapon(copy(splinter_gun), 3)
-            player.ship.equip_weapon(copy(splinter_gun), 4)
-            player.ship.equip_weapon(copy(splinter_gun), 5)
+            for index, _ in enumerate(player.ship.weapon_mounts):
+                player.ship.equip_weapon(copy(plasma_launcher), index)
             player.ship.equip_shield(copy(advanced_shield))
-            player.ship.equip_reactor(copy(advanced_reactor))
+            player.ship.equip_reactor(copy(omega_reactor))
 
             # setup GUI related to player
             # TODO: this should maybe be stored in the player object
@@ -150,14 +149,14 @@ if __name__ == '__main__':
                 player_gui.elements.append(player_heat_bar)
 
             enemy = NPC(faction='enemy')
-            enemy.acquire_ship(Ship(pos=(800, 100), weapon_locations=[(-5, 2), (5, 2)]))
+            enemy.acquire_ship(Ship(pos=(800, 100), weapon_mounts=[(-5, 2), (5, 2)]))
             enemy.ship.equip_weapon(copy(plasma_launcher), 0)
             enemy.ship.equip_weapon(copy(plasma_launcher), 1)
             enemy.equip_shield(copy(basic_shield))
             enemy.ship.equip_reactor(copy(basic_reactor))
 
             enemy2 = NPC(faction='enemy')
-            enemy2.acquire_ship(Ship(pos=(300, 200), weapon_locations=[(-5, 2), (5, 2)]))
+            enemy2.acquire_ship(Ship(pos=(300, 200), weapon_mounts=[(-5, 2), (5, 2)]))
             enemy2.ship.equip_weapon(copy(blaster), 0)
             enemy2.ship.equip_weapon(copy(blaster), 1)
             enemy2.equip_shield(copy(basic_shield))
@@ -172,19 +171,23 @@ if __name__ == '__main__':
             game_obj.ai_controllers.append(enemy)
             game_obj.ai_controllers.append(enemy2)
             game_obj.spawner = Spawner(1, pygame.Vector2(200, 200), 10000,
-                                       Ship(weapon_locations=[(-5, 2), (5, 2)],),
-                                            # weapons=[(weapon, slot) for weapon, slot in [(copy(random.choice(weapon_list)), 0), (copy(random.choice(weapon_list)), 1)]]),
-                                       amount_to_spawn=1000,
+                                       Ship(weapon_mounts=[(-5, 2), (5, 2), (0, 0)],),
+                                            # mounts=[(weapon, slot) for weapon, slot in [(copy(random.choice(weapon_list)), 0), (copy(random.choice(weapon_list)), 1)]]),
+                                       amount_to_spawn=100,
                                        weapon_selection=weapon_list,
                                        shield_selection=shield_list,
                                        reactor_selection=reactor_list,
                                        x_pos_min=10, x_pos_max=game_obj.screen.get_width()-10,
                                        y_pos_min=50, y_pos_max=300)
 
+        # mem_count = 0
         while game_obj.playing:
 
             # current, peak = tracemalloc.get_traced_memory()
-            # print(f"Current memory usage is {current / 10 ** 6}MB; Peak was {peak / 10 ** 6}MB")
+            # if mem_count % 50 == 0:
+            #     print(f"Current memory usage is {current / 10 ** 6}MB; Peak was {peak / 10 ** 6}MB")
+            #     print(f"Current objects: {len(game_obj.ai_controllers)}")
+            # mem_count += 1
 
             # TODO: this should maybe be taken care of in the player update method
             player_health_bar.current_value = player.ship.current_health

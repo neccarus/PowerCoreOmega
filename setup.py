@@ -3,7 +3,7 @@ from cx_Freeze import setup, Executable
 
 # Dependencies are automatically detected, but it might need fine tuning.
 build_exe_options = {"include_files": ["settings.json", "graphics"],
-                     "excludes": ["tkinter"],
+                     "excludes": ["tkinter", "urllib", "http", "html", "email", "xml", "lib2to3", "logging", "pydoc_data", "test", "xmlrpc"]
                      }
 
 # GUI applications require a different base on Windows (the default is for

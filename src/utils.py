@@ -27,7 +27,7 @@ class Settings(Instance):
     @classmethod
     def _decode_settings(cls, settings_json):
         setting_obj = Settings(**settings_json)
-        print(setting_obj.controls)
+        # print(setting_obj.controls)
         return setting_obj
 
     @classmethod

@@ -35,7 +35,7 @@ class Weapon(Equipment):
     def equip_to_parent(self, parent, slot):
 
         super().equip_to_parent(parent)
-        self.offset = parent.weapons[slot].pos
+        self.offset = parent.mounts[slot].pos
         self.rotate()
 
     def fire(self):

@@ -76,16 +76,16 @@ class Game(Instance):
             if self.spawner:
                 spawned = self.spawner.update(self.delta_time)
                 if spawned:
-                    spawned[0].pos = spawned[1]
+                    ship = spawned["ship"]
+                    ship.pos = spawned["position"]
                     enemy = NPC(faction='enemy')
-                    enemy.acquire_ship(spawned[0])
-                    enemy.equip_shield(spawned[0].shield)
-                    enemy.ship.equip_reactor(spawned[0].reactor)
+                    enemy.acquire_ship(ship)
+                    enemy.equip_shield(ship.shield)
+                    enemy.ship.equip_reactor(ship.reactor)
                     self.ai_controllers.append(enemy)
                     self.bodies.append(enemy.ship)
 
-            for weapon in self.player.ship.weapons:
-                self.update_weapon(weapon)
+            self.projectiles.add(self.player.ship.update_weapons())
 
             self.projectiles.update(self.delta_time, self.display)
             self.explosions.update(self.delta_time)
@@ -125,13 +125,6 @@ class Game(Instance):
 
         del explosions_to_remove
 
-    def update_weapon(self, weapon):
-        if weapon.weapon is not None:
-            if weapon.weapon.firing and weapon.weapon.current_cool_down == 0:
-                projectiles_to_add = weapon.weapon.fire()
-                if len(projectiles_to_add) > 0:
-                    self.projectiles.add(projectiles_to_add)
-
     def update_ai_controller(self, ai_controller):
         ai_controller.update(self.delta_time, self.current_surface.get_rect(), self.current_surface, (self.player,))
         if ai_controller.ship.is_dead:
@@ -139,8 +132,7 @@ class Game(Instance):
             self.ai_controllers.remove(ai_controller)
             ai_controller.kill()
             return
-        for weapon in ai_controller.ship.weapons:
-            self.update_weapon(weapon)
+        self.projectiles.add(ai_controller.ship.update_weapons())
 
     def detect_projectile_hits(self, target,
                                projectiles):  # pass in projectiles as it could be from a seperate list in the future
@@ -244,7 +236,7 @@ class Game(Instance):
         self.playing = not self.playing
         if self.playing and not self.paused:
             self.set_game_state("playing")
-            print(self.game_state)
+            # print(self.game_state)
 
     def exit_game_loop(self, *_, **__):
         self.playing = False
@@ -302,10 +294,13 @@ class Spawner:
         return ship_spawn
 
     def spawn_ship(self):
-        ship = Ship(weapon_locations=[(-5, 2), (5, 2)],
+        ship = Ship(weapon_mounts=[(-5, 2), (5, 2), (0, 0)],
                     shield=Shield(**random.choice(self.shield_selection).__dict__),
                     reactor=Reactor(**random.choice(self.reactor_selection).__dict__))
-        for index, _ in enumerate(ship.weapon_locations):
+        for index, _ in enumerate(ship.weapon_mounts):
             weapon = Weapon(**random.choice(self.weapon_selection).__dict__)
             ship.equip_weapon(weapon, index)
-        return ship, self.position
+        return {
+            "ship": ship,
+            "position": self.position
+        }

@@ -13,7 +13,7 @@ class Ship(Body, Instance):
     """
     Ship class is what all ships in game are derived from, base class is Body.
 
-    Ship objects can have various pieces of armor, shields, reactors, engines and weapons
+    Ship objects can have various pieces of armor, shields, reactors, engines and mounts
     There is a total number of slots allocated to each type of equipment
 
     Attributes:
@@ -28,16 +28,16 @@ class Ship(Body, Instance):
         shield_slots: the total amount of shield modules that can be equipped on this ship
         reactor_slots: the total amount of reactor modules that can be equipped on this ship
         engine_slots: the total amount of engine modules that can be equipped on this ship
-        weapon_slots: the total amount of weapons that can be equipped on this ship
-        misc_slots: the total amount of miscellaneous slots available to the ship, weapons are not able to use these
+        weapon_slots: the total amount of mounts that can be equipped on this ship
+        misc_slots: the total amount of miscellaneous slots available to the ship, mounts are not able to use these
         drone_slots: the total number of drone slots available to the ship
-        weapon_locations: a list containing the pixel locations of where the weapons are located on the ship
+        weapon_mounts: a list containing the pixel locations of where the mounts are located on the ship
     """
 
     def __init__(self, name="Python", ship_type="Interceptor", shield=None,
                  armor=None, reactor=None, engines=None, auxiliary_modules=None,
                  armor_slots=0, engine_slots=0, weapon_slots=2, misc_slots=0, drone_slots=0,
-                 weapon_locations=None, weapons=None, parent=None, cooling_modifier=1, *args, **kwargs):
+                 weapon_mounts=None, weapons=None, parent=None, cooling_modifier=1, *args, **kwargs):
 
         super().__init__(*args, **kwargs)
         super().add_instance()
@@ -61,15 +61,15 @@ class Ship(Body, Instance):
         self.shielded_image = None
         self.current_image = None
 
-        if weapon_locations is None:
-            self.weapon_locations = [(0, 0)]
+        if weapon_mounts is None:
+            self.weapon_mounts = [(0, 0)]
         else:
-            self.weapon_locations = weapon_locations
+            self.weapon_mounts = weapon_mounts
 
-        self.weapons = [self.WeaponNode(pos=pos) for pos in self.weapon_locations]
+        self.mounts = [self.WeaponNode(pos=pos) for pos in self.weapon_mounts]
 
         if weapons is not None:
-            [self.equip_weapon(weapon, slot) for weapon, slot in weapons]
+            [self.equip_weapon(weapon, mount) for weapon, mount in weapons]
 
         self.name = name
         self.ship_type = ship_type
@@ -101,7 +101,7 @@ class Ship(Body, Instance):
 
     def equip_weapon(self, weapon, slot):
 
-        self.weapons[slot].weapon = weapon
+        self.mounts[slot].weapon = weapon
         weapon.equip_to_parent(self, slot)
 
     def equip_shield(self, shield):
@@ -142,9 +142,9 @@ class Ship(Body, Instance):
                     self.vertical_speed += (self.vertical_acceleration * delta_time / 1000) * self.direction[1]
 
             if action == "fire_weapon":
-                for weapon in self.weapons:
-                    if weapon.weapon is not None:
-                        weapon.weapon.firing = True
+                for mount in self.mounts:
+                    if mount.weapon is not None:
+                        mount.weapon.firing = True
 
             if action == "eject_heat_sink":
                 if not self.consumable_used:
@@ -167,10 +167,11 @@ class Ship(Body, Instance):
         if "forward" not in actions and "backward" not in actions:
             self.vertical_speed = self.decelerate(delta_time, "vertical")
 
-        if "fire_weapon" not in actions:
-            for weapon in self.weapons:
-                if weapon.weapon is not None:
-                    weapon.weapon.firing = False
+        # TODO: when update_weapon is implemented, this can be removed, just have to set firing state of weapon to False
+        # if "fire_weapon" not in actions:
+        #     for mount in self.mounts:
+        #         if mount.weapon is not None:
+        #             mount.weapon.firing = False
 
         for effect in self.dot_effects:
             self.take_damage(effect.update(delta_time))
@@ -187,7 +188,7 @@ class Ship(Body, Instance):
             self.current_consumable_cool_down = 0
             self.consumable_used = False
 
-        for weapon in self.weapons:
+        for weapon in self.mounts:
             if weapon.weapon is not None:
                 weapon.weapon.update(delta_time)
 
@@ -252,6 +253,18 @@ class Ship(Body, Instance):
             self.rect.bottom = boundary.bottom
             self.pos = self.rect.center
             self.vertical_speed = 0
+
+        # TODO: This should be moved to the proper class
+    def update_weapons(self):
+        projectiles_to_add = []
+        for mount in self.mounts:
+            if mount.weapon is not None:
+                if mount.weapon.firing and mount.weapon.current_cool_down == 0:
+                    projectiles_to_add.append(mount.weapon.fire())
+                mount.weapon.firing = False
+        if len(projectiles_to_add) > 0:
+            return projectiles_to_add
+        return []
 
     def take_damage(self, damage):
         if self.shielded:

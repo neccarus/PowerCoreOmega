@@ -7,8 +7,11 @@ class Controls:
                  backward=(pygame.K_s, pygame.K_DOWN),
                  left=(pygame.K_a, pygame.K_LEFT),
                  right=(pygame.K_d, pygame.K_RIGHT),
-                 fire_weapon=(pygame.K_SPACE, ), eject_heat_sink=(pygame.K_2, ),
-                 boost_shields=(pygame.K_1, ), power_surge=(pygame.K_3, ), *args, **kwargs):
+                 fire_weapon=(pygame.K_SPACE, ),
+                 eject_heat_sink=(pygame.K_2, ),
+                 boost_shields=(pygame.K_1, ),
+                 power_surge=(pygame.K_3, ),
+                 *args, **kwargs):
         self.forward = self.Signal([*forward], "forward")
         self.backward = self.Signal([*backward], "backward")
         self.left = self.Signal([*left], "left")

@@ -199,10 +199,10 @@ def decode_element(element, gui, cls=Element, class_types=None):
             for index, element in enumerate(element_obj.elements):
                 element_name = element["class_name"]
                 obj = decode_element(element, class_types[element_name])
-                print(obj.__dict__)
+                # print(obj.__dict__)
                 element_obj.elements[index] = obj
         if hasattr(element_obj, "function") and element_obj.function:
-            print("has a function")
+            # print("has a function")
             # element_obj.function = decode_function(element_obj.function, element_obj, gui)
             decode_function(element_obj.function, element_obj, gui)
         if element_obj.base_type == "StoredFunction":
@@ -221,11 +221,11 @@ def decode_function(function, gui):
             for element in gui.elements:
                 new_arg = check_for_element(arg, element)
                 function['args'] += [new_arg]
-            print(function.args)
+            # print(function.args)
         for element in gui.elements:
             if function['parent'] == element.name:
                 function_obj = element.StoredFunction(**function)
-                print(function_obj.__dict__)
+                # print(function_obj.__dict__)
         # return function_obj
                 element.function = function_obj
 

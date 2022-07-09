@@ -34,6 +34,7 @@ class NPC:
         if self.target:
             self.ai.move_to_attack()
             self.ai.attack()
+        self.ai.defend()
         self.ship.update(self.actions, delta_time, boundary, surface)
         self.actions = []
 
@@ -72,7 +73,7 @@ class NPC:
         #     self.ship.shield.parent = self.ship
         # if self.ship.reactor:
         #     self.ship.reactor.parent = self.ship
-        # for weapon in self.ship.weapons:
+        # for weapon in self.ship.mounts:
         #     if weapon:
         #         weapon.parent = self.ship
 
@@ -115,7 +116,12 @@ class NPC:
         def __init__(self, name="ai", parent=None):
             self.name = name
             self.parent = parent
-            self.controls = Controls(["forward", ], ["backward", ], ["left", ], ["right", ], ["fire_weapon", ])
+            self.controls = Controls(forward=["forward", ],
+                                     backward=["backward", ],
+                                     left=["left", ],
+                                     right=["right", ],
+                                     fire_weapon=["fire_weapon", ],
+                                     boost_shields=["boost_shields", ])
 
         #  TODO fix this method
         def acquire_target(self):
@@ -141,3 +147,7 @@ class NPC:
             if self.parent.ship.rect.centerx in range(self.parent.target.rect.centerx - 60,
                                                       self.parent.target.rect.centerx + 60):
                 self.parent.actions.append(self.controls.get_signal("fire_weapon"))
+
+        def defend(self):
+            if self.parent.ship.shield.current_health < self.parent.ship.shield.health / 4:
+                self.parent.actions.append(self.controls.get_signal("boost_shields"))

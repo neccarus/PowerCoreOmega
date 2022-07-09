@@ -254,13 +254,13 @@ class Element(pygame.Surface, Instance):
 
             if "args" in self.kwargs:
                 self.kwargs.pop("args")
-                print(f"args: {self.args} kwargs: {self.kwargs}")
+                # print(f"args: {self.args} kwargs: {self.kwargs}")
 
             #  if there is a target, the stored function should be a reference to that instance of the function
             #  this also means it is not a static method
             if self.target:
                 self.object_reference = self.find_target(self.parent.get_instances())
-                print(self.object_reference.name)
+                # print(self.object_reference.name)
                 self.stored_function = getattr(self.object_reference, self.function)
 
             #  if there is no target, then the function is just part of a module, but it could be a static method
@@ -278,7 +278,7 @@ class Element(pygame.Surface, Instance):
                 # print(*self.kwargs["args"])
                 return self.stored_function(*self.args, **self.kwargs)
             else:
-                print("no args given")
+                # print("no args given")
                 return self.stored_function(*args, **kwargs)
 
         def find_target(self, instances):
@@ -311,8 +311,8 @@ class ElementDecorators(object):
         def wrapper(function):
             @functools.wraps(function)
             def wrapper_args(*args, **kwargs):
-                print(*args)
-                print(**kwargs)
+                # print(*args)
+                # print(**kwargs)
                 return function(*args, **kwargs)
 
             cls.toggle_visibility()

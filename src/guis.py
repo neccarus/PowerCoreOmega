@@ -80,12 +80,14 @@ main_menu_button.function = main_menu_button.StoredFunction(
     function="exit_game_loop",
     target="game",
     parent=main_menu_button,
-    args=[game_obj])
+    args=[game_obj]
+)
 
 pm_quit_game_button.function = pm_quit_game_button.StoredFunction(
     module="sys",
     function="exit",
-    parent=quit_game_button)
+    parent=quit_game_button
+)
 
 pause_menu.elements = [continue_button, main_menu_button, pm_quit_game_button]
 pause_gui.elements = [pause_menu]
