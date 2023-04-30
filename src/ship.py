@@ -117,6 +117,12 @@ class Ship(Body, Instance):
         self.reactor = reactor
         reactor.equip_to_parent(self)
 
+    def equip_auxiliary_modules(self, auxiliary_modules):
+
+        self.auxiliary_modules = auxiliary_modules
+        for module in self.auxiliary_modules:
+            module.equip_to_parent(self)
+
     def update(self, actions, delta_time, boundaries, surface, *args, **kwargs) -> None:
 
         super().update(delta_time, *args, **kwargs)
@@ -208,6 +214,9 @@ class Ship(Body, Instance):
         else:
             self.current_image = self.original_image
         self.reactor.update(delta_time)
+        # if the reactor is overheating, apply damage to the ships hull (5 damage per second)
+        if self.reactor.overheating:
+            self.current_health -= 5 * (delta_time / 1000)
 
     def decelerate(self, delta_time, direction):
 

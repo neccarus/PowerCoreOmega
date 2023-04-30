@@ -43,14 +43,12 @@ class Game(Instance):
         self.dead_bodies = []
         self.projectiles = pygame.sprite.Group()
         self.explosions = pygame.sprite.Group()
-        self.game_states = {
-            "running": self.GameState(name="running"),
-            "playing": self.GameState(name="playing"),
-            "paused": self.GameState(name="paused"),
-        }
+        self.game_states = {}
+        self.previous_game_state = None
         self.running = True
         self.playing = False
         self.paused = False
+        self.configure = False
 
         self.game_state = None
 
@@ -194,10 +192,43 @@ class Game(Instance):
         self.game_states[state] = self.GameState(state, guis, surface, controllers)
 
     def set_game_state(self, state):
+        if self.game_state:
+            self.previous_game_state = self.game_state.name
         self.game_state = self.game_states[state]
         self.current_surface = self.game_state.surface
         if self.screen:
             self.screen.fill((0, 0, 0))
+
+    def toggle_pause(self, *_, **__):
+        self.paused = not self.paused
+        if self.paused:
+            self.previous_game_state = self.game_state.name
+            self.set_game_state("paused")
+        else:
+            self.back()
+
+    def toggle_playing(self, *_, **__):
+        self.playing = not self.playing
+        if self.playing and not self.paused:
+            self.set_game_state("playing")
+            # print(self.game_state)
+
+    def configure_settings(self, *_, **__):
+        # self.previous_game_state = self.game_state.name
+        self.set_game_state("configure_settings")
+
+    def back(self, *_, **__):
+        self.set_game_state(self.previous_game_state)
+
+    def exit_game_loop(self, *_, **__):
+        self.playing = False
+        self.paused = False
+        self.shields = pygame.sprite.Group()
+        self.bodies = []
+        self.ai_controllers = []
+        self.projectiles.empty()
+        if self.running:
+            self.set_game_state("running")
 
     class GameState:
         """
@@ -224,29 +255,6 @@ class Game(Instance):
                 self.controllers = []
             else:
                 self.controllers = controllers
-
-    def toggle_pause(self, *_, **__):
-        self.paused = not self.paused
-        if self.paused:
-            self.set_game_state("paused")
-        else:
-            self.set_game_state("playing")
-
-    def toggle_playing(self, *_, **__):
-        self.playing = not self.playing
-        if self.playing and not self.paused:
-            self.set_game_state("playing")
-            # print(self.game_state)
-
-    def exit_game_loop(self, *_, **__):
-        self.playing = False
-        self.paused = False
-        self.shields = pygame.sprite.Group()
-        self.bodies = []
-        self.ai_controllers = []
-        self.projectiles.empty()
-        if self.running:
-            self.set_game_state("running")
 
 
 class Spawner:

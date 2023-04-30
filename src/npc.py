@@ -149,5 +149,6 @@ class NPC:
                 self.parent.actions.append(self.controls.get_signal("fire_weapon"))
 
         def defend(self):
-            if self.parent.ship.shield.current_health < self.parent.ship.shield.health / 4:
+            shield = self.parent.ship.shield
+            if shield.current_health < shield.health and shield.current_health < shield.health / 4:
                 self.parent.actions.append(self.controls.get_signal("boost_shields"))

@@ -3,7 +3,7 @@
 
 import pygame
 import sys
-from src import game_obj, screen
+from src import game_obj, screen, auxilliary
 from src import player_settings
 from src.ship import Ship
 from src.player import Player
@@ -11,6 +11,7 @@ from src.npc import NPC
 from src.weapons import Weapon
 from src.shields import Shield
 from src.reactors import Reactor
+from src.auxilliary import InternalHeatSink
 from src.guis import guis
 from copy import copy
 from guipyg.gui import GUI
@@ -32,7 +33,8 @@ shotgun = Weapon(name="shotgun", projectile_color=(255, 255, 0), damage=5, sprea
 blaster = Weapon(name="blaster", damage=5, spread=0.6, fire_rate=0.15, speed=1100)
 
 splinter_gun = Weapon(name="splinter gun", projectile_color=(255, 150, 0), projectile_size=(4,),
-                      projectiles=3, projectile_grouping=1.5, fire_rate=0.5, speed=950, damage=10, spread=3, power_use=5)
+                      projectiles=3, projectile_grouping=1.5, fire_rate=0.5, speed=950, damage=10, spread=3,
+                      power_use=5)
 
 plasma_launcher = Weapon(name="plasma launcher", projectile_color=(50, 255, 10), projectile_size=(6,),
                          projectiles=1, fire_rate=1.5, damage=25, spread=1, power_use=12, speed=600,
@@ -42,17 +44,23 @@ plasma_launcher = Weapon(name="plasma launcher", projectile_color=(50, 255, 10),
 weapon_list = [shotgun, blaster, splinter_gun, plasma_launcher]
 
 basic_reactor = Reactor(name="basic reactor", recharge_rate=10, power_capacity=75,
-                        cooling_rate=7.5, heat_capacity=400, heat_inefficiency=1.75, overheat_threshold=0.92)
+                        cooling_rate=7.5, heat_capacity=300, heat_inefficiency=2.32, overheat_threshold=0.92)
 advanced_reactor = Reactor(name="advanced reactor", recharge_rate=24, power_capacity=200,
                            cooling_rate=16, heat_capacity=500, heat_inefficiency=1.6, overheat_threshold=0.94)
+thermal_reactor = Reactor(name="thermal reactor", recharge_rate=40, power_capacity=100,
+                          cooling_rate=32, heat_capacity=250, heat_inefficiency=1.75, overheat_threshold=0.97)
 omega_reactor = Reactor(name="omega_reactor", recharge_rate=32, power_capacity=280,
                         cooling_rate=21, heat_capacity=600, heat_inefficiency=1.48, overheat_threshold=0.95)
 
-reactor_list = [basic_reactor, advanced_reactor, omega_reactor]
+reactor_list = [basic_reactor, advanced_reactor, thermal_reactor, omega_reactor]
 
-basic_shield = Shield(name="basic shield", health=40, regen=5, broken_recharge_time=4, recharge_power_ratio=1.5)
-advanced_shield = Shield(name="advanced shield", health=140, regen=8, broken_recharge_time=5, recharge_power_ratio=1.65)
-turbo_shield = Shield(name='turbo shield', health=65, regen=18, broken_recharge_time=2.5, recharge_power_ratio=1.8)
+basic_heat_sink = InternalHeatSink(name="basic heat sink", cooling_modifier=0.1, heat_capacity=0.05)
+
+int_heat_sink_list = [basic_heat_sink]
+
+basic_shield = Shield(name="basic shield", health=40, regen=5, broken_recharge_time=4, recharge_power_ratio=1.8)
+advanced_shield = Shield(name="advanced shield", health=140, regen=8, broken_recharge_time=5, recharge_power_ratio=2.1)
+turbo_shield = Shield(name='turbo shield', health=65, regen=18, broken_recharge_time=2.5, recharge_power_ratio=2.6)
 
 shield_list = [basic_shield, advanced_shield, turbo_shield]
 
@@ -66,6 +74,7 @@ game_obj.player = player
 game_obj.new_game_state("paused", [guis["pause_gui"]], pause_surface, [player, ])
 game_obj.new_game_state("running", [guis["start_gui"]], main_surface, [player, ])
 game_obj.new_game_state("playing", [guis["game_gui"]], game_surface, [player, ])
+game_obj.new_game_state("configure_settings", [guis["settings_gui"]], main_surface, [player, ])
 
 game_obj.set_game_state("running")
 
@@ -73,7 +82,7 @@ game_obj.set_game_state("running")
 game_obj.screen = screen
 game_obj.display = pygame.display
 game_obj.clock = clock
-game_obj.framerate = 60
+game_obj.framerate = 144
 
 player_gui = GUI(pos_x=game_obj.screen.get_width() * 0.85, pos_y=game_obj.screen.get_height() * 0.85, width=200,
                  height=100, hide_text=True, has_border=False)
@@ -97,14 +106,14 @@ if __name__ == '__main__':
 
         if game_obj.playing:
 
-            print("initializing")
             player.acquire_ship(Ship(pos=(800, 800), weapon_mounts=[(-10, 2), (10, 2), (-19, 6),
-                                                                       (19, 6), (-27, 9), (27, 9)],
-                                     cooling_modifier=1.45))
+                                                                    (19, 6), (-27, 9), (27, 9)],
+                                     cooling_modifier=1.0))
             for index, _ in enumerate(player.ship.weapon_mounts):
                 player.ship.equip_weapon(copy(plasma_launcher), index)
             player.ship.equip_shield(copy(advanced_shield))
-            player.ship.equip_reactor(copy(omega_reactor))
+            player.ship.equip_reactor(copy(thermal_reactor))
+            player.ship.equip_auxiliary_modules([copy(basic_heat_sink)])
 
             # setup GUI related to player
             # TODO: this should maybe be stored in the player object
@@ -163,7 +172,7 @@ if __name__ == '__main__':
             enemy2.ship.equip_reactor(copy(basic_reactor))
 
             # Apply player object to game object
-            game_obj.bodies.append(player.ship) #, enemy.ship, enemy2.ship)
+            game_obj.bodies.append(player.ship)  # , enemy.ship, enemy2.ship)
             game_obj.bodies.append(enemy.ship)
             game_obj.bodies.append(enemy2.ship)
             game_obj.explosions = pygame.sprite.Group()
@@ -171,13 +180,13 @@ if __name__ == '__main__':
             game_obj.ai_controllers.append(enemy)
             game_obj.ai_controllers.append(enemy2)
             game_obj.spawner = Spawner(1, pygame.Vector2(200, 200), 10000,
-                                       Ship(weapon_mounts=[(-5, 2), (5, 2), (0, 0)],),
-                                            # mounts=[(weapon, slot) for weapon, slot in [(copy(random.choice(weapon_list)), 0), (copy(random.choice(weapon_list)), 1)]]),
+                                       Ship(weapon_mounts=[(-5, 2), (5, 2), (0, 0)], ),
+                                       # mounts=[(weapon, slot) for weapon, slot in [(copy(random.choice(weapon_list)), 0), (copy(random.choice(weapon_list)), 1)]]),
                                        amount_to_spawn=100,
                                        weapon_selection=weapon_list,
                                        shield_selection=shield_list,
                                        reactor_selection=reactor_list,
-                                       x_pos_min=10, x_pos_max=game_obj.screen.get_width()-10,
+                                       x_pos_min=10, x_pos_max=game_obj.screen.get_width() - 10,
                                        y_pos_min=50, y_pos_max=300)
 
         # mem_count = 0
